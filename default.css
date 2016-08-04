@@ -1,0 +1,100 @@
+/** 容器 */
+.container {
+	width: 940px;
+	padding: 40px 30px;
+	margin: 0 auto;
+	box-shadow: 5px 5px 10px 5px #eee;
+}
+
+/** 导航 */
+.nav {
+	margin: 10px 0;
+}
+.nav a {
+	color: red;
+}
+
+/** 工具栏 */
+.tool-bar {
+	margin: 10px 0;
+}
+
+/** 列表容器 */
+.list-box {
+
+}
+
+/** 列表项 */
+.list-item {
+	padding: 8px 0;
+	margin: 10px 0;
+	border-bottom: 1px dotted #ccc;
+}
+
+/** 单条留言 */
+.item {
+
+}
+
+/** 留言的标题 */
+.item-title {
+	margin: 10px 0;
+	font-size: 16px;
+	font-family: '微软雅黑';
+	font-weight: normal;
+	text-align: center;
+}
+
+/** 留言的内容 */
+.item-content {
+	margin: 20px 0;
+	line-height: 1.8em;
+}
+.item-content p {
+	margin: 10px 0;
+	text-indent: 2em;
+}
+
+/** 留言信息容器 存放诸如时间、阅读量、作者等 这类信息一般不能抢读者的眼球 */
+.item-info-box {
+	margin: 10px 0;
+	text-align: center;
+	color: #bbb;
+	font-size: 12px;
+}
+
+/** 留言的发布时间 */
+.item-created-at {
+
+}
+
+/** 留言的修改时间 */
+.item-updated-at {
+
+}
+
+.post-content-input {
+	width: 500px;
+	height: 300px;
+}
+
+.table {
+	width: 100%;
+	margin: 10px 0;
+}
+
+.table,
+.table td,
+.table th {
+	border: 1px solid #999;
+	border-collapse: collapse;
+}
+
+.table td,
+.table th {
+	padding: 5px 10px;
+}
+
+.table tr:nth-child(2n) td {
+	background-color: #ddd;
+}
