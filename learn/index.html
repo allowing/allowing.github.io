@@ -5,12 +5,14 @@
     <title>免费教程 - allowing</title>
     <link rel="stylesheet" href="/global.css">
     <link rel="stylesheet" href="/default.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/monokai-sublime.min.css">
     <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="/markdown.min.js"></script>
+    <script src="/showdown.min.js"></script>
     <script src="/learn/list.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
     <script src="/global.js"></script>
     <script>
-        (function ($, markdown, Allowing, undefined) {
+        (function ($, showdown, Allowing, hljs, undefined) {
             var list = Allowing.learn.list;
 
             function createList(box)
@@ -75,10 +77,24 @@
             function handleListItemClick(e)
             {
                 $.get($(this).attr('date-page'), function (data) {
-                    e.data.contentBox.html(markdown.toHTML(data));
+                    e.data.contentBox.html(markdown2html(data));
                     itemClickHideEle();
                     itemClickShowEle();
+                    loadedHighlight();
                 });
+            }
+
+            function loadedHighlight()
+            {
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
+            }
+
+            function markdown2html(markdown)
+            {
+                var converter = new showdown.Converter();
+                return converter.makeHtml(markdown);
             }
 
             function backList()
@@ -95,11 +111,12 @@
                         contentBox: $('.item-content'), // 点击时把解析后的内容填充到这
                     }, handleListItemClick);
                     $('.backList').click(backList);
+                    loadedHighlight();
                 } catch (e) {
                     throw e;
                 }
             });
-        })(jQuery, markdown, Allowing);
+        })(jQuery, showdown, Allowing, hljs);
     </script>
     <style>
         .list-item {
