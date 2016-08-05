@@ -116,3 +116,10 @@
 .table tr:nth-child(2n) td {
 	background-color: #ddd;
 }
+
+/** 页脚的一句话描述 */
+.footer-p {
+	text-align: center;
+	color: #999;
+	font-size: 12px;
+}
