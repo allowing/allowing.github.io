@@ -10,7 +10,19 @@
 .nav {
 	margin: 10px 0;
 }
-.nav a {
+.nav-box {
+	margin: -10px 0 0 -10px;
+}
+.nav-box::after {
+	display: block;
+	content: '';
+	clear: both;
+}
+.nav-item {
+	float: left;
+	margin: 10px 0 0 10px;
+}
+.nav-item a {
 	color: red;
 }
 
