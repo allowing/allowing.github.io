@@ -45,7 +45,7 @@
 
 /** 单条留言 */
 .item {
-
+	margin: 10px 0;
 }
 
 /** 留言的标题 */
@@ -65,6 +65,12 @@
 .item-content p {
 	margin: 10px 0;
 	text-indent: 2em;
+}
+.item-content ul {
+	padding: 0 0 0 2em;
+}
+.item-content ul li {
+	list-style-type: disc;
 }
 
 /** 留言信息容器 存放诸如时间、阅读量、作者等 这类信息一般不能抢读者的眼球 */
