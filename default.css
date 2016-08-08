@@ -86,7 +86,7 @@
 	max-width: 100%;
 }
 .item-content pre {
-	margin: 10px 0;
+	margin: 20px 0;
 }
 
 /** 留言信息容器 存放诸如时间、阅读量、作者等 这类信息一般不能抢读者的眼球 */
