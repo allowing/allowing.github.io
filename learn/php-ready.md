@@ -7,8 +7,34 @@ PHP是超文本预处理器，强调的是预处理。在html文档中嵌入PHP�
 看起来像下面这样
 
 ```php
-<p><?php echo '我是PHP动态输出的内容'; ?></p>
-
+<p>你好，请问上下九步行街怎么走？</p>
+<p><?php echo '地铁二号线公元前站'; ?></p>
+<p>OK, Thank you.</p>
+<p>不客气。</p>
 ```
 
-其中`<?php echo '我是PHP动态输出的内容'; ?>`是PHP代码。`<?php  ?>`是开始标记和结束标记。
+其中「`<?php echo '我是PHP动态输出的内容'; ?>`」是PHP代码，「`<?php`」「`?>`」是开始标记和结束标记。
+
+## PHP引擎在windows系统下的安装。
+
+[下载地址](http://windows.php.net/qa/)
+
+PHP目前有5.x系列和7.x系列，现在我们下载5.6非线程安全版64位版。
+
+![PHP下载截图](/learn/images/php-download.png)
+
+可能还需要安装相应的依赖，如果你的电脑没有安装过的话。
+
+![PHP依赖截图](/learn/images/php-depend.png)
+
+安装好相应的VC库依赖后，把下载的PHP引擎解压至你喜欢的目录，PHP引擎是绿色版的，免安装，解压即可。
+
+![PHP引擎目录截图](/learn/images/php-engin.png)
+
+再在刚刚解压的目录地址栏输入「cmd」然后回车，会打开命令行窗口，此时输入「`php -version`」回车，出现PHP的版本信息就说明运行PHP代码的环境搭建完成了。
+
+![PHP引擎验证截图1](/learn/images/php-1.png)
+
+![PHP引擎验证截图2](/learn/images/php-2.png)
+
+![PHP引擎验证截图3](/learn/images/php-3.png)
