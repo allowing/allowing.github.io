@@ -15,5 +15,9 @@ Allowing.learn.list = [
         title: 'PHP教程 - 变量',
         createdAt: '2016/8/9',
         page: '/learn/php-var.md',
+    }, {
+        title: 'PHP教程 - 条件分支',
+        createdAt: '2016/8/10',
+        page: '/learn/php-if.md',
     }
 ];
