@@ -3,7 +3,7 @@
 	width: 940px;
 	padding: 40px 30px;
 	margin: 0 auto;
-	box-shadow: 5px 5px 10px 5px #eee;
+	box-shadow: 5px 5px 10px 5px #f8f8f8;
 }
 
 /** 导航 */
@@ -23,7 +23,7 @@
 	margin: 10px 0 0 10px;
 }
 .nav-item a {
-	color: red;
+	color: #2c11ff;
 }
 
 /** 工具栏 */
