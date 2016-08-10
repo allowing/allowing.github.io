@@ -19,5 +19,9 @@ Allowing.learn.list = [
         title: 'PHP教程 - 条件分支',
         createdAt: '2016/8/10',
         page: '/learn/php-if.md',
+    }, {
+        title: 'PHP教程 - 循环',
+        createdAt: '2016/8/10',
+        page: '/learn/php-loop.md',
     }
 ];
