@@ -16,6 +16,10 @@ Allowing.learn.list = [
         createdAt: '2016/8/9',
         page: '/learn/php-var.md',
     }, {
+        title: 'PHP教程 - 运算符',
+        createdAt: '2016/8/9',
+        page: '/learn/php-operation.md',
+    }, {
         title: 'PHP教程 - 条件分支',
         createdAt: '2016/8/10',
         page: '/learn/php-if.md',
