@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>免费教程 - allowing</title>
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/default.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/monokai-sublime.min.css">
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/showdown.min.js"></script>
+    <script src="/learn/list.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+    <script src="/global.js"></script>
+    <script>
+        (function ($, showdown, Allowing, hljs, undefined) {
+            var list = Allowing.learn.list;
+
+            function createList(box)
+            {
+                for (var i = 0; i < list.length; i++) {
+                    box.append(
+                        $('<li>')
+                        .addClass('list-item')
+                        .attr('date-page', list[i].page)
+                        .html(list[i].title + ' - ' + list[i].createdAt)
+                    );
+                }
+            }
+
+            /**
+             * 点击列表条目后隐藏某些元素
+             *
+             */
+            function itemClickHideEle()
+            {
+                $('.list-box').hide();
+            }
+
+            /**
+             * 点击列表条目后隐藏某些元素
+             *
+             */
+            function itemClickShowEle()
+            {
+                $('.item-content').show();
+                $('.backList').show();
+            }
+
+            /**
+             * 返回列表条目后显示某些元素
+             *
+             */
+            function backListShowEle()
+            {
+                $('.list-box').show();
+            }
+
+            /**
+             * 返回列表条目后显示某些元素
+             *
+             */
+            function backListHideEle()
+            {
+                $('.item-content').hide();
+                $('.backList').hide();
+            }
+
+            /**
+             * 加载时隐藏的元素
+             */
+            function loadHideEle()
+            {
+                $('.item-content').hide();
+                $('.backList').hide();
+            }
+
+            function handleListItemClick(e)
+            {
+                $.get($(this).attr('date-page'), function (data) {
+                    e.data.contentBox.html(markdown2html(data));
+                    itemClickHideEle();
+                    itemClickShowEle();
+                    loadedHighlight();
+                });
+            }
+
+            function loadedHighlight()
+            {
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
+            }
+
+            function markdown2html(markdown)
+            {
+                var converter = new showdown.Converter();
+                return converter.makeHtml(markdown);
+            }
+
+            function backList()
+            {
+                backListShowEle();
+                backListHideEle();
+            }
+
+            $(function () {
+                try {
+                    loadHideEle();
+                    createList($('.list-box'));
+                    $('.list-item').click({
+                        contentBox: $('.item-content'), // 点击时把解析后的内容填充到这
+                    }, handleListItemClick);
+                    $('.backList').click(backList);
+                    loadedHighlight();
+                } catch (e) {
+                    throw e;
+                }
+            });
+        })(jQuery, showdown, Allowing, hljs);
+    </script>
+    <style>
+        .list-item {
+            cursor: pointer;
+        }
+        .backList {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <ul class="nav-box">
+                <li class="nav-item"><a href="/index.html">首页</a></li>
+                <li class="nav-item"><a href="/default/course.html">主要课程</a></li>
+                <li class="nav-item"><a href="/default/outline.html">课程大纲</a></li>
+                <li class="nav-item"><a href="/learn/index.html">免费教程</a></li>
+                <li class="nav-item"><a href="/case/index.html">成功案例</a></li>
+            </ul>
+        </nav>
+        <ul class="list-box"></ul>
+        <p class="tool-bar"><span class="backList">&lt;&lt;返回</span></p>
+        <div class="item">
+            <div class="item-content"></div>
+        </div>
+        <footer>
+            <p class="footer-p">关于内容：本站内容均为站长原创，未经允许不得转载</p>
+        </footer>
+    </div>
+</body>
+</html>
