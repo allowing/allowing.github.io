@@ -14,6 +14,10 @@ class MarkdownArticle extends Model
 {
     public $title;
 
+    public $readCount = 0;
+
+    private $_id;
+
     private $_content;
 
     private $_updatedAt;
@@ -30,10 +34,15 @@ class MarkdownArticle extends Model
         return $this;
     }
 
-    public function setContent($content)
+    public function setId($id)
     {
-        $this->_content = $content;
+        $this->_id = $id;
         return $this;
+    }
+
+    public function getId()
+    {
+        return $this->_id;
     }
 
     public function getDir()
@@ -46,7 +55,7 @@ class MarkdownArticle extends Model
         if (!is_null($this->_filename)) {
             return $this->_filename;
         }
-        return $this->_filename = "{$this->dir}/{$this->title}.md";
+        return $this->_filename = "{$this->dir}/{$this->id}.md";
     }
 
     public function getContent()
@@ -59,6 +68,9 @@ class MarkdownArticle extends Model
 
     public function getUpdatedAt()
     {
+        if (!is_null($this->_updatedAt)) {
+            return $this->_updatedAt;
+        }
         return $this->_updatedAt = filemtime($this->filename);
     }
 
@@ -74,48 +86,37 @@ class MarkdownArticle extends Model
     public static function findAll($dir)
     {
         $models = [];
-        $directory = dir($dir);
-        while ($filename = $directory->read()) {
-            if (static::notNeed($filename)) {
-                continue;
-            }
-
-            $models[] = new static([
-                'title' => basename($filename, '.md'),
-                'dir' => $dir,
-            ]);
+        foreach (require $dir . '/meta.php' as $id => $row) {
+            $row['id'] = $id;
+            $row['dir'] = $dir;
+            $models[] = new static($row);
         }
         return $models;
     }
 
-    public static function findOne($dir, $title)
+    public static function findOne($dir, $id)
     {
-        $directory = dir($dir);
-        while ($filename = $directory->read()) {
-            if (static::notNeed($filename)) {
-                continue;
-            }
-
-            if (basename($filename, '.md') === $title) {
-                return new static([
-                    'title' => $title,
-                    'dir' => $dir,
-                ]);
-            }
-
-        }
-        return null;
+        $meta = require $dir . '/meta.php';
+        $row = $meta[$id];
+        unset($meta);
+        $row['id'] = $id;
+        $row['dir'] = $dir;
+        $_this = new static($row);
+        $_this->updateReadCount();
+        return $_this;
     }
 
-    private static function notNeed($filename)
+    public function updateReadCount()
     {
-        if ('.' == $filename || '..' == $filename) {
-            return true;
-        }
-        // 只要md扩展名的文件
-        if (substr($filename, -3) != '.md') {
-            return true;
-        }
-        return false;
+        $this->readCount++;
+        $this->save();
+    }
+
+    private function save()
+    {
+        $meta = require $this->dir . '/meta.php';
+        $meta[$this->id] = $this->toArray();
+        $metaStr = '<?php return ' . var_export($meta, true) . ';';
+        file_put_contents($this->dir . '/meta.php', $metaStr);
     }
 }

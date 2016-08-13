@@ -7,17 +7,15 @@
  */
 use yii\helpers\Url;
 
+/** @var array $learns */
+/** @var \allowing\yunliwang\model\MarkdownArticle $learn */
 /** @var \yii\web\View $this */
 $this->title = '免费教程';
 
 ?>
 
 <ul class="list-box">
-    <?php
-    /** @var array $learns */
-    /** @var \allowing\yunliwang\model\MarkdownArticle $learn */
-    ?>
     <?php foreach ($learns as $learn): ?>
-    <li class="list-item"><a href="<?= Url::to(['learn/learn', 'title' => $learn->title]) ?>"><?= $learn->title ?></a></li>
+    <li class="list-item"><a href="<?= Url::to(['learn/learn', 'title' => $learn->id]) ?>"><?= $learn->title ?></a>[<?= date('Y-m-d', $learn->updatedAt) ?>|<?= $learn->readCount ?>]</li>
     <?php endforeach ?>
 </ul>
