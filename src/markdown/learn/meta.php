@@ -21,4 +21,7 @@ return [
     'php-function' => [
         'title' => 'PHP教程 - 函数',
     ],
+    'php-function-of-php' => [
+        'title' => 'PHP教程 - PHP常用内置函数',
+    ],
 ];
