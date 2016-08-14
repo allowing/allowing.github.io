@@ -97,6 +97,9 @@ class MarkdownArticle extends Model
     public static function findOne($dir, $id)
     {
         $meta = require $dir . '/meta.php';
+        if (!isset($meta[$id])) {
+            return null;
+        }
         $row = $meta[$id];
         unset($meta);
         $row['id'] = $id;

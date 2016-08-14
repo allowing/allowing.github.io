@@ -12,6 +12,7 @@ namespace allowing\yunliwang\controller;
 use allowing\yunliwang\model\MarkdownArticle;
 use Yii;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 
 class LearnController extends Controller
 {
@@ -26,6 +27,9 @@ class LearnController extends Controller
     public function actionLearn($title)
     {
         $learn = MarkdownArticle::findOne(Yii::$app->basePath . '/markdown/learn', $title);
+        if (!$learn) {
+            throw new NotFoundHttpException();
+        }
         return $this->render('learn', [
             'learn' => $learn,
         ]);
