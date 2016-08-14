@@ -16,6 +16,6 @@ $this->title = '免费教程';
 
 <ul class="list-box">
     <?php foreach ($learns as $learn): ?>
-    <li class="list-item"><a href="<?= Url::to(['learn/learn', 'title' => $learn->id]) ?>"><?= $learn->title ?></a>[<?= date('Y-m-d', $learn->updatedAt) ?>|<?= $learn->readCount ?>]</li>
+    <li class="list-item"><a href="<?= Url::to(['learn/learn', 'title' => $learn->id]) ?>"><?= $learn->title ?></a></li>
     <?php endforeach ?>
 </ul>

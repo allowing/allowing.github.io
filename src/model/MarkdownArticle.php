@@ -102,21 +102,6 @@ class MarkdownArticle extends Model
         $row['id'] = $id;
         $row['dir'] = $dir;
         $_this = new static($row);
-        $_this->updateReadCount();
         return $_this;
-    }
-
-    public function updateReadCount()
-    {
-        $this->readCount++;
-        $this->save();
-    }
-
-    private function save()
-    {
-        $meta = require $this->dir . '/meta.php';
-        $meta[$this->id] = $this->toArray();
-        $metaStr = '<?php return ' . var_export($meta, true) . ';';
-        file_put_contents($this->dir . '/meta.php', $metaStr);
     }
 }
