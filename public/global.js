@@ -12,7 +12,7 @@ function setUpCountCode()
     $('head')
     .first()
     .prepend(
-        '<script src="//hm.baidu.com/hm.js?585a8253b132aa407f51c7b58e42d10c"></script>'
+        '<script src="//hm.baidu.com/hm.js?1d85c535ce54f54b9c38f1d2ad49a516"></script>'
     );
 }
 
