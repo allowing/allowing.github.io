@@ -40,6 +40,7 @@ use yii\helpers\Url;
             <li class="nav-item"><a href="<?= Url::to(['site/outline']) ?>">课程大纲</a></li>
             <li class="nav-item"><a href="<?= Url::to(['learn/index']) ?>">免费教程</a></li>
             <li class="nav-item"><a href="<?= Url::to(['site/case']) ?>">成功案例</a></li>
+            <li class="nav-item"><a href="<?= Url::to('http://wpa.qq.com/msgrd?v=3&uin=1076707907&site=qq&menu=yes') ?>" target="_blank">QQ联系</a></li>
         </ul>
     </nav>
     <?= $content ?>
