@@ -9,6 +9,9 @@ return [
     'php-var' => [
         'title' => 'PHP教程 - 变量',
     ],
+    'php-const' => [
+        'title' => 'PHP教程 - 常量',
+    ],
     'php-operation' => [
         'title' => 'PHP教程 - 运算符',
     ],

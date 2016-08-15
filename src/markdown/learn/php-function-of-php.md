@@ -10,7 +10,7 @@
 「`require`」「`include`」这两个在作用上非常相似，只是它们对错误的处理不同。
 当欲包含的脚本不存在时「`require`」会报致命错误，而「`include`」只是报警告级别的错误。
 
-「`require_once`」「`include_once`」它们两个和上面的一样，只是这样两个命令会检查上下文是否已经包含过目标脚本
+「`require_once`」「`include_once`」它们两个和上面的一样，只是这两个命令会检查上下文是否已经包含过目标脚本
 如果没有就会把目标脚本包含进来。
 
 设以下代码定义在 foo.php 文件里。
@@ -22,7 +22,7 @@ function formatDate($timestamp, $format = 'Y-m-d H:i:s')
 }
 ```
 
-另有 bar.php 和 foo.php 在同一个目录下。bar.php 想用 formatDate 函数时，可以将 foo.php 文件包含进去即可。
+另有 bar.php 文件和 foo.php 在同一个目录下。bar.php 文件里想用 formatDate 函数时，可以将 foo.php 文件包含进去即可。
 
 ```php
 require __DIR__ . '/foo.php'; // 「__DIR__」像这种样子的东西叫魔术常量，代表当前目录
@@ -32,7 +32,7 @@ require __DIR__ . '/foo.php'; // 「__DIR__」像这种样子的东西叫魔术�
 ```
 
 在实践中，常常按一定的架构思想把代码组织到不同的文件中，在其他文件需要用时再把它们包含进来。
-架构能力越强组织出来的系统就越清晰越好用，几乎不用摸索系统的结构。这个需要慢慢积累学习。
+架构能力越强组织出来的系统就越清晰越好用，几乎不用摸索系统的结构，架构能力是需要经验加学习的。
 
 ## 字符串处理函数
 
@@ -53,30 +53,49 @@ string substr(string $string, int $start [, int $length]) 返回给定字符串�
 
 ```php
 $str = 'Hello World';
-substr($str, 6, 1); // 返回 W 。意思是从第6这个位置开始，截取1的长度。
+substr($str, 6, 1); // 返回「W」。意思是从第6这个位置开始，截取1的长度。
 ```
 
-explode()
+由于内置函数PHP手册给出了很详细的说明，因此这里就不再列举了。下面给出PHP手册的官方地址和怎么阅读函数的方法
 
-strlen()
+[手册地址](http://www.php.net/manual/zh/)
 
-str_replace()
+[离线版下载地址](http://php.net/get/php_enhanced_zh.chm/from/a/mirror)，选择China就可以下载
 
-trim()
+打开在线版手册，看到函数参考大分类，如下图所示
 
-rtrim()
+![PHP内置函数](/images/learn/php-function-of-php-1.png)
 
-ltrim()
+以文本处理为例，点击进去
 
-ucfirst()
+![PHP内置函数](/images/learn/php-function-of-php-2.png)
 
+点击字符串函数，进去之后就能看到很多关于字符串处理的函数，中文介绍都非常详细，在这点上PHP对中国开发者非常友好，这是许多其他语言所没有的优势。
 
-## 数组处理函数
+![PHP内置函数](/images/learn/php-function-of-php-3.png)
 
-## 时间日期处理函数
+以「`explode`」函数为例，讲讲怎么阅读一个函数。
 
-## 文件系统处理函数
+![PHP内置函数](/images/learn/php-function-of-php-4.png)
 
-## 数学函数
+看函数的描述，看函数的参数，看参数是否是可选的，在PHP手册中，打上中括号的参数是可选的，看这个函数的返回值，这是关于“看”的。
 
-## 归档压缩
+参数的类型，在PHP手册中，参数的类型是这个参数前面的那个单词如「`string $str`」说明 $str 是 string 类型的。函数的返回值类型是函数名前面的那个单词，「`array explode`」说明 explode 这个函数的返回值类型是 array ，即数组类型。
+
+## 本节赠言
+
+手册在手，天下我有。
+
+手册没有，寸步难走。
+
+事实上，以后手册才是最重要的教程。
+
+## 必看的函数
+
+下面给出的函数在手册都能找到，这些函数大部分都要求掌握的。
+
+* 数组处理函数
+* 时间日期处理函数
+* 文件系统处理函数
+* 数学函数
+* 归档压缩
