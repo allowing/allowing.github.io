@@ -103,9 +103,9 @@ php -f index.php
 
 这是会看到控制台输出了「Hello World!」，这说明编写的PHP代码已经可以运行了。
 
-![运行PHP代码](/images/learn/php-ready-code.png);
+![运行PHP代码](/images/learn/php-ready-code.png)
 
-![运行PHP代码](/images/learn/php-ready-run.png);
+![运行PHP代码](/images/learn/php-ready-run.png)
 
 ## 继续学习后面的教程
 

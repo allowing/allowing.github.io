@@ -30,4 +30,22 @@ return [
     'php-class' => [
         'title' => 'PHP教程 - 类与对象',
     ],
+    'php-extends' => [
+        'title' => 'PHP教程 - 类的继承',
+    ],
+    'php-access' => [
+        'title' => 'PHP教程 - 属性和方法的访问控制',
+    ],
+    'php-abstract' => [
+        'title' => 'PHP教程 - 抽象方法',
+    ],
+    'php-interface' => [
+        'title' => 'PHP教程 - 接口',
+    ],
+    'php-static-and-const' => [
+        'title' => 'PHP教程 - 静态属性、静态方法和常量',
+    ],
+    'php-magic-mothods' => [
+        'title' => 'PHP教程 - 魔术方法',
+    ],
 ];
