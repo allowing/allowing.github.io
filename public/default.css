@@ -1,9 +1,13 @@
+html {
+	background: #333 url(http://php.net/images/bg-texture-00.svg);
+}
 /** 容器 */
 .container {
 	width: 940px;
 	padding: 40px 30px;
 	margin: 0 auto;
-	box-shadow: 5px 5px 10px 5px #f8f8f8;
+	box-shadow: 1px 0 5px 1px #f8f8f8;
+	background: #F2F2F2;
 }
 
 /** 导航 */
