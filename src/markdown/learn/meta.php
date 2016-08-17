@@ -1,5 +1,17 @@
 <?php
 return [
+    'git-ready' => [
+        'title' => 'GIT教程 - 准备篇',
+    ],
+    'html5-ready' => [
+        'title' => 'HTML5教程 - 准备篇',
+    ],
+    'css-ready' => [
+        'title' => 'CSS教程 - 准备篇',
+    ],
+    'js-ready' => [
+        'title' => 'JS教程 - 准备篇',
+    ],
     'php-ready' => [
         'title' => 'PHP教程 - 准备篇',
     ],
