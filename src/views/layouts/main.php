@@ -21,8 +21,8 @@ use yii\helpers\Url;
         minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $this->title ?> - 允梨教育</title>
-    <meta name="keywords" content="PHP教程,IT,WEB,IT培训,HTML,JS,CSS,PHP">
-    <meta name="description" content="允梨教育是一家学习IT技术的第三方培训平台，学习周期短，学习技能较多，从这里出来的学生均有较高的职业素养和较高的工资。想学习IT技术来允梨教育。">
+    <meta name="keywords" content="允梨,允梨教育,PHP自学,JS自学,PHP教程,IT,WEB,IT培训,HTML,JS,CSS,PHP">
+    <meta name="description" content="允梨教育是一家学习IT技术的第三方培训平台，学习周期短，学习技能较多，从这里出来的学生均有较高的职业素养和较高的工资。想学习IT技术来允梨教育【允梨，用心做教育】">
     <link rel="stylesheet" href="<?= Url::to('@web/global.css') ?>">
     <link rel="stylesheet" href="<?= Url::to('@web/default.css') ?>">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/monokai-sublime.min.css">

@@ -86,6 +86,8 @@ html {
 .item-content h5,
 .item-content h6 {
 	margin: 10px 0;
+    font-family: '微软雅黑';
+    font-weight: normal;
 }
 .item-content p {
 	margin: 10px 0;
