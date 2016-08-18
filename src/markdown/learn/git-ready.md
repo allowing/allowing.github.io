@@ -56,6 +56,10 @@ git log
 # 查看简洁的提交记录
 git log --oneline
 
+# 查看状态
+# 这个命令是用得最频繁的，没有之一
+git status
+
 # 从最近的提交中检出某个文件
 git checkout <filename>
 
