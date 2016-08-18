@@ -29,6 +29,14 @@ $app = new \yii\web\Application([
                 'learn/<title>' => 'learn/learn',
             ],
         ],
+        'db' => [
+            /** @var \yii\db\Connection */
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=127.0.0.1;dbname=allowing',
+            'username' => 'root',
+            'password' => 'root',
+            'charset' => 'utf8',
+        ],
 
     ],
     'bootstrap' => [

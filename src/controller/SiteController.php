@@ -8,7 +8,6 @@
 
 namespace allowing\yunliwang\controller;
 
-
 use yii\web\Controller;
 
 class SiteController extends Controller
@@ -31,5 +30,20 @@ class SiteController extends Controller
     public function actionCase()
     {
         return $this->render('case');
+    }
+
+    public function actionTest()
+    {
+        // \allowing\yunliwang\model\DynamicModel::setModelName('learn');
+        // $dModel = \Yii::createObject(\allowing\yunliwang\model\DynamicModel::class);
+        // print_r($dModel->attributes());
+        // $model = $dModel->findOne(1);
+        // print_r($model);
+        // foreach ($model as $key => $value) {
+        //     echo $key, '|';
+        // }
+        // $models = \allowing\yunliwang\model\DynamicModel::findAll();
+        // print_r($models);
+        // print_r(\allowing\yunliwang\model\ModelRecord::findOneByModelName('learn'));
     }
 }
