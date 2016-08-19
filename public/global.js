@@ -9,6 +9,7 @@ try {
 
 function setUpCountCode()
 {
+    window._hmt = window._hmt || [];
     $('head')
     .first()
     .prepend(

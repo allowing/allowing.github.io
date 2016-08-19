@@ -39,6 +39,8 @@ HTML 有多个版本，本教程讲述的是 HTML5，HTML5 是目前最新的版
 
 看下图，认识什么是标签
 
-![HTML标签](/images/learn/html-code.png)
+![HTML标签](/images/learn/html-code2.png)
 
-HTML 就是这么简单，接下来就要学习一些 HTML5 定义的标签了。
+## 文档的元素
+
+元素(Element)是指组成 HTML 文档的各个组份，比如「`<h1>标题</h1>`」「`<p>段落</p>`」「`<a href="">首页</a>`」。

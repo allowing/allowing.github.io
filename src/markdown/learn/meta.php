@@ -9,6 +9,9 @@ return [
     'html5-ready' => [
         'title' => 'HTML5教程 - 准备篇',
     ],
+    'html5-element' => [
+        'title' => 'HTML5教程 - 元素详解',
+    ],
     'css-ready' => [
         'title' => 'CSS教程 - 准备篇',
     ],
