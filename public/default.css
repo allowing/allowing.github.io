@@ -72,6 +72,7 @@ html {
 	font-family: '微软雅黑', serif;
 	font-weight: normal;
 	text-align: center;
+	color: #3f51b5;
 }
 
 /** 留言的内容 */
@@ -107,6 +108,9 @@ html {
 }
 .item-content pre {
 	margin: 20px 0;
+}
+.item-content th {
+	color: #3f51b5;
 }
 
 /** 留言信息容器 存放诸如时间、阅读量、作者等 这类信息一般不能抢读者的眼球 */
@@ -162,7 +166,8 @@ html {
 
 /** 页脚的一句话描述 */
 .footer-p {
+	margin: 10px 0;
 	text-align: center;
-	color: #999;
+	color: #3f51b5;
 	font-size: 12px;
 }

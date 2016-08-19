@@ -37,7 +37,7 @@ use yii\helpers\Url;
         <ul class="nav-box">
             <li class="nav-item"><a href="<?= Url::to(['site/index']) ?>">首页</a></li>
             <li class="nav-item"><a href="<?= Url::to(['site/course']) ?>">主要课程</a></li>
-            <li class="nav-item"><a href="<?= Url::to(['site/outline']) ?>">课程大纲</a></li>
+            <li class="nav-item"><a href="<?= Url::to(['site/outline']) ?>">教学大纲</a></li>
             <li class="nav-item"><a href="<?= Url::to(['learn/index']) ?>">免费教程</a></li>
             <li class="nav-item"><a href="<?= Url::to(['site/case']) ?>">成功案例</a></li>
             <li class="nav-item"><a href="<?= Url::to('http://wpa.qq.com/msgrd?v=3&uin=1076707907&site=qq&menu=yes') ?>" target="_blank">QQ联系</a></li>
@@ -45,7 +45,7 @@ use yii\helpers\Url;
     </nav>
     <?= $content ?>
     <footer>
-        <p class="footer-p">关于内容：本站内容均为站长原创，未经允许不得转载</p>
+        <p class="footer-p">关于内容：本站内容均为站长原创，未经允许不得转载。个别语言的组织会摘自互联网，如果侵权，可联系删除</p>
     </footer>
 </div>
 </body>
