@@ -25,8 +25,10 @@ $app = new \yii\web\Application([
             'showScriptName' => false,
             // 'suffix' => '.html', // PHP内置的服务器不支持
             'rules' => [
-                'learn/index' => 'learn/index',
+                'learn' => 'learn/index',
                 'learn/<title>' => 'learn/learn',
+                'news' => 'news/index',
+                'news/<id>' => 'news/view',
             ],
         ],
 

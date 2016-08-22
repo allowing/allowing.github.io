@@ -1,13 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: allowing
- * Date: 2016/8/13
- * Time: 17:53
- */
 /** @var \yii\web\View $this */
-/** @var \allowing\yunliwang\model\MarkdownArticle $learn */
-$this->title = $learn->title;
+/** @var \allowing\yunliwang\model\MarkdownArticle $news */
+$this->title = $news->title;
 ?>
 <p class="tool-bar"><a href="javascript:history.back()">&lt;&lt;后退</a></p>
 <div class="item">
@@ -16,7 +10,7 @@ $this->title = $learn->title;
 <script>
     (function () {
         $('.item-content').html(
-            Allowing.markdown.markdown2html('<?= addcslashes($learn->content, "',\r\n") ?>')
+            Allowing.markdown.markdown2html('<?= addcslashes($news->content, "',\r\n") ?>')
         );
     })();
 </script>

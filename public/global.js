@@ -1,11 +1,4 @@
-(function ($, undefined) {
-
-try {
-    setUpCountCode();
-} catch (e) {
-    throw e;
-}
-
+(function ($, hljs, window, undefined) {
 
 function setUpCountCode()
 {
@@ -17,4 +10,34 @@ function setUpCountCode()
     );
 }
 
-})(jQuery);
+function Allowing() {}
+Allowing.markdown = {
+    markdown2html: function (markdown) {
+        var converter = new showdown.Converter();
+        return converter.makeHtml(markdown);
+    },
+    loadedHighlight: function () {
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+    },
+};
+window.Allowing = Allowing;
+
+try {
+    setUpCountCode();
+} catch (e) {
+    throw e;
+}
+
+$(function () {
+    try {
+        Allowing.markdown.loadedHighlight();
+    } catch (e) {
+        throw e;
+    }
+});
+
+})(jQuery, hljs, window);
+
+
