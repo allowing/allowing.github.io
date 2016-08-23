@@ -66,4 +66,7 @@ return [
     'php-magic-mothods' => [
         'title' => 'PHP教程 - 魔术方法',
     ],
+    'other-phpDocumentor' => [
+        'title' => '其他教程 - phpDocumentor的使用',
+    ],
 ];
