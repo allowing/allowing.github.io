@@ -35,6 +35,5 @@ class SiteController extends Controller
     public function actionTest()
     {
         $learn = \allowing\yunliwang\model\ModelRecord::findOneByModelName('learn');
-        echo $learn->author;
     }
 }
