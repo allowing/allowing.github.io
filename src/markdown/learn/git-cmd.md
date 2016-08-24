@@ -10,7 +10,17 @@ git <子命令> -h
 # 例如查看 config 子命令的帮助
 git config -h
 
+# 克隆仓库
+git clone <地址>
+
+# 新建一个跟踪分支（上游分支）
+#
+# 一般克隆一个仓库的时候，会自动新建一个 master 的分支跟踪远程的默认分支（通常是 origin/master）
+# 想跟踪其他远程分支需要我们自己新建
+git checkout --track <remote name>/<branch name>
+
 # 新建仓库
+#
 # 这个命令会在当前目录生成 .git 文件夹，注意这个文件夹不能删除，里面的文件也不要去动它，就让它们静静地躺在那里
 git init
 
@@ -30,6 +40,7 @@ git log
 git log --oneline
 
 # 查看状态
+#
 # 这个命令是用得最频繁的，没有之一
 git status
 
@@ -40,10 +51,12 @@ git checkout <filename>
 git checkout README.md
 
 # 从某个提交中检出某个文件
+#
 # 设某提交的id为 5cf2980 那么下面的命令可以从这次提交检出某文件，假设检出 README.md 文件
 git checkout README.md 5cf2980
 
 # 查看配置
+#
 # git 的配置分三份文件 分别是 global 全局配置 system 系统配置 local 本地配置
 # 全局配置是针对各个仓库都适用的
 # 系统配置本人截至教程发稿还没学习，这里就不介绍
@@ -61,6 +74,7 @@ git config --system --list
 git config --local --list
 
 # 设置配置项
+#
 # 不加 --global --system --local 这些选项，默认是配置本地的
 git config <配置项> <配置值>
 
@@ -86,6 +100,7 @@ git checkout <branch name>
 git checkout allowing
 
 # 基于某个提交点新建分支
+#
 # 一般在又想从头构建一个系统时，会想从零新建一个分支，这时这个命令就很有用了
 # 设某提交 id 为 5cf2980，新建 allowing 分支
 git branch allowing 5cf2980
