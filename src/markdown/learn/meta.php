@@ -15,6 +15,9 @@ return [
     'css-ready' => [
         'title' => 'CSS教程 - 准备篇',
     ],
+    'css-selector' => [
+        'title' => 'CSS教程 - 选择器',
+    ],
     'js-ready' => [
         'title' => 'JS教程 - 准备篇',
     ],
