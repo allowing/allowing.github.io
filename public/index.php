@@ -7,7 +7,7 @@
  */
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
-defined('YII_ENV') or define('YII_ENV', 'prod');
+defined('YII_ENV') or define('YII_ENV', 'dev');
 
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
@@ -25,6 +25,10 @@ $app = new \yii\web\Application([
             'showScriptName' => false,
             // 'suffix' => '.html', // PHP内置的服务器不支持
             'rules' => [
+                '' => 'site/index',
+                'course' => 'site/course',
+                'outline' => 'site/outline',
+                'case' => 'site/case',
                 'learn' => 'learn/index',
                 'learn/<title>' => 'learn/learn',
                 'news' => 'news/index',
