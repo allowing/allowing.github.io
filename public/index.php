@@ -7,7 +7,7 @@
  */
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
-defined('YII_ENV') or define('YII_ENV', 'prod');
+defined('YII_ENV') or define('YII_ENV', 'dev');
 
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
@@ -18,6 +18,15 @@ $app = new \yii\web\Application([
     'basePath' => __DIR__ . '/../src',
     'vendorPath' => __DIR__ . '/../vendor',
     'controllerNamespace' => 'allowing\yunliwang\controller',
+    'modules' => [
+        'admin' => [
+            'class' => 'allowing\yunliwang\admin\Module',
+            'controllerNamespace' => 'allowing\yunliwang\admin\controller',
+            'components' => [
+
+            ],
+        ],
+    ],
     'components' => [
         /** @var \yii\web\UrlManager */
         'urlManager' => [
@@ -25,23 +34,27 @@ $app = new \yii\web\Application([
             'showScriptName' => false,
             // 'suffix' => '.html', // PHP内置的服务器不支持
             'rules' => [
-                'learn/index' => 'learn/index',
+                '' => 'site/index',
+                'course' => 'site/course',
+                'outline' => 'site/outline',
+                'case' => 'site/case',
+                'learn' => 'learn/index',
                 'learn/<title>' => 'learn/learn',
+                'news' => 'news/index',
+                'news/<id>' => 'news/view',
             ],
         ],
-        'db' => [
-            /** @var \yii\db\Connection */
-            'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=127.0.0.1;dbname=allowing',
-            'username' => 'root',
-            'password' => 'root',
-            'charset' => 'utf8',
+        'log' => [
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning'],
+                ],
+            ],
         ],
-
     ],
-    'bootstrap' => [
-
-    ],
+    'bootstrap' => ['log'],
 ]);
 
 $app->run();
