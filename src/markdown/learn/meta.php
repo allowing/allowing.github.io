@@ -21,6 +21,12 @@ return [
     'js-ready' => [
         'title' => 'JS教程 - 准备篇',
     ],
+    'js-syntax' => [
+        'title' => 'JS教程 - 基础语法',
+    ],
+    'js-dom' => [
+        'title' => 'JS教程 - 文档操作(DOM操作)',
+    ],
     'php-ready' => [
         'title' => 'PHP教程 - 准备篇',
     ],
