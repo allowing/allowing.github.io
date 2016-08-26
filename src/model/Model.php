@@ -11,5 +11,8 @@ use yii\db\ActiveRecord;
  */
 class Model extends ActiveRecord
 {
-
+    public static function deleteByName($name)
+    {
+        static::findOne($name)->delete();
+    }
 }

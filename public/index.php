@@ -12,7 +12,7 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 
-$app = new \yii\web\Application([
+$app = new \yii\web\Application(\yii\helpers\ArrayHelper::merge([
     'id' => 'yunliwang',
     'language' => 'zh-CN',
     'basePath' => __DIR__ . '/../src',
@@ -21,10 +21,7 @@ $app = new \yii\web\Application([
     'modules' => [
         'admin' => [
             'class' => 'allowing\yunliwang\admin\Module',
-            'controllerNamespace' => 'allowing\yunliwang\admin\controller',
-            'components' => [
-
-            ],
+            'layout' => 'main',
         ],
     ],
     'components' => [
@@ -42,6 +39,8 @@ $app = new \yii\web\Application([
                 'learn/<title>' => 'learn/learn',
                 'news' => 'news/index',
                 'news/<id>' => 'news/view',
+
+                'admin/model/delete/<name>' => 'admin/model/delete',
             ],
         ],
         'log' => [
@@ -55,6 +54,6 @@ $app = new \yii\web\Application([
         ],
     ],
     'bootstrap' => ['log'],
-]);
+], require __DIR__ . '/../src/config/main-local.php'));
 
 $app->run();
