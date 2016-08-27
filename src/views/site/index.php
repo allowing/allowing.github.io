@@ -48,9 +48,9 @@ $this->title = '首页';
             <li class="item">3</li>
         </ul>
         <ul class="bd">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            <li><img src="/images/index-slide-1.png" alt=""></li>
+            <li><img src="/images/index-slide-2.png" alt=""></li>
+            <li><img src="/images/index-slide-3.png" alt=""></li>
         </ul>
     </div>
     <div class="item-content">
