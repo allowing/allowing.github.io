@@ -29,6 +29,7 @@ use yii\helpers\Url;
     <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="<?= Url::to('@web/showdown.min.js') ?>"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+    <script src="<?= Url::to('@web/jquery.SuperSlide.2.1.1.js') ?>"></script>
     <script src="<?= Url::to('@web/global.js') ?>"></script>
 </head>
 <body>

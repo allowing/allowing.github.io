@@ -9,10 +9,50 @@
 /** @var \yii\web\View $this */
 $this->title = '首页';
 ?>
-
+<style>
+    .index-slide-box {
+        overflow: hidden;
+        position: relative;
+        margin: 20px 0;
+    }
+    .index-slide-box .hd {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        font-size: 0;
+        bottom: 20px;
+    }
+    .index-slide-box .hd .item {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: #3f51b5;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    .index-slide-box .hd .on {
+        background-color: red;
+    }
+    .index-slide-box .bd {
+        height: 300px;
+        background: #ccc;
+    }
+</style>
 
 <div class="item">
-    <h1 class="item-title">首页</h1>
+    <div class="index-slide-box">
+        <ul class="hd">
+            <li class="item">1</li>
+            <li class="item">2</li>
+            <li class="item">3</li>
+        </ul>
+        <ul class="bd">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
     <div class="item-content">
         <h2>联系：</h2>
         <p>黎老师，电话：13143515415，微信：Ljj1076707907</p>
@@ -42,3 +82,11 @@ $this->title = '首页';
         <p>A: 跟着老师走一定行，人类都具有学习的能力。</p>
     </div>
 </div>
+
+<script>
+    (function ($) {
+        $('.index-slide-box').slide({
+            autoPlay: true,
+        });
+    })(jQuery);
+</script>
