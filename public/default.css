@@ -10,9 +10,15 @@ html {
 	background: #fff;
 }
 
+.logo {
+	float: left;
+	width: 32px;
+	height: 32px;
+}
+
 /** 导航 */
 .nav {
-	margin: 10px 0;
+	float: left;
 }
 .nav-box {
 	margin: -10px 0 0 0;
@@ -29,12 +35,6 @@ html {
 	background: #3f51b5;
 	font-size: 12px;
 	font-family: '微软雅黑';
-}
-.nav-item:first-child {
-	border-top-left-radius: 18px;
-}
-.nav-item:last-child {
-	border-bottom-right-radius: 18px;
 }
 .nav-item a {
 	color: #fff;
