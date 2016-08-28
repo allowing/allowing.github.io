@@ -32,4 +32,9 @@ class SiteController extends Controller
     {
         return $this->render('case');
     }
+
+    public function actionSource()
+    {
+        return $this->render('source');
+    }
 }

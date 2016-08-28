@@ -43,6 +43,7 @@ use yii\helpers\Url;
                 <li class="nav-item"><a href="<?= Url::to(['news/index']) ?>">公司动态</a></li>
                 <li class="nav-item"><a href="<?= Url::to(['site/course']) ?>">主要课程</a></li>
                 <li class="nav-item"><a href="<?= Url::to(['site/outline']) ?>">教学大纲</a></li>
+                <li class="nav-item"><a href="<?= Url::to(['site/source']) ?>">学习资源</a></li>
                 <li class="nav-item"><a href="<?= Url::to(['site/case']) ?>">成功案例</a></li>
                 <li class="nav-item"><a href="<?= Url::to('http://wpa.qq.com/msgrd?v=3&uin=1076707907&site=qq&menu=yes') ?>" target="_blank">QQ联系</a></li>
             </ul>

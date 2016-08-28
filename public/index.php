@@ -29,6 +29,7 @@ $app = new \yii\web\Application([
                 'course' => 'site/course',
                 'outline' => 'site/outline',
                 'case' => 'site/case',
+                'source' => 'site/source',
                 'learn' => 'learn/index',
                 'learn/<title>' => 'learn/learn',
                 'news' => 'news/index',

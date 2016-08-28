@@ -17,6 +17,7 @@ $this->title = '首页';
     }
     .index-slide-box .hd {
         position: absolute;
+        z-index: 5;
         width: 100%;
         text-align: center;
         font-size: 0;
