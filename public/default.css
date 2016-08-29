@@ -19,27 +19,21 @@ html {
 /** 导航 */
 .nav {
 	float: left;
+	height: 32px;
+	margin: 0 0 0 20px;
+	background: #3f51b5;
 }
 .nav-box {
-	margin: -10px 0 0 0;
-}
-.nav-box::after {
-	display: block;
-	content: '';
-	clear: both;
+	margin: 6px 0 0 15px;
 }
 .nav-item {
 	float: left;
-	padding: 8px 15px;
-	margin: 10px 0 0 0;
-	background: #3f51b5;
-	font-size: 12px;
+	margin: 0 20px 0 0;
+	font-size: 14px;
 	font-family: '微软雅黑';
 }
 .nav-item a {
 	color: #fff;
-}
-.nav-item a:hover {
 	text-decoration: none;
 }
 

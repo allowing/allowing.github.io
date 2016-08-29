@@ -35,9 +35,9 @@ use yii\helpers\Url;
 <body>
 <div class="container">
     <header class="cf">
-        <img class="logo" src="/images/logo.png" alt="logo">
+        <a href="<?= Url::to(['site/index']) ?>"><img class="logo" src="/images/logo.png" alt="logo"></a>
         <nav class="nav">
-            <ul class="nav-box">
+            <ul class="nav-box cf">
                 <li class="nav-item"><a href="<?= Url::to(['site/index']) ?>">首页</a></li>
                 <li class="nav-item"><a href="<?= Url::to(['learn/index']) ?>">免费教程</a></li>
                 <li class="nav-item"><a href="<?= Url::to(['news/index']) ?>">公司动态</a></li>

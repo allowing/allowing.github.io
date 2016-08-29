@@ -27,13 +27,13 @@ $this->title = '首页';
         display: inline-block;
         width: 10px;
         height: 10px;
-        background-color: #3f51b5;
+        background-color: #fff;
         border-radius: 50%;
         margin: 0 5px;
         cursor: pointer;
     }
     .index-slide-box .hd .on {
-        background-color: red;
+        background-color: #3f51b5;
     }
     .index-slide-box .bd {
         height: 300px;
@@ -55,7 +55,7 @@ $this->title = '首页';
         </ul>
     </div>
     <div class="item-content">
-        <h2>联系：</h2>
+        <h2>联系</h2>
         <p>黎老师，电话：13143515415，微信：Ljj1076707907</p>
 
         <h2>开课动态</h2>
@@ -64,7 +64,7 @@ $this->title = '首页';
         <h2>作业仓库</h2>
         <p>class001届仓库地址：<a target="_blank" href="http://git.oschina.net/allowing/class001-homework">http://git.oschina.net/allowing/class001-homework</a></p>
 
-        <h2>问答：</h2>
+        <h2>问答</h2>
         <p>Q: 什么是职业技术？</p>
         <p>A: 职业技术是指面对从事的工作所要掌握的必要技能。</p>
         <p>Q: 我如果参加了学习能从事什么工作？</p>
