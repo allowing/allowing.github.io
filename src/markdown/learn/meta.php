@@ -3,6 +3,9 @@ return [
     'git-ready' => [
         'title' => 'GIT教程 - 准备篇',
     ],
+    'git-video' => [
+        'title' => 'GIT教程 - 视频配套课件',
+    ],
     'git-cmd' => [
         'title' => 'GIT教程 - GIT常用命令',
     ],
