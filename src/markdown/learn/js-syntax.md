@@ -94,12 +94,14 @@ while (i <= 100) {
 
 ### do ... while 循环
 
+```js
 var i = 0;
 var s = 0;
 do {
     s = s + i;
     i++;
 } while(i <= 100);
+```
 
 do ... while 循环是上来就执行一下循环体，完了之后再判断，所以 do ... while 的循环体至少都执行一遍，而 while 循环有可能一次都不执行。
 
