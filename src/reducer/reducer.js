@@ -2,9 +2,12 @@ import {TEST_ACTION} from '../action/actions.js';
 
 export default function reducer(state, action)
 {
-    switch (action) {
+    switch (action.type) {
         case TEST_ACTION:
-            return state;
+            let newState = {
+                test: '测试一下',
+            };
+            return {...state, ...newState};
         default:
             return state;
     }

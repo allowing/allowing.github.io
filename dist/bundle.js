@@ -56,7 +56,7 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _reducer = __webpack_require__(196);
+	var _reducer = __webpack_require__(197);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
@@ -23007,6 +23007,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _actions = __webpack_require__(196);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23030,11 +23032,13 @@
 	            var _props = this.props;
 	            var dispatch = _props.dispatch;
 	            var content = _props.content;
+	            var test = _props.test;
 
+	            dispatch((0, _actions.testAction)());
 	            return _react2.default.createElement(
 	                'h1',
 	                null,
-	                content
+	                test
 	            );
 	        }
 	    }]);
@@ -23046,35 +23050,11 @@
 
 
 	exports.default = (0, _reactRedux.connect)(function (state) {
-	    return {
-	        content: '测试'
-	    };
+	    return state;
 	})(App);
 
 /***/ },
 /* 196 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = reducer;
-
-	var _actions = __webpack_require__(197);
-
-	function reducer(state, action) {
-	    switch (action) {
-	        case _actions.TEST_ACTION:
-	            return state;
-	        default:
-	            return state;
-	    }
-	}
-
-/***/ },
-/* 197 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23089,6 +23069,34 @@
 	    return {
 	        type: TEST_ACTION
 	    };
+	}
+
+/***/ },
+/* 197 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	exports.default = reducer;
+
+	var _actions = __webpack_require__(196);
+
+	function reducer(state, action) {
+	    switch (action.type) {
+	        case _actions.TEST_ACTION:
+	            var newState = {
+	                test: '测试一下'
+	            };
+	            return _extends({}, state, newState);
+	        default:
+	            return state;
+	    }
 	}
 
 /***/ }
