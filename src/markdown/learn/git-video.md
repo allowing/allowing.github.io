@@ -481,6 +481,24 @@ git branch -vv
 
 ![git教程](/images/learn/git-video-branch-v.png)
 
+## 重置(reset)
+
+利用重置子命令可以实现重置 HEAD 或者重置到某个提交，以下给出实际中常用的操作
+
+```
+# 仅仅重置 HEAD
+git reset
+# 放弃当前的所有修改，重置 HEAD 和工作目录
+# 这个操作会重置掉当前的工作目录，使之恢复到上一次提交
+git reset --hard
+# 重置到上上次
+git reset --hard HEAD^
+# 重置到给定的提价点上
+#
+# 设某提交 id 为 abc123
+git reset --hard abc123
+```
+
 ## 结束语
 
 git 是一款强大的工具，同时学习它也是一件不容易的事情，熟练掌握它就更难了。能用好它，那么它将会是一个好帮手，用不好就会被它牵着走。
