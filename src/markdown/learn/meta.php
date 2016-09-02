@@ -78,6 +78,9 @@ return [
     'php-magic-mothods' => [
         'title' => 'PHP教程 - 魔术方法',
     ],
+    'java-ready' => [
+        'title' => 'JAVA教程 - 准备篇',
+    ],
     'other-phpDocumentor' => [
         'title' => '其他教程 - phpDocumentor的使用',
     ],
