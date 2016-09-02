@@ -1,19 +1,25 @@
 import {connect} from 'react-redux';
 import React, {Component} from 'react';
-import {testAction} from '../action/actions.js';
+import {actionTest, actionFetchLearn} from '../actions.js';
 
 class App extends Component
 {
+    componentWillMount()
+    {
+        let {dispatch} = this.props;
+        dispatch(actionFetchLearn());
+    }
+
     render()
     {
-        let {dispatch, content, test} = this.props;
-        dispatch(testAction());
+        let {dispatch, learns} = this.props;
+        console.log(learns);
         return (
-            <h1>{test}</h1>
+            <h1>{learns}</h1>
         );
     }
 }
 
 
 // connect 接收一个回调函数，回调函数接收一个全局的 state
-export default connect(state => state)(App);
+export default connect(state => state || {})(App);
