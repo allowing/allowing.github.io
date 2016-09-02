@@ -18,7 +18,7 @@ class LearnController extends Controller
 {
     public function actionIndex()
     {
-        $learns = MarkdownArticle::findAll(Yii::$app->basePath . '/markdown/learn');
+        $learns = MarkdownArticle::findAll(Yii::getAlias('@app/markdown/learn'));
         return $this->render('index', [
             'learns' => $learns,
         ]);
@@ -26,7 +26,7 @@ class LearnController extends Controller
 
     public function actionLearn($title)
     {
-        $learn = MarkdownArticle::findOne(Yii::$app->basePath . '/markdown/learn', $title);
+        $learn = MarkdownArticle::findOne(Yii::getAlias('@app/markdown/learn'), $title);
         if (!$learn) {
             throw new NotFoundHttpException();
         }

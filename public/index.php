@@ -34,6 +34,8 @@ $app = new \yii\web\Application([
                 'learn/<title>' => 'learn/learn',
                 'news' => 'news/index',
                 'news/<id>' => 'news/view',
+                'experience' => 'experience/index',
+                'experience/<id>' => 'experience/view',
             ],
         ],
 
