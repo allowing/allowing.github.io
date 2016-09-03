@@ -89,11 +89,15 @@ html {
 	margin: 10px 0;
 	text-indent: 2em;
 }
-.item-content ul {
+.item-content ul,
+.item-content ol {
 	padding: 0 0 0 2em;
 }
 .item-content ul li {
 	list-style-type: disc;
+}
+.item-content ol li {
+	list-style-type: upper-roman;
 }
 .item-content p img {
 	display: block;
