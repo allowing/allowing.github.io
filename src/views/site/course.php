@@ -52,6 +52,11 @@ $this->title = '主要课程';
                     <td>掌握高级PHP开发技能</td>
                 </tr>
                 <tr>
+                    <td>laravel</td>
+                    <td>一款优雅的PHP框架</td>
+                    <td>先进的开发思想</td>
+                </tr>
+                <tr>
                     <td>HTTP协议</td>
                     <td>HTTP是一款网络通讯协议</td>
                     <td>知道什么是协议，举一反三</td>
