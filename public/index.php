@@ -38,6 +38,10 @@ $app = new \yii\web\Application([
                 'experience/<id>' => 'experience/view',
             ],
         ],
+        'cache' => [
+            /** @var \yii\caching\FileCache */
+            'class' => 'yii\caching\FileCache',
+        ],
 
     ],
     'bootstrap' => [

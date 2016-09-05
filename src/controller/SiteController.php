@@ -13,6 +13,17 @@ use yii\web\Controller;
 
 class SiteController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => 'yii\filters\PageCache',
+                'only' => ['index'],
+                'duration' => 86400, // 缓存一天
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
         return $this->render('index');
