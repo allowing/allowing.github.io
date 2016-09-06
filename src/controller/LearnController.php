@@ -13,9 +13,23 @@ use allowing\yunliwang\model\MarkdownArticle;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 
 class LearnController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'index' => ['get'],
+                    'learn' => ['get'],
+                ],
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
         $learns = MarkdownArticle::findAll(Yii::getAlias('@app/markdown/learn'));

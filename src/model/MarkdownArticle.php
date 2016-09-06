@@ -14,8 +14,6 @@ class MarkdownArticle extends Model
 {
     public $title;
 
-    public $readCount = 0;
-
     private $_id;
 
     private $_content;
