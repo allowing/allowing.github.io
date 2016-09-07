@@ -81,9 +81,10 @@ html {
 .item-content h5,
 .item-content h6 {
 	margin: 10px 0;
-    font-family: '微软雅黑';
+	padding: 0 0 0 12px;
+    border-left: 3px solid #3f51b5;
+    font-family: '华文细黑', '微软雅黑';
     font-weight: normal;
-    color: #3f51b5;
 }
 .item-content p {
 	margin: 10px 0;
