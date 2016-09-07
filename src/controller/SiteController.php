@@ -10,16 +10,27 @@ namespace allowing\yunliwang\controller;
 
 
 use yii\web\Controller;
+use yii\filters\VerbFilter;
 
 class SiteController extends Controller
 {
     public function behaviors()
     {
         return [
-            [
-                'class' => 'yii\filters\PageCache',
-                'only' => ['index'],
-                'duration' => 86400, // 缓存一天
+            // [
+            //     'class' => 'yii\filters\PageCache',
+            //     'only' => ['index'],
+            //     'duration' => 86400, // 缓存一天
+            // ],
+            'verbs' => [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'index' => ['get'],
+                    'course' => ['get'],
+                    'outline' => ['get'],
+                    'case' => ['get'],
+                    'source' => ['get'],
+                ],
             ],
         ];
     }

@@ -6,9 +6,23 @@ use Yii;
 use yii\web\Controller;
 use allowing\yunliwang\model\MarkdownArticle;
 use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 
 class NewsController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'index' => ['get'],
+                    'learn' => ['get'],
+                ],
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
         $newses = MarkdownArticle::findAll(Yii::getAlias('@app/markdown/news'));

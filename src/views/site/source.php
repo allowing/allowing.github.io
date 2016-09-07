@@ -10,5 +10,6 @@ $this->title = '学习资源';
         <p><a target="_blank" href="http://css.doyoe.com/">CSS 手册</a></p>
         <p><a target="_blank" href="http://www.chinaw3c.org/standards.html">W3C 中国</a></p>
         <p><a target="_blank" href="https://www.w3.org/">W3C 国际</a></p>
+        <p><a target="_blank" href="http://www.css88.com/doc/jsdoc/index.html">JSDoc -- js的注释规范和自动生成文档</a></p>
     </div>
 </div>
