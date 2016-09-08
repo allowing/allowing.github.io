@@ -74,12 +74,12 @@ html {
 	margin: 20px 0;
 	line-height: 1.8em;
 }
-.item-content h1,
-.item-content h2,
-.item-content h3,
-.item-content h4,
-.item-content h5,
-.item-content h6 {
+.item-content > h1,
+.item-content > h2,
+.item-content > h3,
+.item-content > h4,
+.item-content > h5,
+.item-content > h6 {
 	margin: 10px 0;
 	padding: 0 0 0 12px;
     border-left: 3px solid #3f51b5;
