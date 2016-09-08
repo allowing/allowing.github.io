@@ -11,8 +11,33 @@ use yii\db\ActiveRecord;
  */
 class Model extends ActiveRecord
 {
+    public function rules()
+    {
+        return [
+            [['name', 'name_zh'], 'required'],
+            [['name', 'name_zh'], 'string', 'max' => 30],
+            ['comment', 'string', 'max' => 255],
+        ];
+    }
+
     public static function deleteByName($name)
     {
         return static::findOne($name)->delete();
+    }
+
+    public static function add(array $model)
+    {
+        $_this = new static();
+        $_this->setAttributes($model);
+        if (!$_this->validate()) {
+            $invalid = new InvalidPropertyException();
+            $invalid->setErrors($_this->getErrors());
+            throw $invalid;
+        }
+
+        if (!$_this->save()) {
+            
+        }
+        return true;
     }
 }

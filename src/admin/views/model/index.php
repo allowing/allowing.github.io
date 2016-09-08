@@ -6,6 +6,7 @@ use yii\helpers\Url;
 $this->title = '模型列表';
 
 ?>
+<p><a href="<?= Url::to(['add']) ?>">新增模型</a></p>
 <table>
     <thead>
         <tr>

@@ -8,6 +8,15 @@ use yii\base\UnknownPropertyException;
 
 class ModelRecord extends ActiveRecord
 {
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => 'yii\behaviors\TimestampBehavior',
+            ],
+        ];
+    }
+
     public function getModelRecordExts()
     {
         return $this->hasMany(ModelRecordExt::className(), ['model_record_id' => 'id']);

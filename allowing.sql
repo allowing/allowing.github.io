@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2016-08-18 17:56:42
+Date: 2016-09-08 14:47:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,11 +27,6 @@ CREATE TABLE `model` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of model
--- ----------------------------
-INSERT INTO `model` VALUES ('learn', '免费教程', '免费教程');
-
--- ----------------------------
 -- Table structure for model_field
 -- ----------------------------
 DROP TABLE IF EXISTS `model_field`;
@@ -46,12 +41,6 @@ CREATE TABLE `model_field` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of model_field
--- ----------------------------
-INSERT INTO `model_field` VALUES ('author', '作者', '请填写作者名称', 'learn');
-INSERT INTO `model_field` VALUES ('birthday', '生日', '', 'learn');
-
--- ----------------------------
 -- Table structure for model_nav
 -- ----------------------------
 DROP TABLE IF EXISTS `model_nav`;
@@ -64,27 +53,19 @@ CREATE TABLE `model_nav` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of model_nav
--- ----------------------------
-
--- ----------------------------
 -- Table structure for model_record
 -- ----------------------------
 DROP TABLE IF EXISTS `model_record`;
 CREATE TABLE `model_record` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
   `model_name` varchar(30) NOT NULL COMMENT '所属模型',
+  `subject` varchar(255) NOT NULL COMMENT '主题',
   `created_at` int(10) unsigned NOT NULL COMMENT '创建时间',
   `updated_at` int(10) unsigned NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`),
   KEY `model_name` (`model_name`),
   CONSTRAINT `model_record_ibfk_1` FOREIGN KEY (`model_name`) REFERENCES `model` (`name`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of model_record
--- ----------------------------
-INSERT INTO `model_record` VALUES ('1', 'learn', '1451255', '4161533');
 
 -- ----------------------------
 -- Table structure for model_record_ext
@@ -99,8 +80,3 @@ CREATE TABLE `model_record_ext` (
   CONSTRAINT `model_record_ext_ibfk_1` FOREIGN KEY (`model_record_id`) REFERENCES `model_record` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `model_record_ext_ibfk_2` FOREIGN KEY (`field`) REFERENCES `model_field` (`name`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of model_record_ext
--- ----------------------------
-INSERT INTO `model_record_ext` VALUES ('1', 'author', '杰');
