@@ -55,6 +55,11 @@ html {
 	border-bottom: 1px dotted #ccc;
 }
 
+.list-item-info {
+	float: right;
+	color: #999;
+}
+
 /** 单条留言 */
 .item {
 	margin: 10px 0;

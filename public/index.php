@@ -25,24 +25,20 @@ $app = new \yii\web\Application([
             'showScriptName' => false,
             // 'suffix' => '.html', // PHP内置的服务器不支持
             'rules' => [
-                '' => 'site/index',
-                'GET course' => 'site/course',
-                'GET outline' => 'site/outline',
-                'GET case' => 'site/case',
-                'GET source' => 'site/source',
-                'GET learn' => 'learn/index',
-                'GET learn/<title>' => 'learn/learn',
-                'GET news' => 'news/index',
-                'GET news/<id>' => 'news/view',
-                'GET experience' => 'experience/index',
-                'GET experience/<id>' => 'experience/view',
+                'GET ' => 'site/index',
+                'GET <action>' => 'site/<action>',
+                'GET article/<category>' => 'article/index',
+                'GET article/<category>/<id>' => 'article/view',
             ],
         ],
         'cache' => [
             /** @var \yii\caching\FileCache */
             'class' => 'yii\caching\FileCache',
         ],
-
+        'readCount' => [
+            /** @var \allowing\yunliwang\component\ReadCount */
+            'class' => 'allowing\yunliwang\component\ReadCount',
+        ],
     ],
     'bootstrap' => [
 

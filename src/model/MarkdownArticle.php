@@ -8,6 +8,7 @@
 
 namespace allowing\yunliwang\model;
 
+use Yii;
 use yii\base\Model;
 
 class MarkdownArticle extends Model
@@ -26,6 +27,8 @@ class MarkdownArticle extends Model
 
     private $_filename;
 
+    private $_readCount;
+
     public function setDir($dir)
     {
         $this->_dir = $dir;
@@ -41,6 +44,11 @@ class MarkdownArticle extends Model
     public function getId()
     {
         return $this->_id;
+    }
+
+    public function getReadCount()
+    {
+        return Yii::$app->readCount->get(__CLASS__ . $this->id);
     }
 
     public function getDir()
@@ -83,8 +91,11 @@ class MarkdownArticle extends Model
 
     public static function findAll($dir)
     {
+        if (!file_exists($file = "$dir/meta.php")) {
+            return null;
+        }
         $models = [];
-        foreach (require $dir . '/meta.php' as $id => $row) {
+        foreach (require $file as $id => $row) {
             $row['id'] = $id;
             $row['dir'] = $dir;
             $models[] = new static($row);
@@ -103,6 +114,7 @@ class MarkdownArticle extends Model
         $row['id'] = $id;
         $row['dir'] = $dir;
         $_this = new static($row);
+        Yii::$app->readCount->increment(__CLASS__ . $id); // 阅读自增
         return $_this;
     }
 }

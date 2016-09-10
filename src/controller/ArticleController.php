@@ -15,7 +15,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-class LearnController extends Controller
+class ArticleController extends Controller
 {
     public function behaviors()
     {
@@ -30,22 +30,27 @@ class LearnController extends Controller
         ];
     }
 
-    public function actionIndex()
+    public function actionIndex($category)
     {
-        $learns = MarkdownArticle::findAll(Yii::getAlias('@app/markdown/learn'));
+        $models = MarkdownArticle::findAll(Yii::getAlias("@app/markdown/$category"));
+        if (!$models) {
+            throw new NotFoundHttpException();
+        }
         return $this->render('index', [
-            'learns' => $learns,
+            'title' => '文章列表',
+            'category' => $category,
+            'models' => $models,
         ]);
     }
 
-    public function actionLearn($title)
+    public function actionView($id, $category)
     {
-        $learn = MarkdownArticle::findOne(Yii::getAlias('@app/markdown/learn'), $title);
-        if (!$learn) {
+        $model = MarkdownArticle::findOne(Yii::getAlias("@app/markdown/$category"), $id);
+        if (!$model) {
             throw new NotFoundHttpException();
         }
-        return $this->render('learn', [
-            'learn' => $learn,
+        return $this->render('view', [
+            'model' => $model,
         ]);
     }
 
