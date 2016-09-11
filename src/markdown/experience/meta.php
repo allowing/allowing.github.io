@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'experience-di' => [
+        'title' => '依赖注入与控制反转',
+    ],
     'experience-req-res' => [
         'title' => '浅谈“请求(Request)”与“响应(Response)”',
     ],
