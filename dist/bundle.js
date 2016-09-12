@@ -23024,20 +23024,18 @@
 	var App = function (_Component) {
 	    _inherits(App, _Component);
 
-	    function App() {
+	    function App(props, context) {
 	        _classCallCheck(this, App);
 
-	        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props, context));
+
+	        var dispatch = _this.props.dispatch;
+
+	        dispatch((0, _actions.actionFetchLearn)());
+	        return _this;
 	    }
 
 	    _createClass(App, [{
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
-	            var dispatch = this.props.dispatch;
-
-	            dispatch((0, _actions.actionFetchLearn)());
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _props = this.props;
@@ -23045,10 +23043,11 @@
 	            var learns = _props.learns;
 
 	            console.log(learns);
+	            // learns = learns.map(elem => <h1>{elem.name}</h1>);
 	            return _react2.default.createElement(
 	                'h1',
 	                null,
-	                learns
+	                '123'
 	            );
 	        }
 	    }]);
@@ -23056,7 +23055,9 @@
 	    return App;
 	}(_react.Component);
 
-	// connect 接收一个回调函数，回调函数接收一个全局的 state
+	// connect 接收一个回调函数，回调函数接收一个全局的 state，回调函数返回的值将赋值给 this.props
+	// this.props.dispatch 必然存在
+	// connect 函数执行完，又返回一个函数，可以调用这个函数，传递一个 React 组件进去
 
 
 	exports.default = (0, _reactRedux.connect)(function (state) {
