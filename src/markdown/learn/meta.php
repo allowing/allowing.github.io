@@ -27,6 +27,9 @@ return [
     'js-syntax' => [
         'title' => 'JS教程 - 基础语法',
     ],
+    'js-extends' => [
+        'title' => 'JS教程 - 原型',
+    ],
     'js-dom' => [
         'title' => 'JS教程 - 文档操作(DOM操作)',
     ],
