@@ -101,7 +101,7 @@ var Cat = function () {};
 // 让猫继承老虎，只需要修改猫的构造器，把构造器的原型修改成老虎的
 Cat.prototype = oneTiger;
 
-这样，只要用这个构造器生产的猫，就都具有这只老虎的特性了。
+// 这样，只要用这个构造器生产的猫，就都具有这只老虎的特性了。
 var oneCat = new Cat();
 oneCat.eat(); // 吃草中...
 oneCat.age; // 5
