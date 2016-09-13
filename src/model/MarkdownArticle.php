@@ -21,8 +21,6 @@ class MarkdownArticle extends Model
 
     private $_updatedAt;
 
-    private $_createdAt;
-
     private $_dir;
 
     private $_filename;
@@ -78,15 +76,6 @@ class MarkdownArticle extends Model
             return $this->_updatedAt;
         }
         return $this->_updatedAt = filemtime($this->filename);
-    }
-
-    public function getCreatedAt()
-    {
-        if (!is_null($this->_createdAt)) {
-            return $this->_createdAt;
-        }
-
-        return $this->_createdAt = filectime($this->getFilename());
     }
 
     public static function findAll($dir)
