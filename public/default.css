@@ -128,7 +128,7 @@ html {
 	line-height: normal;
 }
 .item-content pre code {
-	padding: 16px 0 16px 50px;
+	padding: 16px 0 16px 54px;
 	font-family: 'consola';
 }
 .item-content th {
@@ -203,12 +203,12 @@ html {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 16px 8px 16px 0;
+    padding: 16px 10px 16px 0;
     width: 34px;
     overflow: hidden;
     text-align: right;
     font-family: consola, monospace;
-    color: #aaa;
+    color: #999;
 }
 .item-content .pre-numbering li {
     list-style-type: none;
