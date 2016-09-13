@@ -1,3 +1,15 @@
+@font-face {
+	font-family: 'Inconsolata';
+	src: url('Inconsolata.otf');
+}
+@font-face {
+	font-family: 'MONACO';
+	src: url('MONACO.TTF');
+}
+@font-face {
+	font-family: 'consola';
+	src: url('consola.ttf');
+}
 html {
 	background: #333 url(http://php.net/images/bg-texture-00.svg);
 }
@@ -113,6 +125,11 @@ html {
 }
 .item-content pre {
 	margin: 20px 0;
+	line-height: normal;
+}
+.item-content pre code {
+	padding: 16px;
+	font-family: 'consola';
 }
 .item-content th {
 	color: #3f51b5;
