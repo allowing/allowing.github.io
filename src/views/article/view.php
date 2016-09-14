@@ -65,7 +65,7 @@ $this->title = $model->title;
             overflowY: 'auto',
             textOverflow: 'ellipsis',
             width: 200,
-            height: 750,
+            maxHeight: 750,
         });
         wrapBox.appendTo('body');
 
