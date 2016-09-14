@@ -15,6 +15,9 @@ $this->title = $model->title;
     })();
 
     (function () {
+        if ($(window).width() < 768) {
+            return;
+        }
         var titles = $('.item-content').children('h2,h3,h4,h5,h6');
         if (!titles.size()) {
             return;
