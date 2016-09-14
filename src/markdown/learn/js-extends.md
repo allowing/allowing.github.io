@@ -127,6 +127,12 @@ var Student = function (name) {
     this.setName(name);
 };
 
+// 定义常量
+Object.defineProperty(Student, 'SCHOOL', {
+    writable: false,
+    value: '兴育强中学'
+});
+
 // 设计构造器的 prototype
 Student.prototype = {
     constructor: Student,
@@ -145,7 +151,7 @@ Student.prototype = {
         return this.birthday;
     },
     learn: function () {
-        return '正在认真学习数学课...';
+        return Student.SCHOOL + '的学生正在认真学习数学课...';
     }
 };
 
