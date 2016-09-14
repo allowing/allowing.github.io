@@ -67,7 +67,7 @@ var Human = function (name, age, gender) {
     this.gender = gender;
 };
 
-Human.leg = 4; // 静态属性
+Human.leg = 2; // 静态属性
 
 // 给原型增加一个方法
 // new Human() 时生成的实例就会具有这个方法
@@ -117,4 +117,39 @@ var xiaohua = new Cat('小花', 1);
 xiaohua.name; // 小花
 xiaohua.age; // 1
 
+```
+
+在 js 中，怎么按照传统的(JAVA PHP)语言来写“类”呢？下面就用 js 仿照传统的 OOP 思想，设计一个学生类。
+
+```js
+// 一个构造器
+var Student = function (name) {
+    this.setName(name);
+};
+
+// 设计构造器的 prototype
+Student.prototype = {
+    constructor: Student,
+    name: null,
+    birthday: null,
+    setName: function (name) {
+        this.name = name;
+    },
+    getName: function () {
+        return this.name;
+    },
+    setBirthday: function (birthday) {
+        this.birthday = birthday;
+    },
+    getBirthday: function () {
+        return this.birthday;
+    },
+    learn: function () {
+        return '正在认真学习数学课...';
+    }
+};
+
+var zs = new Student('张三');
+alert(zs.getName());
+alert(zs.learn());
 ```
