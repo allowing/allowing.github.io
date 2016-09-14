@@ -10,7 +10,7 @@ $this->title = $model->title;
 <script>
     (function () {
         $('.item-content').html(
-            Allowing.markdown.markdown2html('<?= addcslashes($model->content, "',\r\n") ?>')
+            Allowing.markdown.markdown2html('<?= addcslashes($model->content, "',\r\n\\") ?>')
         );
     })();
 
