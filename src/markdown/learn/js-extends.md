@@ -129,7 +129,9 @@ var Student = function (name) {
 
 // 定义常量
 Object.defineProperty(Student, 'SCHOOL', {
+    configurable: false,
     writable: false,
+    enumerable: false,
     value: '兴育强中学'
 });
 
