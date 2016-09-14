@@ -213,6 +213,7 @@ html {
     text-align: right;
     font-family: consola, monospace;
     color: #999;
+    background-color: #2a2b24;
 }
 .item-content .pre-numbering li {
     list-style-type: none;
