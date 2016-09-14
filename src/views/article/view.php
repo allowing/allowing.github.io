@@ -32,6 +32,7 @@ $this->title = $model->title;
             $(item).attr('id', hrefName + i);
             var link = $('<a>').attr({
                 href: '#' + hrefName + i,
+                title: $(this).html(),
             }).html($(this).html());
             var ml = 0;
             switch (item.localName) {
@@ -59,6 +60,12 @@ $this->title = $model->title;
             left: leftPosition(),
             fontSize: 12,
             lineHeight: 1.8,
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            overflowY: 'auto',
+            textOverflow: 'ellipsis',
+            width: 200,
+            height: 750,
         });
         wrapBox.appendTo('body');
 
