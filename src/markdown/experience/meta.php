@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'experience-psr-6' => [
+        'title' => 'PSR-6 缓存接口规范',
+    ],
     'experience-di' => [
         'title' => '依赖注入与控制反转',
     ],

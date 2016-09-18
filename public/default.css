@@ -17,6 +17,9 @@ html {
 	color: #fff;
 	background-color: #3f51b5;
 }
+body {
+	font-family: 'consola', sans-serif;
+}
 /** 容器 */
 .container {
 	width: 936px;
@@ -47,7 +50,7 @@ html {
 	margin: 0 20px 0 0;
 	line-height: 32px;
 	font-size: 14px;
-	font-family: '黑体', '微软雅黑', serif;
+	font-family: '微软雅黑', serif;
 }
 .nav-item a {
 	color: #fff;
@@ -86,16 +89,16 @@ html {
 .item-title {
 	margin: 10px 0;
 	font-size: 16px;
-	font-family: '黑体', '微软雅黑', serif;
 	font-weight: normal;
 	text-align: center;
 	color: #3f51b5;
+	font-family: '微软雅黑', serif;
 }
 
 /** 留言的内容 */
 .item-content {
 	margin: 20px 0;
-	line-height: 1.8em;
+	line-height: 1.8;
 }
 .item-content > h1,
 .item-content > h2,
@@ -105,8 +108,8 @@ html {
 .item-content > h6 {
 	margin: 20px 0;
     color: #3f51b5;
-    font-family: '黑体', '微软雅黑', serif;
     font-weight: normal;
+	font-family: '微软雅黑', serif;
 }
 .item-content p {
 	margin: 10px 0;
@@ -133,7 +136,7 @@ html {
 }
 .item-content pre code {
 	padding: 16px 0 16px 54px;
-	font-family: 'consola';
+	font-family: 'consola', sans-serif;
 }
 .item-content th {
 	color: #3f51b5;
@@ -211,9 +214,9 @@ html {
     width: 34px;
     overflow: hidden;
     text-align: right;
-    font-family: consola, monospace;
     color: #999;
     background-color: #2a2b24;
+	font-family: 'consola', sans-serif;
 }
 .item-content .pre-numbering li {
     list-style-type: none;
