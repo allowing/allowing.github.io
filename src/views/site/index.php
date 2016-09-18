@@ -55,6 +55,22 @@ $this->title = '首页';
         </ul>
     </div>
     <div class="item-content">
+        <h2>视频教程</h2>
+        <h3>PHP 视频教程</h3>
+
+        <h4>PSR-4 自动加载技术</h4>
+        <p>PSR-4 是一份关于自动加载技术的文档，是每一个学习 PHP 的同学都应该认识和掌握的。本视频带领大家实现了一个符合文档内容的自动加载器。</p>
+        <p><a href="https://github.com/PizzaLiu/PHP-FIG/blob/master/PSR-4-autoloader-cn.md">PSR-4 规范文档（中文翻译版）</a></p>
+        <video width="100%" src="/videos/psr-4.mp4" controls="controls">您的浏览器不支持 html 5 的视频播放技术，可以下载谷歌浏览器试试。</video>
+
+        <h4>依赖注入</h4>
+        <p>本视频旨在帮助同学们理解什么是依赖，理解什么是控制反转，然后在理解了这些概念的基础上实现一个依赖注入容器。</p>
+        <video width="100%" src="/videos/php-di.mp4" controls="controls">您的浏览器不支持 html 5 的视频播放技术，可以下载谷歌浏览器试试。</video>
+
+        <h4>半天入门 PHP</h4>
+        <p>本视频是针对没有 PHP 编程经验的同学录制的，旨在带领同学快速入门，为后期学习打下基础。学习完本视频，在后期详细学习过程中，会有事半功倍的效果。</p>
+        <video width="100%" src="/videos/php-ready.mp4" controls="controls">您的浏览器不支持 html 5 的视频播放技术，可以下载谷歌浏览器试试。</video>
+
         <h2>联系</h2>
         <p>黎老师，电话：13143515415，微信：Ljj1076707907</p>
 
