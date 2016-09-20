@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'experience-docker' => [
+        'title' => '今天玩了一天的 Docker',
+    ],
     'experience-psr-6' => [
         'title' => 'PSR-6 缓存接口规范',
     ],
