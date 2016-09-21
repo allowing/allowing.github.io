@@ -59,7 +59,7 @@ use yii\helpers\ArrayHelper;
     </header>
     <?= $content ?>
     <footer>
-        <p class="footer-p">友情链接：<a href="http://linxue.net/" target="_blank">林雪博客</a>|<a href="http://yuerblog.cc/" target="_blank">鱼儿的博客</a>|<a href="http://www.yoyo88.cn/" target="_blank">yoyo博客</a>|<a href="http://www.phpin.net/" target="_blank">PHPIN</a></p>
+        <p class="footer-p">友情链接：<a href="http://linxue.net/" target="_blank">林雪博客</a>|<a href="http://yuerblog.cc/" target="_blank">鱼儿的博客</a>|<a href="http://www.yoyo88.cn/" target="_blank">yoyo博客</a>|<a href="http://www.phpin.net/" target="_blank">PHPIN</a></p>|<a href="http://www.copyf.com/" target="_blank">网站技术资源整合网</a></p>
         <p class="footer-p">关于内容：本站内容均为站长原创，未经允许不得转载。个别语言的组织会摘自互联网，如果侵权，可联系删除</p>
         <p class="footer-p"><a href="/sitemap.html">网站地图</a></p>
     </footer>
