@@ -2,6 +2,20 @@
 
 var Allowing = function () {};
 
+Allowing.Helper = function () {};
+
+Allowing.Helper.setupBaiduSeoPush = function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var head = document.querySelector('head');
+    head.insertBefore(bp, head.firstChild);
+};
+
 Allowing.Markdown = function () {};
 
 Allowing.Markdown.markdown2html = function (markdown) {
@@ -34,6 +48,7 @@ window.Allowing = Allowing;
 try {
     $(function () {
         try {
+            Allowing.Helper.setupBaiduSeoPush();
             Allowing.Markdown.loadedHighlight();
             Allowing.Markdown.hljsNumberLine();
         } catch (e) {
