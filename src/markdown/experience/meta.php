@@ -14,12 +14,12 @@ return [
         'title' => '浅谈“请求(Request)”与“响应(Response)”',
     ],
     'experience-js-bjzm' => [
-        'title' => 'js之百家争鸣',
+        'title' => 'js 之百家争鸣',
     ],
     'experience-mrkdown' => [
-        'title' => '小编写作神器之markdown',
+        'title' => '小编写作神器之 Markdown',
     ],
     'experience-php-error' => [
-        'title' => '用PHP开发程序常犯的错误',
+        'title' => '用 PHP 开发程序常犯的错误',
     ],
 ];

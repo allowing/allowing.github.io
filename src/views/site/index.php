@@ -7,7 +7,7 @@
  */
 
 /** @var \yii\web\View $this */
-$this->title = '首页';
+$this->title = '学习IT技术 - 首页';
 ?>
 <style>
     .index-slide-box {

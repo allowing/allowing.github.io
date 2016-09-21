@@ -10,6 +10,7 @@ namespace allowing\yunliwang\model;
 
 use Yii;
 use yii\base\Model;
+use cebe\markdown\GithubMarkdown;
 
 class MarkdownArticle extends Model
 {
@@ -68,6 +69,12 @@ class MarkdownArticle extends Model
             return $this->_content;
         }
         return $this->_content = file_get_contents($this->filename);
+    }
+
+    public function getHtmlContent()
+    {
+        $parser = new GithubMarkdown();
+        return $parser->parse($this->content);
     }
 
     public function getUpdatedAt()

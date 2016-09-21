@@ -3,17 +3,10 @@
 /** @var \allowing\yunliwang\model\MarkdownArticle $model */
 $this->title = $model->title;
 ?>
-<p class="tool-bar"><a href="javascript:history.back()">&lt;&lt;后退</a></p>
 <div class="item">
-    <div class="item-content"></div>
+    <div class="item-content"><?= $model->htmlContent ?></div>
 </div>
 <script>
-    (function () {
-        $('.item-content').html(
-            Allowing.markdown.markdown2html('<?= addcslashes($model->content, "',\r\n\\") ?>')
-        );
-    })();
-
     (function () {
         if ($(window).width() < 768) {
             return;

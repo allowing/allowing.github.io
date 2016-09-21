@@ -1,37 +1,41 @@
 (function ($, hljs, window, undefined) {
 
-function Allowing() {}
-Allowing.markdown = {
-    markdown2html: function (markdown) {
-        var converter = new showdown.Converter();
-        return converter.makeHtml(markdown);
-    },
-    loadedHighlight: function () {
-        $('pre code').each(function(i, block) {
-            hljs.highlightBlock(block);
-        });
-    },
-    hljsNumberLine: function () {
-        $('pre code').each(function () {
-            var lines = $(this).text().split('\n').length - 1;
-            var $numbering = $('<ul/>').addClass('pre-numbering');
-            $(this)
-                .addClass('has-numbering')
-                .parent()
-                .append($numbering);
-            for (i=1; i<=lines; i++) {
-                $numbering.append($('<li/>').text(i));
-            }
-        });
-    },
+var Allowing = function () {};
+
+Allowing.Markdown = function () {};
+
+Allowing.Markdown.markdown2html = function (markdown) {
+    var converter = new showdown.Converter();
+    return converter.makeHtml(markdown);
 };
+
+Allowing.Markdown.loadedHighlight = function () {
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+};
+
+Allowing.Markdown.hljsNumberLine = function () {
+    $('pre code').each(function () {
+        var lines = $(this).text().split('\n').length - 1;
+        var $numbering = $('<ul/>').addClass('pre-numbering');
+        $(this)
+            .addClass('has-numbering')
+            .parent()
+            .append($numbering);
+        for (i = 1; i <= lines; i++) {
+            $numbering.append($('<li/>').text(i));
+        }
+    });
+};
+
 window.Allowing = Allowing;
 
 try {
     $(function () {
         try {
-            Allowing.markdown.loadedHighlight();
-            Allowing.markdown.hljsNumberLine();
+            Allowing.Markdown.loadedHighlight();
+            Allowing.Markdown.hljsNumberLine();
         } catch (e) {
             throw e;
         }
