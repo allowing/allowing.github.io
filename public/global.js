@@ -1,15 +1,5 @@
 (function ($, hljs, window, undefined) {
 
-function setUpCountCode()
-{
-    window._hmt = window._hmt || [];
-    $('head')
-    .first()
-    .prepend(
-        '<script src="//hm.baidu.com/hm.js?1d85c535ce54f54b9c38f1d2ad49a516"></script>'
-    );
-}
-
 function Allowing() {}
 Allowing.markdown = {
     markdown2html: function (markdown) {
@@ -38,19 +28,17 @@ Allowing.markdown = {
 window.Allowing = Allowing;
 
 try {
-    setUpCountCode();
+    $(function () {
+        try {
+            Allowing.markdown.loadedHighlight();
+            Allowing.markdown.hljsNumberLine();
+        } catch (e) {
+            throw e;
+        }
+    });
 } catch (e) {
     throw e;
 }
-
-$(function () {
-    try {
-        Allowing.markdown.loadedHighlight();
-        Allowing.markdown.hljsNumberLine();
-    } catch (e) {
-        throw e;
-    }
-});
 
 })(jQuery, hljs, window);
 
