@@ -9,8 +9,7 @@ use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 
 /** @var string $content */
-?>
-<!doctype html>
+?><!doctype html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
@@ -62,6 +61,7 @@ use yii\helpers\ArrayHelper;
     <footer>
         <p class="footer-p">友情链接：<a href="http://linxue.net/" title="林雪博客" target="_blank">林雪博客</a>|<a href="http://yuerblog.cc/" title="鱼儿的博客" target="_blank">鱼儿的博客</a></p>
         <p class="footer-p">关于内容：本站内容均为站长原创，未经允许不得转载。个别语言的组织会摘自互联网，如果侵权，可联系删除</p>
+        <p class="footer-p"><a href="/sitemap.html">网站地图</a></p>
     </footer>
 </div>
 </body>
