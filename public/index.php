@@ -12,7 +12,7 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 
-$app = new \yii\web\Application([
+$app = new \yii\web\Application(\yii\helpers\ArrayHelper::merge(require __DIR__ . '/../src/config/main-local.php', [
     'id' => 'yunliwang',
     'language' => 'zh-CN',
     'basePath' => __DIR__ . '/../src',
@@ -43,6 +43,6 @@ $app = new \yii\web\Application([
     'bootstrap' => [
 
     ],
-]);
+]));
 
 $app->run();

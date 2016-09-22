@@ -8,140 +8,243 @@
 
 <url>
   <loc>http://allowing.weiwait.top/</loc>
+  <changefreq>always</changefreq>
+  <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn</loc>
+  <loc>http://allowing.weiwait.top/article/learn.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/news</loc>
+  <loc>http://allowing.weiwait.top/article/news.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/course</loc>
+  <loc>http://allowing.weiwait.top/course.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/outline</loc>
+  <loc>http://allowing.weiwait.top/outline.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/source</loc>
+  <loc>http://allowing.weiwait.top/source.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/experience</loc>
+  <loc>http://allowing.weiwait.top/article/experience.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/case</loc>
+  <loc>http://allowing.weiwait.top/case.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/git-ready</loc>
+  <loc>http://allowing.weiwait.top/sitemap.html</loc>
+  <lastmod>2016-09-21T08:02:21+00:00</lastmod>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/git-video</loc>
+  <loc>http://allowing.weiwait.top/article/learn/git-ready.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/git-cmd</loc>
+  <loc>http://allowing.weiwait.top/article/learn/git-video.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/html5-ready</loc>
+  <loc>http://allowing.weiwait.top/article/learn/git-cmd.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/html5-element</loc>
+  <loc>http://allowing.weiwait.top/article/learn/html5-ready.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/css-ready</loc>
+  <loc>http://allowing.weiwait.top/article/learn/html5-element.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/css-selector</loc>
+  <loc>http://allowing.weiwait.top/article/learn/css-ready.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/js-ready</loc>
+  <loc>http://allowing.weiwait.top/article/learn/css-selector.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/js-syntax</loc>
+  <loc>http://allowing.weiwait.top/article/learn/js-ready.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/js-extends</loc>
+  <loc>http://allowing.weiwait.top/article/learn/js-syntax.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/js-dom</loc>
+  <loc>http://allowing.weiwait.top/article/learn/js-extends.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-ready</loc>
+  <loc>http://allowing.weiwait.top/article/learn/js-dom.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-type</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-ready.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-var</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-type.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-const</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-var.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-operation</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-const.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-if</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-operation.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-loop</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-if.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-function</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-loop.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-function-of-php</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-function.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-class</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-function-of-php.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-extends</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-class.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-access</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-extends.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-abstract</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-access.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-interface</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-abstract.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-static-and-const</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-interface.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/php-magic-mothods</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-static-and-const.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/java-ready</loc>
+  <loc>http://allowing.weiwait.top/article/learn/php-magic-mothods.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/java-helloworld</loc>
+  <loc>http://allowing.weiwait.top/article/learn/java-ready.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/learn/other-phpDocumentor</loc>
+  <loc>http://allowing.weiwait.top/article/learn/java-helloworld.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/news/class001-start</loc>
+  <loc>http://allowing.weiwait.top/article/learn/other-phpDocumentor.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/experience/experience-docker</loc>
+  <loc>http://allowing.weiwait.top/article/news/class001-start.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/experience/experience-psr-6</loc>
+  <loc>http://allowing.weiwait.top/article/experience/experience-docker.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/experience/experience-di</loc>
+  <loc>http://allowing.weiwait.top/article/experience/experience-psr-3.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/experience/experience-req-res</loc>
+  <loc>http://allowing.weiwait.top/article/experience/experience-psr-6.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/experience/experience-js-bjzm</loc>
+  <loc>http://allowing.weiwait.top/article/experience/experience-di.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/experience/experience-mrkdown</loc>
+  <loc>http://allowing.weiwait.top/article/experience/experience-req-res.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://allowing.weiwait.top/article/experience/experience-php-error</loc>
+  <loc>http://allowing.weiwait.top/article/experience/experience-js-bjzm.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://allowing.weiwait.top/article/experience/experience-mrkdown.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://allowing.weiwait.top/article/experience/experience-php-error.html</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
 </url>
 </urlset>
