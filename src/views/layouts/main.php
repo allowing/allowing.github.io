@@ -19,9 +19,15 @@ use yii\helpers\ArrayHelper;
         user-scalable=no,
         initial-scale=1.0,
         maximum-scale=1.0,
-        minimum-scale=1.0,
-        uc-fitscreen=no">
+        minimum-scale=1.0">
+
+    <!-- UC 浏览器 -->
     <meta name="layoutmode" content="standard">
+    <meta name="nightmode" content="disable">
+
+    <!-- X5 内核，也就是 QQ 浏览器 -->
+    <meta name="x5-fullscreen" content="true">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="<?=
         ArrayHelper::getValue($this->params, 'keywords', '自学PHP,自学JS,PHP教程,IT培训,HTML,JS,CSS,PHP')

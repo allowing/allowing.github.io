@@ -1,12 +1,4 @@
 @font-face {
-	font-family: 'Inconsolata';
-	src: url('Inconsolata.otf');
-}
-@font-face {
-	font-family: 'MONACO';
-	src: url('MONACO.TTF');
-}
-@font-face {
 	font-family: 'consola';
 	src: url('consola.ttf');
 }
@@ -18,9 +10,8 @@ html {
 	background-color: #3f51b5;
 }
 body {
-	font-family: 'consola', sans-serif;
+	font-family: 'consola', 'Microsoft Yahei', sans-serif;
 }
-/** 容器 */
 .container {
 	width: 936px;
 	padding: 40px 30px;
@@ -28,14 +19,11 @@ body {
 	border-right: 4px solid #666;
 	background: #fff;
 }
-
 .logo {
 	float: left;
 	width: 32px;
 	height: 32px;
 }
-
-/** 导航 */
 .nav {
 	float: left;
 	height: 32px;
@@ -50,24 +38,17 @@ body {
 	margin: 0 20px 0 0;
 	line-height: 32px;
 	font-size: 14px;
-	font-family: '微软雅黑', serif;
 }
 .nav-item a {
 	color: #fff;
 	text-decoration: none;
 }
-
-/** 工具栏 */
 .tool-bar {
 	margin: 10px 0;
 }
-
-/** 列表容器 */
 .list-box {
 
 }
-
-/** 列表项 */
 .list-item {
 	padding: 8px 0;
 	margin: 10px 0;
@@ -79,23 +60,16 @@ body {
 	color: #666;
 	font-size: 12px;
 }
-
-/** 单条留言 */
 .item {
 	margin: 10px 0;
 }
-
-/** 留言的标题 */
 .item-title {
 	margin: 10px 0;
 	font-size: 16px;
 	font-weight: normal;
 	text-align: center;
 	color: #3f51b5;
-	font-family: '微软雅黑', serif;
 }
-
-/** 留言的内容 */
 .item-content {
 	margin: 20px 0;
 	line-height: 1.8;
@@ -109,7 +83,6 @@ body {
 	margin: 20px 0;
     color: #3f51b5;
     font-weight: normal;
-	font-family: '微软雅黑', serif;
 }
 .item-content p {
 	margin: 10px 0;
@@ -136,76 +109,59 @@ body {
 }
 .item-content pre code {
 	padding: 16px 0 16px 54px;
-	font-family: 'consola', sans-serif;
+	font-family: 'consola', 'Microsoft Yahei', sans-serif;
+	line-height: 1.4;
 }
 .item-content th {
 	color: #3f51b5;
 }
-
-/** 留言信息容器 存放诸如时间、阅读量、作者等 这类信息一般不能抢读者的眼球 */
 .item-info-box {
 	margin: 10px 0;
 	text-align: center;
 	color: #bbb;
 	font-size: 12px;
 }
-
-/** 留言的发布时间 */
 .item-created-at {
 
 }
-
-/** 留言的修改时间 */
 .item-updated-at {
 
 }
-
-/** 条目的图片描述 */
 .item-img-des {
 	text-align: center;
 	font-size: 12px;
 	color: #2c11ff;
 }
-
 .post-content-input {
 	width: 500px;
 	height: 300px;
 }
-
 .table {
 	width: 100%;
 	margin: 10px 0;
 }
-
 .table,
 .table td,
 .table th {
 	border: 1px solid #999;
 	border-collapse: collapse;
 }
-
 .table td,
 .table th {
 	padding: 5px 10px;
 }
-
 .table tr:nth-child(2n) td {
 	background-color: #ddd;
 }
-
-/** 页脚的一句话描述 */
 .footer-p {
 	margin: 10px 0;
 	text-align: center;
 	color: #3f51b5;
 	font-size: 12px;
 }
-
-/** 行号 */
 .item-content pre {
     position: relative;
 }
-
 .item-content .pre-numbering {
     position: absolute;
     top: 0;
@@ -216,9 +172,9 @@ body {
     text-align: right;
     color: #999;
     background-color: #2a2b24;
-	font-family: 'consola', sans-serif;
+	font-family: 'consola', 'Microsoft Yahei', sans-serif;
+	line-height: 1.4;
 }
 .item-content .pre-numbering li {
     list-style-type: none;
 }
-/** 行号 end */
