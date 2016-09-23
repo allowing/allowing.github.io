@@ -4,6 +4,9 @@ return [
     'experience-docker' => [
         'title' => '今天玩了一天的 Docker',
     ],
+    'experience-small-app' => [
+        'title' => '微信小程序',
+    ],
     'experience-psr-3' => [
         'title' => 'PSR-3 日志接口',
     ],
