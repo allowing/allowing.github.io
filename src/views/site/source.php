@@ -16,5 +16,7 @@ $this->title = '学习资源';
         <p><a target="_blank" href="http://tool.oschina.net/apidocs">开源中国收集的 API 手册大全</a></p>
         <p><a target="_blank" href="https://remarkjs.com">remarkjs -- 可以用来制作 PPT</a></p>
         <p><a target="_blank" href="http://www.php-fig.org/">PHP-FIG -- 关于 PHP 的规范文档</a></p>
+        <p><a target="_blank" href="https://github.com/elemefe">饿了么前端 -- github</a></p>
+        <p><a target="_blank" href="https://www.zybuluo.com/mdeditor">作业部落 Markdown</a></p>
     </div>
 </div>
