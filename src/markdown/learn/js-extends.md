@@ -153,7 +153,7 @@ Student.prototype = {
         return this.birthday;
     },
     learn: function () {
-        return Student.SCHOOL + '的学生正在认真学习数学课...';
+        return Student.SCHOOL + '的学生' + this.getName() + '正在认真学习数学课...';
     }
 };
 
