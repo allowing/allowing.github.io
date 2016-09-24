@@ -75,20 +75,20 @@ $this->title = '学习IT技术 - 首页';
         <p>黎老师，电话：13143515415，微信：Ljj1076707907</p>
 
         <h2>开课动态</h2>
-        <p style="color: #3f51b5"><strong>2016-08-21(周日)，class001届将正式开课，目前还有少量学位，欲报从速啦...</strong></p>
+        <p style="color: #3f51b5"><strong>2016-08-21(周日)，class001 届将正式开课，目前还有少量学位，欲报从速啦...</strong></p>
 
         <h2>作业仓库</h2>
-        <p>class001届仓库地址：<a target="_blank" href="http://git.oschina.net/allowing/class001-homework">http://git.oschina.net/allowing/class001-homework</a></p>
+        <p>class001 届仓库地址：<a target="_blank" href="http://git.oschina.net/allowing/class001-homework">http://git.oschina.net/allowing/class001-homework</a></p>
 
         <h2>问答</h2>
         <p>Q: 什么是职业技术？</p>
         <p>A: 职业技术是指面对从事的工作所要掌握的必要技能。</p>
         <p>Q: 我如果参加了学习能从事什么工作？</p>
-        <p>A: 可以从事网站开发、电子商城建设、OA办公系统等等。</p>
+        <p>A: 可以从事网站开发、电子商城、OA 办公系统、CRM 、博客、企业网站等等。</p>
         <p>Q: 工作好找吗？</p>
         <p>A: 非常好找。</p>
         <p>Q: 学习周期多长？</p>
-        <p>A: 5到6个月（视个人能否达上岗标准）。</p>
+        <p>A: 4 到 5 个月（视个人能否达上岗标准）。</p>
         <p>Q: 我能不能参加学习？</p>
         <p>A: 原则上最低要求高中毕业，视个人能力可降低要求。</p>
         <p>Q: 我已经不是学生很多年了能不能参加学习？</p>
