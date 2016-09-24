@@ -23,9 +23,9 @@ a:hover {
 	color: #F92672;
 }
 code {
-	border-radius: 5px;
-	padding: 0 8px;
-	background-color: rgba(63, 81, 181, 0.15);
+	padding: 0.2em;
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 3px;
 }
 .container {
 	width: 936px;
