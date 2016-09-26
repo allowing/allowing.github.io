@@ -18,5 +18,6 @@ $this->title = '学习资源';
         <p><a target="_blank" href="http://www.php-fig.org/">PHP-FIG -- 关于 PHP 的规范文档</a></p>
         <p><a target="_blank" href="https://github.com/elemefe">饿了么前端 -- github</a></p>
         <p><a target="_blank" href="https://www.zybuluo.com/mdeditor">作业部落 Markdown</a></p>
+        <p><a target="_blank" href="https://github.com/guzzle/guzzle">guzzle/guzzle -- PHP 发送网络请求的库</a></p>
     </div>
 </div>
