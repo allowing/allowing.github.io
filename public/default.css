@@ -3,7 +3,7 @@
 	src: url('consola.ttf');
 }
 html {
-	background: #333 url(http://php.net/images/bg-texture-00.svg);
+	background: #333 url(bg-texture-00.svg);
 }
 ::selection {
 	color: #fff;
