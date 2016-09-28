@@ -78,7 +78,7 @@ $this->title = '学习IT技术 - 首页';
         <p style="color: #3f51b5"><strong>2016-08-21(周日)，class001 届将正式开课，目前还有少量学位，欲报从速啦...</strong></p>
 
         <h2>作业仓库</h2>
-        <p>class001 届仓库地址：<a target="_blank" href="http://git.oschina.net/allowing/class001-homework">http://git.oschina.net/allowing/class001-homework</a></p>
+        <p><a target="_blank" href="http://git.oschina.net/allowing/class001-homework">class001 届仓库</a></p>
 
         <h2>问答</h2>
         <p>Q: 什么是职业技术？</p>
