@@ -56,6 +56,15 @@ composer dump-autoload
 # 查看配置
 composer config --list
 
+# 查看帮助
+#
+# 当不知道这个命令有哪些选项和需要输入哪些参数时，可以查看帮助
+composer -h
+composer <子命令> -h
+
+# 如查看 config 子命令的帮助
+composer config -h
+
 ```
 
 ## 一些子命令的翻译
