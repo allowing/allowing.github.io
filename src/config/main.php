@@ -28,10 +28,11 @@ return [
             'class' => 'allowing\yunliwang\component\ReadCount',
         ],
         'log' => [
+            'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 'file' => [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['trace', 'info'],
+                    'levels' => ['trace', 'info', 'error', 'warning'],
                 ],
                 'email' => [
                     'class' => 'yii\log\EmailTarget',
