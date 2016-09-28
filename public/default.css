@@ -190,6 +190,22 @@ code {
 .item-content .pre-numbering li {
     list-style-type: none;
 }
+.give-me-money {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 50%;
+	margin: 0 auto;
+}
+.give-me-money-title {
+	width: 100%;
+	font-weight: normal;
+	color: #F92672;
+}
+.give-me-money-type {
+	font-weight: normal;
+	color: #3f51b5;
+}
 @media screen and (max-width: 720px) {
 	.container {
 		box-sizing: border-box;
