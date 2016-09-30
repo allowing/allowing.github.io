@@ -21,5 +21,6 @@ $this->title = '学习资源';
         <p><a target="_blank" href="https://github.com/guzzle/guzzle">guzzle/guzzle -- PHP 发送网络请求的库</a></p>
         <p><a target="_blank" href="http://redisbook.com/">Redis 设计与实现</a></p>
         <p><a target="_blank" href="http://www.material-ui.com/">material-ui -- React 的 UI 组件库</a></p>
+        <p><a target="_blank" href="http://blog.cnbang.net/tech/2698/">React Native 通信机制详解</a></p>
     </div>
 </div>
