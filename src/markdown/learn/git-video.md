@@ -1,5 +1,9 @@
 # GIT教程 - 视频配套课件
 
+[点击下载配套视频教程](/videos/git视频-允梨教育赞助出品.zip)
+
+![git视频图片](/images/learn/git-table-list.png)
+
 ## 前言
 
 ### 关于教程

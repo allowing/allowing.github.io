@@ -4,11 +4,3 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule . index.php
 </IfModule>
-<IfModule expires_module>
-    ExpiresActive on
-    ExpiresByType text/css A86400
-    ExpiresByType text/javascript A86400
-    ExpiresByType image/jpeg A86400
-    ExpiresByType image/gif A86400
-    ExpiresByType image/png A86400
-</IfModule>
