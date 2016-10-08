@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'experience-teacher' => [
+        'title' => '师说',
+    ],
     'experience-code-style' => [
         'title' => '浅谈良好代码格式的重要性',
     ],
