@@ -28,6 +28,10 @@ class MarkdownArticle extends Model
 
     private $_readCount;
 
+    private $_keywords;
+
+    private $_description;
+
     public function setDir($dir)
     {
         $this->_dir = $dir;
@@ -83,6 +87,22 @@ class MarkdownArticle extends Model
             return $this->_updatedAt;
         }
         return $this->_updatedAt = filemtime($this->filename);
+    }
+
+    public function getKeywords()
+    {
+        if ($this->_keywords === null) {
+            $this->_keywords = $this->title . ',允梨教育';
+        }
+        return $this->_keywords;
+    }
+
+    public function getDescription()
+    {
+        if ($this->_description === null) {
+            $this->_description = mb_substr(strip_tags($this->htmlContent), 0, 90) . '......';
+        }
+        return $this->_description;
     }
 
     public static function findAll($dir)

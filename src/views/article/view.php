@@ -2,6 +2,8 @@
 /** @var \yii\web\View $this */
 /** @var \allowing\yunliwang\model\MarkdownArticle $model */
 $this->title = $model->title;
+$this->params['keywords'] = $model->keywords;
+$this->params['description'] = $model->description;
 ?>
 <div class="item">
     <div class="item-content"><?= $model->htmlContent ?></div>

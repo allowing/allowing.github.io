@@ -10,6 +10,7 @@ namespace allowing\yunliwang\controller;
 
 
 use allowing\yunliwang\model\MarkdownArticle;
+use allowing\yunliwang\model\ArticleCat;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -36,9 +37,9 @@ class ArticleController extends Controller
         if (!$models) {
             throw new NotFoundHttpException();
         }
+        $catModel = ArticleCat::findByIdentity($category);
         return $this->render('index', [
-            'title' => '文章列表',
-            'category' => $category,
+            'catModel' => $catModel,
             'models' => $models,
         ]);
     }
