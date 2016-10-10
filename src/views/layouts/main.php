@@ -44,10 +44,10 @@ use yii\helpers\Html;
     <?php $this->head() ?>
     <link rel="stylesheet" href="<?= Url::to('@web/global.css') ?>">
     <link rel="stylesheet" href="<?= Url::to('@web/default.css') ?>">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/monokai-sublime.min.css">
-    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="<?= Url::to('@web/monokai-sublime.min.css') ?>">
+    <script src="<?= Url::to('@web/jquery.min.js') ?>"></script>
     <script src="<?= Url::to('@web/showdown.min.js') ?>"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+    <script src="<?= Url::to('@web/highlight.min.js') ?>"></script>
     <script src="<?= Url::to('@web/jquery.SuperSlide.2.1.1.js') ?>"></script>
     <script src="<?= Url::to('@web/global.js') ?>"></script>
 </head>
