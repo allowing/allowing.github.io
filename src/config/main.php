@@ -4,7 +4,7 @@ return [
     'id' => 'yunliwang',
     'language' => 'zh-CN',
     'basePath' => dirname(__DIR__),
-    'vendorPath' => dirname(__DIR__) . '/vendor',
+    'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'controllerNamespace' => 'allowing\yunliwang\controller',
     'components' => [
         /** @var \yii\web\UrlManager */

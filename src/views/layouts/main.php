@@ -5,15 +5,20 @@
  * Date: 2016/8/13
  * Time: 14:53
  */
+/** @var string $content */
+
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 
-/** @var string $content */
-?><!doctype html>
+?>
+<?php $this->beginPage() ?>
+<!doctype html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
-    <title><?= $this->title ?> - 允梨教育</title>
+    <title><?= Html::encode($this->title) ?> - 允梨教育</title>
+    <?= Html::csrfMetaTags() ?>
     <meta name="viewport" content="
         width=device-width,
         user-scalable=no,
@@ -36,6 +41,7 @@ use yii\helpers\ArrayHelper;
         ArrayHelper::getValue($this->params, 'description', '允梨教育是一家学习IT技术的第三方培训平台，学习周期短，学习技能多，从这里出来的学生均有较高的职业素养和较高的薪资。')
     ?>">
     <meta name="author" content="allowing">
+    <?php $this->head() ?>
     <link rel="stylesheet" href="<?= Url::to('@web/global.css') ?>">
     <link rel="stylesheet" href="<?= Url::to('@web/default.css') ?>">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/monokai-sublime.min.css">
@@ -46,6 +52,7 @@ use yii\helpers\ArrayHelper;
     <script src="<?= Url::to('@web/global.js') ?>"></script>
 </head>
 <body>
+<?php $this->beginBody() ?>
 <div class="container">
     <header class="cf">
         <a href="<?= Url::to(['site/index']) ?>"><img class="logo" src="/images/logo.png" alt="logo"></a>
@@ -81,5 +88,7 @@ use yii\helpers\ArrayHelper;
         <p class="footer-p"><a href="/sitemap.html">网站地图</a></p>
     </footer>
 </div>
+<?php $this->endBody() ?>
 </body>
 </html>
+<?php $this->endPage() ?>
