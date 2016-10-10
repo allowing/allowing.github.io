@@ -26,8 +26,6 @@ class MarkdownArticle extends Model
 
     private $_filename;
 
-    private $_readCount;
-
     private $_keywords;
 
     private $_description;
@@ -47,11 +45,6 @@ class MarkdownArticle extends Model
     public function getId()
     {
         return $this->_id;
-    }
-
-    public function getReadCount()
-    {
-        return Yii::$app->readCount->get(__CLASS__ . $this->id);
     }
 
     public function getDir()
@@ -130,7 +123,6 @@ class MarkdownArticle extends Model
         $row['id'] = $id;
         $row['dir'] = $dir;
         $_this = new static($row);
-        Yii::$app->readCount->increment(__CLASS__ . $id); // 阅读自增
         return $_this;
     }
 }

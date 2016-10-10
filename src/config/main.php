@@ -23,10 +23,6 @@ return [
             /** @var \yii\caching\FileCache */
             'class' => 'yii\caching\FileCache',
         ],
-        'readCount' => [
-            /** @var \allowing\yunliwang\component\ReadCount */
-            'class' => 'allowing\yunliwang\component\ReadCount',
-        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

@@ -12,8 +12,15 @@ Allowing.Helper.setupBaiduSeoPush = function () {
     } else {
         bp.src = 'http://push.zhanzhang.baidu.com/push.js';
     }
-    var head = document.querySelector('head');
-    head.insertBefore(bp, head.firstChild);
+    document.querySelector('body').appendChild(bp);
+};
+
+Allowing.Helper.setupBaiduCount = function () {
+    window._hmt = window._hmt || [];
+
+    var hm = document.createElement('script');
+    hm.src = '//hm.baidu.com/hm.js?dfc5e1a2d5bc2d464b6a04dcb30881ea';
+    document.querySelector('body').appendChild(hm);
 };
 
 Allowing.Markdown = function () {};
@@ -49,6 +56,7 @@ try {
     $(function () {
         try {
             Allowing.Helper.setupBaiduSeoPush();
+            Allowing.Helper.setupBaiduCount();
             Allowing.Markdown.loadedHighlight();
             Allowing.Markdown.hljsNumberLine();
         } catch (e) {
