@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'experience-update-link' => [
+        'title' => '刷新和超链接对静态资源的请求策略的区别',
+    ],
     'experience-teacher' => [
         'title' => '师说',
     ],
