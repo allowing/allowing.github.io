@@ -13,7 +13,7 @@ class WechatController extends Controller
     {
         parent::init();
 
-        $this->request = Yii::getApp()->getRequest();
+        $this->request = Yii::$app->getRequest();
     }
 
     public function actionCallback()
