@@ -222,6 +222,7 @@ code {
 		height: auto;
 		background: #3f51b5;
 		margin: 0;
+		border-top-left-radius: 20px;
 	}
 	.nav-box {
 		display: flex;
