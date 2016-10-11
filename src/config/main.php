@@ -34,6 +34,7 @@ return [
                     'class' => 'yii\log\EmailTarget',
                     'levels' => ['error', 'warning'],
                     'message' => [
+                        'subject' => '允梨教育应用日志',
                         'to' => 'ljjgit@qq.com',
                     ],
                 ],
