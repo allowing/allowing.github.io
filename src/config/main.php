@@ -53,6 +53,9 @@ return [
                 'charset'=>'UTF-8',
             ],
         ],
+        'httpClient' => [
+            'class' => 'GuzzleHttp\Client',
+        ],
     ],
     'bootstrap' => [
         'log',

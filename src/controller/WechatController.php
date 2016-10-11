@@ -2,8 +2,8 @@
 
 namespace allowing\yunliwang\controller;
 
-use Yii;
 use yii\web\Controller;
+use allowing\yunliwang\model\AccessToken;
 
 class WechatController extends Controller
 {
@@ -13,11 +13,17 @@ class WechatController extends Controller
     {
         parent::init();
 
-        $this->request = Yii::$app->getRequest();
+        $this->request = $this->module->getRequest();
     }
 
     public function actionCallback()
     {
-        return $this->request->get('echostr');
+        $model = new AccessToken();
+        $model->attributes = [
+            'appid' => 'wx12ffad600778b5bd',
+            'secret' => '328a3c1cc9081cd660907ba7d6300deb',
+        ];
+
+        return $model->fetchToken();
     }
 }
