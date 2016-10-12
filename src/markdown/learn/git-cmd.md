@@ -120,7 +120,23 @@ git push origin master
 
 # 拉取远端 origin 仓库的 master 分支，并和本地仓库的同名分支合并
 git pull origin/master
+
+# 获取某个远程仓库的地址，例如获取 origin 的地址
+git remote get-url origin
+
+# 查看所有可用子命令列表
+git help -a
+
+# 调出 git gui
+git gui
+
+# 查看不同(diff)
+git diff
+
+# 针对某个文件查看不同，例如：foo/bar/index.php 文件
+git diff foo/bar/index.php
 ```
+
 有很多很多的命令，英文好的同学完全可以运行
 
 ```
