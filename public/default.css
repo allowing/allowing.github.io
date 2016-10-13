@@ -240,4 +240,7 @@ code {
 	.nav-item:first-child {
 		margin-left: 0;
 	}
+	.list-item::before {
+		margin-left: 0;
+	}
 }
