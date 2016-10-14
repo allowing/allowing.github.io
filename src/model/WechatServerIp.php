@@ -4,7 +4,6 @@ namespace allowing\yunliwang\model;
 
 use Yii;
 use yii\base\Model;
-use yii\caching\Cache;
 use allowing\yunliwang\wechat\Key;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
@@ -16,11 +15,9 @@ class WechatServerIp extends Model
 
     public $verify = false;
 
-    public $cacheTime = 0;
-
     private $_accessToken;
 
-    private $_cache;
+    private $_ipList;
 
     public function __construct(AccessToken $accessToken, $config = [])
     {
@@ -34,67 +31,39 @@ class WechatServerIp extends Model
         return [
             [['requestUrl'], 'required'],
             [['requestUrl'], 'string'],
-            [['cacheTime'], 'integer'],
         ];
     }
 
-    public function setCache(Cache $cache)
-    {
-        $this->_cache = $cache;
-        return $this;
-    }
-
-    public function getCaceh()
-    {
-        if ($this->_cache === null) {
-            $this->_cache = Yii::$app->cache;
-        }
-        return $this->_cache;
-    }
-
-    public function fetchIpList()
+    public function getIpList()
     {
         if (!$this->validate()) {
             throw new Exception('属性验证不通过');
         }
 
-        $cacheKey = __METHOD__ . 'wechatServerIp';
+        $response = Yii::$app->httpClient->get($this->requestUrl, [
+            'query' => [
+                'access_token' => $this->_accessToken->fetchToken(),
+            ],
+            'verify' => $this->verify,
+        ]);
 
-        if (!$this->getCaceh()->exists($cacheKey)) {
-            $response = Yii::$app->httpClient->get($this->requestUrl, [
-                'query' => [
-                    'access_token' => $this->_accessToken->fetchToken(),
-                ],
-                'verify' => $this->verify,
-            ]);
-
-            if (200 != $statusCode = $response->getStatusCode()) {
-                throw new Exception("微信服务器出现故障，响应状态码：$statusCode");
-            }
-
-            $data = Json::decode($response->getBody());
-
-            if (ArrayHelper::keyExists(Key::ERROR, $data)) {
-                throw new Exception(ArrayHelper::getValue(Key::ERROR_MESSAGE, $data));
-            }
-
-            $ipList = ArrayHelper::getValue($data, Key::IP_LIST);
-
-            if ($this->cacheTime) {
-                $this->getCaceh()->set(
-                    $cacheKey,
-                    $ipList,
-                    $this->cacheTime
-                );
-            }
-
-            return $ipList;
+        if (200 != $statusCode = $response->getStatusCode()) {
+            throw new Exception("微信服务器出现故障，响应状态码：$statusCode");
         }
-        return $this->getCaceh()->get($cacheKey);
+
+        $data = Json::decode($response->getBody());
+
+        if (ArrayHelper::keyExists(Key::ERROR, $data)) {
+            throw new Exception(ArrayHelper::getValue(Key::ERROR_MESSAGE, $data));
+        }
+
+        $this->_ipList = ArrayHelper::getValue($data, Key::IP_LIST);
+
+        return $this->_ipList;
     }
 
     public function isWechatServerIp($ip)
     {
-        return ArrayHelper::isIn($ip, $this->fetchIpList());
+        return ArrayHelper::isIn($ip, $this->getIpList());
     }
 }
