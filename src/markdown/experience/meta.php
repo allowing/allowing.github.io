@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'docker-note' => [
+        'title' => '摸索学习 Docker 的笔记',
+    ],
     'experience-update-link' => [
         'title' => '刷新和超链接对静态资源的请求策略的区别',
     ],
