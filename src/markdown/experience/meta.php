@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'study-and-time' => [
+        'title' => '主动学习 + 时间 = 专家',
+    ],
+    'study-too-important' => [
+        'title' => '论学历对三观的影响',
+    ],
     'docker-note' => [
         'title' => '摸索学习 Docker 的笔记',
     ],
