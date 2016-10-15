@@ -89,11 +89,11 @@ class WechatServerIp extends Model
      */
     private function fixIpFormat(array $ipList)
     {
-        return array_filter($ipList, function ($value) {
+        return array_map(function ($value) {
             if (false !== $position = strpos($value, '/')) {
                 return substr($value, 0, $position);
             }
             return $value;
-        });
+        }, $ipList);
     }
 }
