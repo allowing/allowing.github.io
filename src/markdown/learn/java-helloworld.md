@@ -5,7 +5,7 @@
 在 learn-java 文件夹中新建 "HelloWorld.java" 文件，用 windows 的记事本打开它，敲上如下内容：
 
 ```java
-public class HelloWorld
+class HelloWorld
 {
     public static void main(String[] args)
     {
