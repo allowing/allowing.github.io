@@ -115,11 +115,21 @@ code {
 .item-content ol {
 	padding: 0 0 0 2em;
 }
+.item-content li p {
+	margin: 0;
+	text-indent: 0;
+}
 .item-content ul li {
 	list-style-type: disc;
 }
 .item-content ol li {
 	list-style-type: upper-roman;
+}
+.item-content ul li li {
+	list-style-type: circle;
+}
+.item-content ol li li {
+	list-style-type: lower-latin;
 }
 .item-content p img {
 	display: block;

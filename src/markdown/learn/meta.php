@@ -90,6 +90,9 @@ return [
     'java-helloworld' => [
         'title' => 'JAVA教程 - Hello World!',
     ],
+    'java-basic' => [
+        'title' => 'JAVA教程 - java 基础',
+    ],
     'other-phpDocumentor' => [
         'title' => '其他教程 - phpDocumentor的使用',
     ],
