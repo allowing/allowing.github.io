@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'study-win-php-cgi' => [
+        'title' => 'Windows 下 nginx 和 php 的整合',
+    ],
     'study-and-time' => [
         'title' => '主动学习 + 时间 = 专家',
     ],

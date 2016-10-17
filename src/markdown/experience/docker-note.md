@@ -18,4 +18,9 @@ docker images
 docker exec -it <容器 id> /bin/bash
 ```
 
+## 感受
+
+* 使用 `Dockerfile` 文件来构建容器真是太方便了，只需要安装了 Docker ，然后根据 Dockerfile 文件就可以构建一个完全一致的容器。
+* 国内连接 Docker Hub 很慢，这点导致下载系统镜像变慢，从而加长构建时间和连接超时的概率。
+
 因为本文是个人学习笔记，所以会不定时更新。
