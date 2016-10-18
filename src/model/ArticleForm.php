@@ -6,7 +6,7 @@ use yii\base\Model;
 
 class ArticleForm extends Model
 {
-    public $cat;
+    public $catgory;
     public $title;
     public $id;
     public $content;
@@ -14,8 +14,8 @@ class ArticleForm extends Model
     public function rules()
     {
         return [
-            [['cat', 'title', 'id', 'content'], 'required'],
-            ['cat', 'in', 'range' => ['news', 'learn', 'experience']],
+            [['catgory', 'title', 'id', 'content'], 'required'],
+            ['catgory', 'in', 'range' => ['news', 'learn', 'experience']],
         ];
     }
 
@@ -28,7 +28,6 @@ class ArticleForm extends Model
         $mda->id = $this->id;
         $mda->title = $this->title;
         $mda->content = $this->content;
-        $mda->cat = $this->cat;
         $mda->dir = $dir;
         $mda->save();
     }

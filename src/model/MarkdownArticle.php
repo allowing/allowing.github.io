@@ -137,7 +137,7 @@ class MarkdownArticle extends Model
     {
         $metaFileName = "{$this->dir}/meta.php";
         $meta = require $metaFileName;
-        array_unshift($meta, [$this->id => $this->title]);
+        $meta = array_merge([$this->id => ['title' => $this->title]], $meta);
         $meta = var_export($meta, true);
         file_put_contents($metaFileName, "<?php return $meta;");
 

@@ -121,7 +121,7 @@ class ArticleController extends Controller
      * 元信息通常用来指定分类，标题，作者，等信息。这些元信息的键是规定的。
      *
      * 键有：
-     * cat - 分类
+     * catgory - 分类
      * title - 标题
      * id - 唯一 id ，值应该类似这样 foo-bar
      *
@@ -133,20 +133,18 @@ class ArticleController extends Controller
             return $this->render('add');
         }
         $article = Yii::$app->request->post('article');
-        $position = strpos($article, "\n");
-        $metaIni = substr($article, 0, $position);
-        $content = substr($article, $position);
-        $metaIni = parse_ini_string($metaIni);
+        preg_match('/(.*?)\n\s*?\n(.*?)$/s', $article, $match);
+        $meta = parse_ini_string($match[1]);
 
         $articleForm = new ArticleForm();
-        $articleForm->setAttributes($metaIni);
-        $articleForm->content = $content;
+        $articleForm->setAttributes($meta);
+        $articleForm->content = $match[2];
 
-        if (!isset($metaIni['cat'])) {
+        if (!isset($meta['catgory'])) {
             throw new BadRequestHttpException('提交的参数有误');
         }
 
-        $articleForm->addToDir($this->getArticleDir($metaIni['cat']));
+        $articleForm->addToDir($this->getArticleDir($meta['catgory']));
     }
 
     /**
