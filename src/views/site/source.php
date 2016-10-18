@@ -25,5 +25,6 @@ $this->title = '学习资源';
         <p><a target="_blank" href="https://leecade.gitbooks.io/redux-in-chinese/content/index.html">Redux 中文文档</a></p>
         <p><a target="_blank" href="http://tool.lu/">在线工具</a></p>
         <p><a target="_blank" href="https://www.staticgen.com/">静态网站生成器</a></p>
+        <p><a target="_blank" href="http://codemirror.net/">CodeMirror -- 一款编辑器</a></p>
     </div>
 </div>
