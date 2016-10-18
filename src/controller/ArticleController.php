@@ -11,14 +11,18 @@ namespace allowing\yunliwang\controller;
 
 use allowing\yunliwang\model\MarkdownArticle;
 use allowing\yunliwang\model\ArticleCat;
+use allowing\yunliwang\model\ArticleForm;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\BadRequestHttpException;
 use yii\filters\VerbFilter;
 
 class ArticleController extends Controller
 {
     private $request;
+
+    public $enableCsrfValidation = false;
 
     public function init()
     {
@@ -91,6 +95,58 @@ class ArticleController extends Controller
         return $this->render('view', [
             'model' => $model,
         ]);
+    }
+
+    /**
+     * 发布文章
+     *
+     * 接收 post 过来的一个字符串。
+     *
+     * 字符串要求长这个样子
+     *
+     * ```md
+     * [one]
+     * key = value
+     *
+     * # 标题
+     *
+     * 段落
+     *
+     * 段落段落段落。
+     *
+     * ## 二号标题
+     * ```
+     *
+     * 认为第一个换行符之前，都是这个文件的元信息，元信息用 ini 的格式表示。
+     * 元信息通常用来指定分类，标题，作者，等信息。这些元信息的键是规定的。
+     *
+     * 键有：
+     * cat - 分类
+     * title - 标题
+     * id - 唯一 id ，值应该类似这样 foo-bar
+     *
+     * @return void
+     */
+    public function actionAdd()
+    {
+        if (!Yii::$app->request->isPost) {
+            return $this->render('add');
+        }
+        $article = Yii::$app->request->post('article');
+        $position = strpos($article, "\n");
+        $metaIni = substr($article, 0, $position);
+        $content = substr($article, $position);
+        $metaIni = parse_ini_string($metaIni);
+
+        $articleForm = new ArticleForm();
+        $articleForm->setAttributes($metaIni);
+        $articleForm->content = $content;
+
+        if (!isset($metaIni['cat'])) {
+            throw new BadRequestHttpException('提交的参数有误');
+        }
+
+        $articleForm->addToDir($this->getArticleDir($metaIni['cat']));
     }
 
     /**

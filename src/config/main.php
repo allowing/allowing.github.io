@@ -13,10 +13,10 @@ return [
             'showScriptName' => false,
             // 'suffix' => '.html', // PHP内置的服务器不支持
             'rules' => [
-                'GET ' => 'site/index',
-                'GET <action>' => 'site/<action>',
-                'GET article/<category>' => 'article/index',
-                'GET article/<category>/<id>' => 'article/view',
+                'GET <action:\w*>' => 'site/<action>',
+                '<controller>/add' => '<controller>/add',
+                'GET <controller>/<category>' => '<controller>/index',
+                'GET <controller>/<category>/<id>' => '<controller>/view',
             ],
         ],
         'cache' => [

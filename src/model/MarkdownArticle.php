@@ -68,6 +68,13 @@ class MarkdownArticle extends Model
         return $this->_content = file_get_contents($this->filename);
     }
 
+    public function setContent($content)
+    {
+        $this->_content = $content;
+
+        return $this;
+    }
+
     public function getHtmlContent()
     {
         $parser = new GithubMarkdown();
@@ -124,5 +131,16 @@ class MarkdownArticle extends Model
         $row['dir'] = $dir;
         $_this = new static($row);
         return $_this;
+    }
+
+    public function save()
+    {
+        $metaFileName = "{$this->dir}/meta.php";
+        $meta = require $metaFileName;
+        array_unshift($meta, [$this->id => $this->title]);
+        $meta = var_export($meta, true);
+        file_put_contents($metaFileName, "<?php return $meta;");
+
+        file_put_contents("{$this->dir}/{$this->id}.md", $this->content);
     }
 }
