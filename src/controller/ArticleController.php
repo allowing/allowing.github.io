@@ -17,6 +17,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\BadRequestHttpException;
 use yii\filters\VerbFilter;
+use Exception;
 
 class ArticleController extends Controller
 {
@@ -121,30 +122,39 @@ class ArticleController extends Controller
      * 元信息通常用来指定分类，标题，作者，等信息。这些元信息的键是规定的。
      *
      * 键有：
-     * catgory - 分类
+     * category - 分类
      * title - 标题
-     * id - 唯一 id ，值应该类似这样 foo-bar
      *
      * @return void
      */
     public function actionAdd()
     {
-        if (!Yii::$app->request->isPost) {
+        if (!$this->request->isPost) {
             return $this->render('add');
         }
-        $article = Yii::$app->request->post('article');
+        $article = $this->request->post('article');
         preg_match('/(.*?)\n\s*?\n(.*?)$/s', $article, $match);
+
+        if (!isset($match[1])) {
+            throw new BadRequestHttpException('文章缺少元信息');
+        }
+
         $meta = parse_ini_string($match[1]);
 
         $articleForm = new ArticleForm();
         $articleForm->setAttributes($meta);
         $articleForm->content = $match[2];
 
-        if (!isset($meta['catgory'])) {
-            throw new BadRequestHttpException('提交的参数有误');
+        if (!isset($meta['category'])) {
+            throw new BadRequestHttpException('没有填写分类');
         }
 
-        $articleForm->addToDir($this->getArticleDir($meta['catgory']));
+        try {
+            $articleForm->addToDir($this->getArticleDir($meta['category']));
+            return $this->goHome();
+        } catch (Exception $e) {
+            print_r($articleForm->getFirstErrors());
+        }
     }
 
     /**

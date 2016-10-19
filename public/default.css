@@ -11,7 +11,8 @@ html {
 }
 body,
 code,
-pre {
+pre,
+.CodeMirror {
 	font-family: 'consola', 'Microsoft Yahei', sans-serif;
 }
 body {
@@ -140,9 +141,12 @@ code {
 	margin: 20px 0;
 	line-height: normal;
 }
+.item-content pre code,
+.CodeMirror {
+	line-height: 1.4;
+}
 .item-content pre code {
 	padding: 16px 0 16px 54px;
-	line-height: 1.4;
 }
 .item-content th {
 	color: #3f51b5;
@@ -224,6 +228,10 @@ code {
 .give-me-money-type {
 	font-weight: normal;
 	color: #3f51b5;
+}
+.CodeMirror {
+	margin: 20px 0;
+	height: 800px;
 }
 @media screen and (max-width: 720px) {
 	.container {

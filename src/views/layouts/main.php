@@ -43,13 +43,17 @@ use yii\helpers\Html;
     <meta name="author" content="allowing">
     <?php $this->head() ?>
     <link rel="stylesheet" href="<?= Url::to('@web/global.css') ?>">
-    <link rel="stylesheet" href="<?= Url::to('@web/default.css') ?>">
     <link rel="stylesheet" href="<?= Url::to('@web/monokai-sublime.min.css') ?>">
+    <link rel="stylesheet" href="<?= Url::to('@web/codemirror-5.19.0/lib/codemirror.css') ?>">
+    <link rel="stylesheet" href="<?= Url::to('@web/codemirror-5.19.0/theme/monokai.css') ?>">
+    <link rel="stylesheet" href="<?= Url::to('@web/default.css') ?>">
     <script src="<?= Url::to('@web/jquery.min.js') ?>"></script>
     <script src="<?= Url::to('@web/showdown.min.js') ?>"></script>
     <script src="<?= Url::to('@web/highlight.min.js') ?>"></script>
     <script src="<?= Url::to('@web/jquery.SuperSlide.2.1.1.js') ?>"></script>
     <script src="<?= Url::to('@web/global.js') ?>"></script>
+    <script src="<?= Url::to('@web/codemirror-5.19.0/lib/codemirror.js') ?>"></script>
+    <script src="<?= Url::to('@web/codemirror-5.19.0/keymap/sublime.js') ?>"></script>
 </head>
 <body>
 <?php $this->beginBody() ?>
