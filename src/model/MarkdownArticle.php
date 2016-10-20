@@ -16,13 +16,17 @@ class MarkdownArticle extends Model
 {
     public $title;
 
-    private $_id;
+    public $id;
+
+    public $dir;
+
+    public $iniMarkdown;
+
+    public $category;
 
     private $_content;
 
     private $_updatedAt;
-
-    private $_dir;
 
     private $_filename;
 
@@ -30,26 +34,19 @@ class MarkdownArticle extends Model
 
     private $_description;
 
-    public function setDir($dir)
+    public function __construct($dir, $config = [])
     {
-        $this->_dir = $dir;
-        return $this;
+        $this->dir = $dir;
+        parent::__construct($config);
     }
 
-    public function setId($id)
+    public function rules()
     {
-        $this->_id = $id;
-        return $this;
-    }
-
-    public function getId()
-    {
-        return $this->_id;
-    }
-
-    public function getDir()
-    {
-        return $this->_dir;
+        return [
+            [['title', 'category', 'content', 'iniMarkdown', '!dir'], 'required'],
+            ['title', 'string', 'max' => 50],
+            ['category', 'in', 'range' => ['news', 'learn', 'experience']],
+        ];
     }
 
     public function getFilename()
@@ -57,12 +54,12 @@ class MarkdownArticle extends Model
         if (!is_null($this->_filename)) {
             return $this->_filename;
         }
-        return $this->_filename = "{$this->dir}/{$this->id}.md";
+        return $this->_filename = "{$this->dir}/{$this->category}/{$this->id}.md";
     }
 
     public function getContent()
     {
-        if (!is_null($this->_content)) {
+        if ($this->_content !== null) {
             return $this->_content;
         }
         return $this->_content = file_get_contents($this->filename);
@@ -105,42 +102,78 @@ class MarkdownArticle extends Model
         return $this->_description;
     }
 
-    public static function findAll($dir)
+    public static function findAll($dir, $category)
     {
-        if (!file_exists($file = "$dir/meta.php")) {
+        if (!file_exists($file = "$dir/$category/meta.php")) {
             return null;
         }
         $models = [];
         foreach (require $file as $id => $row) {
             $row['id'] = $id;
-            $row['dir'] = $dir;
-            $models[] = new static($row);
+            $row['category'] = $category;
+            $models[] = new static($dir, $row);
         }
         return $models;
     }
 
-    public static function findOne($dir, $id)
+    public static function findOne($dir, $category, $id)
     {
-        $meta = require $dir . '/meta.php';
+        $meta = require "$dir/$category/meta.php";
         if (!isset($meta[$id])) {
             return null;
         }
         $row = $meta[$id];
         unset($meta);
         $row['id'] = $id;
-        $row['dir'] = $dir;
-        $_this = new static($row);
+        $row['category'] = $category;
+        $_this = new static($dir, $row);
         return $_this;
+    }
+
+    public function fields()
+    {
+        return array_merge(parent::fields(), [
+            'content',
+        ]);
     }
 
     public function save()
     {
-        $metaFileName = "{$this->dir}/meta.php";
+        if (!$this->validate()) {
+            return false;
+        }
+
+        $metaFileName = "{$this->dir}/{$this->category}/meta.php";
         $meta = require $metaFileName;
+        $this->id = uniqid();
         $meta = array_merge([$this->id => ['title' => $this->title]], $meta);
         $meta = var_export($meta, true);
         file_put_contents($metaFileName, "<?php return $meta;");
 
-        file_put_contents("{$this->dir}/{$this->id}.md", $this->content);
+        file_put_contents("{$this->dir}/{$this->category}/{$this->id}.md", $this->content);
+        return true;
+    }
+
+    /**
+     * @Override
+     */
+    public function setAttributes($values, $safeOnly = true)
+    {
+        parent::setAttributes($values, $safeOnly);
+
+        if (isset($values['iniMarkdown']) && $this->validate(['iniMarkdown'])) {
+
+            preg_match('/(.*?)\n\s*?\n(.*)/s', $this->iniMarkdown, $match);
+
+            $attributes = [];
+            if (isset($match[1])) {
+                $attributes = array_merge($attributes, parse_ini_string($match[1]));
+            }
+            if (isset($match[2])) {
+                $attributes['content'] = $match[2];
+            }
+
+            $this->setAttributes($attributes);
+        }
     }
 }

@@ -13,8 +13,8 @@ return [
             'showScriptName' => false,
             // 'suffix' => '.html', // PHP内置的服务器不支持
             'rules' => [
-                'GET <action:\w*>' => 'site/<action>',
-                'GET,POST <controller>/add' => '<controller>/add',
+                'GET <action>' => 'site/<action>',
+                'GET,POST <controller>/create' => '<controller>/create',
                 'GET <controller>/<category>' => '<controller>/index',
                 'GET <controller>/<category>/<id>' => '<controller>/view',
             ],

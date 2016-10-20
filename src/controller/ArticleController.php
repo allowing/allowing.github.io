@@ -12,6 +12,7 @@ namespace allowing\yunliwang\controller;
 use allowing\yunliwang\model\MarkdownArticle;
 use allowing\yunliwang\model\ArticleCat;
 use allowing\yunliwang\model\ArticleForm;
+use allowing\yunliwang\model\ArticleForm2;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -76,7 +77,7 @@ class ArticleController extends Controller
 
     public function actionIndex($category)
     {
-        $models = MarkdownArticle::findAll($this->getArticleDir($category));
+        $models = MarkdownArticle::findAll($this->getArticleRootDir(), $category);
         if (!$models) {
             throw new NotFoundHttpException();
         }
@@ -87,9 +88,9 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function actionView($id, $category)
+    public function actionView($category, $id)
     {
-        $model = MarkdownArticle::findOne($this->getArticleDir($category), $id);
+        $model = MarkdownArticle::findOne($this->getArticleRootDir(), $category, $id);
         if (!$model) {
             throw new NotFoundHttpException();
         }
@@ -127,34 +128,22 @@ class ArticleController extends Controller
      *
      * @return void
      */
-    public function actionAdd()
+    public function actionCreate()
     {
-        if (!$this->request->isPost) {
-            return $this->render('add');
-        }
-        $article = $this->request->post('article');
-        preg_match('/(.*?)\n\s*?\n(.*?)$/s', $article, $match);
 
-        if (!isset($match[1])) {
-            throw new BadRequestHttpException('文章缺少元信息');
+        $model = new MarkdownArticle($this->getArticleRootDir());
+        if ($model->load($this->request->post()) && $model->save()) {
+            return $this->redirect(['index', 'category' => $model->category]);
         }
 
-        $meta = parse_ini_string($match[1]);
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
 
-        $articleForm = new ArticleForm();
-        $articleForm->setAttributes($meta);
-        $articleForm->content = $match[2];
-
-        if (!isset($meta['category'])) {
-            throw new BadRequestHttpException('没有填写分类');
-        }
-
-        try {
-            $articleForm->addToDir($this->getArticleDir($meta['category']));
-            return $this->goHome();
-        } catch (Exception $e) {
-            print_r($articleForm->getFirstErrors());
-        }
+    private function getArticleRootDir()
+    {
+        return Yii::getAlias('@app/markdown');
     }
 
     /**
@@ -168,12 +157,13 @@ class ArticleController extends Controller
      */
     private function getArticleDir($category)
     {
-        return Yii::getAlias("@app/markdown/$category");
+        return $this->getArticleRootDir() . "/$category";
     }
 
     private function getArticleMetaFileName($category)
     {
         $metaFileName = $this->getArticleDir($category) . '/meta.php';
+
         if (!is_file($metaFileName)) {
             throw new NotFoundHttpException('要访问的资源不存在');
         }
