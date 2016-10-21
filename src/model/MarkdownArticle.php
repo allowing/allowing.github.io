@@ -11,12 +11,13 @@ namespace allowing\yunliwang\model;
 use Yii;
 use yii\base\Model;
 use cebe\markdown\GithubMarkdown;
+use Exception;
 
 class MarkdownArticle extends Model
 {
     public $title;
 
-    public $id;
+    private $_id;
 
     public $dir;
 
@@ -57,12 +58,30 @@ class MarkdownArticle extends Model
         return $this->_filename = "{$this->dir}/{$this->category}/{$this->id}.md";
     }
 
+    public function setId($id)
+    {
+        $this->_id = $id;
+        return $this;
+    }
+
+    public function getId()
+    {
+        if ($this->_id === null) {
+            throw new Exception('没有 id');
+        }
+        return $this->_id;
+    }
+
     public function getContent()
     {
         if ($this->_content !== null) {
             return $this->_content;
         }
-        return $this->_content = file_get_contents($this->filename);
+        try {
+            return $this->_content = file_get_contents($this->filename);
+        } catch (Exception $e) {
+            return '';
+        }
     }
 
     public function setContent($content)

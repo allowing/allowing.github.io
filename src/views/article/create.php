@@ -11,7 +11,7 @@ $this->title = '添加文章';
 </pre>
 <?php endif ?>
 <form action="<?= Url::to(['article/create']) ?>" method="post">
-    <textarea name="MarkdownArticle[iniMarkdown]" id="article"></textarea>
+    <textarea name="MarkdownArticle[iniMarkdown]" id="article"><?= $model->iniMarkdown ?></textarea>
     <input type="submit">
 </form>
 
