@@ -17,20 +17,21 @@ use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\BadRequestHttpException;
+use yii\web\Request;
 use yii\filters\VerbFilter;
 use Exception;
 
 class ArticleController extends Controller
 {
-    private $request;
+    private $_request;
 
     public $enableCsrfValidation = false;
 
-    public function init()
+    public function __construct($id, $module, Request $request, $config = [])
     {
-        parent::init();
+        $this->_request = $request;
 
-        $this->request = Yii::$app->request;
+        parent::__construct($id, $module, $config);
     }
 
     public function behaviors()
@@ -51,9 +52,9 @@ class ArticleController extends Controller
                 'only' => ['index'],
                 'dependency' => [
                     'class' => 'yii\caching\FileDependency',
-                    'fileName' => $this->getArticleMetaFileName($this->request->get('category')),
+                    'fileName' => $this->getArticleMetaFileName($this->_request->get('category')),
                 ],
-                'variations' => [$this->request->get()],
+                'variations' => [$this->_request->get()],
             ];
         }
 
@@ -64,11 +65,11 @@ class ArticleController extends Controller
                 'dependency' => [
                     'class' => 'yii\caching\FileDependency',
                     'fileName' => $this->getArticleFileName(
-                        $this->request->get('category'),
-                        $this->request->get('id')
+                        $this->_request->get('category'),
+                        $this->_request->get('id')
                     ),
                 ],
-                'variations' => [$this->request->get()],
+                'variations' => [$this->_request->get()],
             ];
         }
 
@@ -132,7 +133,7 @@ class ArticleController extends Controller
     {
 
         $model = new MarkdownArticle($this->getArticleRootDir());
-        if ($model->load($this->request->post()) && $model->save()) {
+        if ($model->load($this->_request->post()) && $model->save()) {
             return $this->redirect(['index', 'category' => $model->category]);
         }
 

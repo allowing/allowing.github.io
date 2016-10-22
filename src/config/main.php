@@ -14,9 +14,8 @@ return [
             // 'suffix' => '.html', // PHP内置的服务器不支持
             'rules' => [
                 'GET <action>' => 'site/<action>',
-                'GET,POST <controller>/create' => '<controller>/create',
-                'GET <controller>/<category>' => '<controller>/index',
-                'GET <controller>/<category>/<id>' => '<controller>/view',
+                'GET article/<category>' => 'article/index',
+                'GET article/<category>/<id>' => 'article/view',
             ],
         ],
         'cache' => [

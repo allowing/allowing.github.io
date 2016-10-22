@@ -4,32 +4,47 @@ namespace allowing\yunliwang\controller;
 
 use Yii;
 use yii\web\Controller;
+use yii\web\Request;
 use yii\web\BadRequestHttpException;
 use allowing\yunliwang\model\WechatServerIp;
 use allowing\yunliwang\wechat\Key;
+use yii\log\Logger;
 
 class WechatController extends Controller
 {
+    const KEY_SIMPLE_XML_ELEMENT = 'SimpleXMLElement';
+
     public $enableCsrfValidation = false;
 
-    private $request;
+    private $_request;
 
-    public function init()
-    {
-        parent::init();
+    private $_logger;
 
-        $this->request = $this->module->getRequest();
+    public function __construct(
+        $id,
+        $module,
+        Request $request,
+        Logger $logger,
+        $config = []
+    ) {
+        $this->_request = $request;
+        $this->_logger = $logger;
+
+        parent::__construct($id, $module, $config);
     }
 
     public function actionCallback()
     {
-        $wechatServerIp = Yii::createObject(WechatServerIp::className());
-        if (!$wechatServerIp->isWechatServerIp(Yii::$app->request->getUserIP())) {
+        $wechatServerIp = Yii::createObject(WechatServerIp::class);
+        if (YII_DEBUG) {
+            $this->_logger->log($wechatServerIp->ipList, Logger::LEVEL_TRACE);
+        }
+        if (!$wechatServerIp->isWechatServerIp($this->_request->getUserIP())) {
             throw new BadRequestHttpException('此链接禁止非微信服务器访问');
         }
 
         $postData = file_get_contents('php://input'); // 获取原始的post请求数据
-        $postObj = simplexml_load_string($postData, 'SimpleXMLElement', LIBXML_NOCDATA);
+        $postObj = simplexml_load_string($postData, self::KEY_SIMPLE_XML_ELEMENT, LIBXML_NOCDATA);
 
         switch ($postObj->MsgType) {
             case Key::MSG_TYPE_EVENT: // 'event'

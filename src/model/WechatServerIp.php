@@ -42,7 +42,7 @@ class WechatServerIp extends Model
 
         $response = Yii::$app->httpClient->get($this->requestUrl, [
             'query' => [
-                'access_token' => $this->_accessToken->fetchToken(),
+                'access_token' => $this->_accessToken->token,
             ],
             'verify' => $this->verify,
         ]);
