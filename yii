@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'dev');
+
+$composerAutoload = require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/yiisoft/yii2/Yii.php';
+
+Yii::setAlias('@allowing', __DIR__);
+Yii::$container->set(\yii\console\controllers\ServeController::class, [
+    'docroot' => '@app/public',
+]);
+
+$app = new \yii\console\Application(\yii\helpers\ArrayHelper::merge(
+    require __DIR__ . '/config/main-common.php', [
+    'id' => 'yunliwang-cli',
+    'name' => '允梨网命令行工具',
+    'controllerNamespace' => 'allowing\yunliwang\controllercli',
+]));
+
+exit($app->run());
+

@@ -1,6 +1,5 @@
 <?php
 Yii::$container->setSingleton(\allowing\yunliwang\model\AccessToken::class, [
-    'class' => \allowing\yunliwang\model\AccessToken::class,
     'appid' => 'wx12ffad600778b5bd',
     'secret' => '328a3c1cc9081cd660907ba7d6300deb',
 ]);

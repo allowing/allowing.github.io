@@ -2,8 +2,6 @@
 
 return [
     'id' => 'yunliwang',
-    'language' => 'zh-CN',
-    'basePath' => dirname(__DIR__),
     'viewPath' => dirname(__DIR__) . '/resource/views',
     'controllerNamespace' => 'allowing\yunliwang\controller',
     'components' => [
@@ -18,9 +16,6 @@ return [
                 'GET article/<category:[A-Za-z0-9\-_]+>' => 'article/index',
                 'GET article/<category:[A-Za-z0-9\-_]+>/<id:[A-Za-z0-9\-_]+>' => 'article/view',
             ],
-        ],
-        'cache' => [
-            'class' => \yii\caching\FileCache::class,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
