@@ -1,4 +1,8 @@
 <?php return array (
+  '5809b1dd6af88' => 
+  array (
+    'title' => '允梨网现在可以在线发布文章啦',
+  ),
   'wechat-online' => 
   array (
     'title' => '允梨教育微信订阅号上线了',
