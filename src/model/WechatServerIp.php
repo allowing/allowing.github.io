@@ -8,6 +8,7 @@ use allowing\yunliwang\wechat\Key;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 use Exception;
+use GuzzleHttp\Client;
 
 class WechatServerIp extends Model
 {
@@ -19,9 +20,15 @@ class WechatServerIp extends Model
 
     private $_ipList;
 
-    public function __construct(AccessToken $accessToken, $config = [])
-    {
+    private $_httpClient;
+
+    public function __construct(
+        AccessToken $accessToken,
+        Client $httpClient,
+        $config = []
+    ) {
         $this->_accessToken = $accessToken;
+        $this->_httpClient = $httpClient;
 
         parent::__construct($config);
     }
@@ -40,7 +47,7 @@ class WechatServerIp extends Model
             throw new Exception('属性验证不通过');
         }
 
-        $response = Yii::$app->httpClient->get($this->requestUrl, [
+        $response = $this->_httpClient->get($this->requestUrl, [
             'query' => [
                 'access_token' => $this->_accessToken->token,
             ],

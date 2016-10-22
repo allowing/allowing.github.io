@@ -3,8 +3,10 @@
 return [
     'id' => 'yunliwang',
     'language' => 'zh-CN',
-    'basePath' => dirname(__DIR__),
-    'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+    'basePath' => dirname(__DIR__) . '/src',
+    'vendorPath' => dirname(__DIR__) . '/vendor',
+    'runtimePath' => dirname(__DIR__) . '/runtime',
+    'viewPath' => dirname(__DIR__) . '/resource/views',
     'controllerNamespace' => 'allowing\yunliwang\controller',
     'components' => [
         /** @var \yii\web\UrlManager */
@@ -19,18 +21,17 @@ return [
             ],
         ],
         'cache' => [
-            /** @var \yii\caching\FileCache */
-            'class' => 'yii\caching\FileCache',
+            'class' => \yii\caching\FileCache::class,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 'file' => [
-                    'class' => 'yii\log\FileTarget',
+                    'class' => \yii\log\FileTarget::class,
                     'levels' => ['trace', 'info', 'error', 'warning'],
                 ],
                 'email' => [
-                    'class' => 'yii\log\EmailTarget',
+                    'class' => \yii\log\EmailTarget::class,
                     'levels' => ['error', 'warning'],
                     'message' => [
                         'subject' => '允梨教育应用日志',
@@ -40,7 +41,7 @@ return [
             ],
         ],
         'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
+            'class' => \yii\swiftmailer\Mailer::class,
             // 'useFileTransport' => true,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
@@ -51,9 +52,6 @@ return [
             'messageConfig'=>[
                 'charset'=>'UTF-8',
             ],
-        ],
-        'httpClient' => [
-            'class' => 'GuzzleHttp\Client',
         ],
     ],
     'bootstrap' => [

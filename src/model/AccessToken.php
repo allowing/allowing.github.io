@@ -9,6 +9,7 @@ use yii\helpers\ArrayHelper;
 use yii\caching\Cache;
 use Exception;
 use allowing\yunliwang\wechat\Key;
+use GuzzleHttp\Client;
 
 class AccessToken extends Model
 {
@@ -22,11 +23,17 @@ class AccessToken extends Model
 
     public $verify = false;
 
-    public $_cache;
+    private $_cache;
 
-    public function __construct(Cache $cache, $config = [])
-    {
+    private $_httpClient;
+
+    public function __construct(
+        Cache $cache,
+        Client $httpClient,
+        $config = []
+    ) {
         $this->_cache = $cache;
+        $this->_httpClient = $httpClient;
 
         parent::__construct($config);
     }
@@ -47,7 +54,7 @@ class AccessToken extends Model
         $cacheKey = __METHOD__ . 'accessToken';
 
         if (!$this->_cache->exists($cacheKey)) {
-            $response = Yii::$app->httpClient->get($this->requestUrl, [
+            $response = $this->_httpClient->get($this->requestUrl, [
                 'query' => [
                     'grant_type' => $this->grantType,
                     'appid' => $this->appid,

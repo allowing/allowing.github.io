@@ -9,3 +9,6 @@ Yii::$container->setSingleton(\yii\web\Response::class);
 Yii::$container->setSingleton(\yii\caching\Cache::class, \yii\caching\FileCache::class);
 Yii::$container->setSingleton(\yii\log\Logger::class);
 Yii::$container->setSingleton(\yii\web\UrlManager::class);
+Yii::$container->setSingleton(\GuzzleHttp\Client::class);
+
+Yii::setAlias('@resource', dirname(__DIR__) . '/resource');

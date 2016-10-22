@@ -144,7 +144,7 @@ class ArticleController extends Controller
 
     private function getArticleRootDir()
     {
-        return Yii::getAlias('@app/markdown');
+        return Yii::getAlias('@resource/markdown');
     }
 
     /**
