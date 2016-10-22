@@ -6,8 +6,8 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 
 $composerAutoload = require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/vendor/yiisoft/yii2/Yii.php';
+require __DIR__ . '/config/bootstrap-common.php';
 
-Yii::setAlias('@allowing', __DIR__);
 Yii::$container->set(\yii\console\controllers\ServeController::class, [
     'docroot' => '@app/public',
 ]);
