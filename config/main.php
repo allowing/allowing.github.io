@@ -3,9 +3,7 @@
 return [
     'id' => 'yunliwang',
     'language' => 'zh-CN',
-    'basePath' => dirname(__DIR__) . '/src',
-    'vendorPath' => dirname(__DIR__) . '/vendor',
-    'runtimePath' => dirname(__DIR__) . '/runtime',
+    'basePath' => dirname(__DIR__),
     'viewPath' => dirname(__DIR__) . '/resource/views',
     'controllerNamespace' => 'allowing\yunliwang\controller',
     'components' => [
@@ -17,8 +15,8 @@ return [
             'rules' => [
                 'GET <action>' => 'site/<action>',
                 'GET,POST article/create' => 'article/create',
-                'GET article/<category:\w+>' => 'article/index',
-                'GET article/<category:\w+>/<id:\w+>' => 'article/view',
+                'GET article/<category:[A-Za-z0-9\-_]+>' => 'article/index',
+                'GET article/<category:[A-Za-z0-9\-_]+>/<id:[A-Za-z0-9\-_]+>' => 'article/view',
             ],
         ],
         'cache' => [
