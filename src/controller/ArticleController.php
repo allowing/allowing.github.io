@@ -9,17 +9,13 @@
 namespace allowing\yunliwang\controller;
 
 
+use allowing\yunliwang\model\ArticleCat_;
 use allowing\yunliwang\model\MarkdownArticle;
-use allowing\yunliwang\model\ArticleCat;
-use allowing\yunliwang\model\ArticleForm;
-use allowing\yunliwang\model\ArticleForm2;
 use Yii;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\BadRequestHttpException;
 use yii\web\Request;
-use yii\filters\VerbFilter;
-use Exception;
 
 class ArticleController extends Controller
 {
@@ -82,7 +78,7 @@ class ArticleController extends Controller
         if (!$models) {
             throw new NotFoundHttpException();
         }
-        $catModel = ArticleCat::findByIdentity($category);
+        $catModel = ArticleCat_::findByIdentity($category);
         return $this->render('index', [
             'catModel' => $catModel,
             'models' => $models,

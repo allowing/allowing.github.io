@@ -8,10 +8,9 @@
 
 namespace allowing\yunliwang\model;
 
-use Yii;
-use yii\base\Model;
 use cebe\markdown\GithubMarkdown;
 use Exception;
+use yii\base\Model;
 
 class MarkdownArticle extends Model
 {

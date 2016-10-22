@@ -1,7 +1,7 @@
 <?php
 /** @var \yii\web\View $this */
-/** @var \allowing\yunliwang\model\ArticleCat $catModel */
-
+/** @var \allowing\yunliwang\model\ArticleCat_ $catModel */
+/** @var \allowing\yunliwang\model\Article[] $models */
 use yii\helpers\Url;
 
 $this->title = $catModel->name;

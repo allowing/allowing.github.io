@@ -4,7 +4,7 @@ namespace allowing\yunliwang\model;
 
 use yii\base\Model;
 
-class ArticleCat extends Model
+class ArticleCat_ extends Model
 {
     public $name;
 
