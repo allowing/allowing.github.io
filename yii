@@ -11,6 +11,9 @@ Yii::setAlias('@allowing', __DIR__);
 Yii::$container->set(\yii\console\controllers\ServeController::class, [
     'docroot' => '@app/public',
 ]);
+Yii::$container->set(\yii\console\controllers\MigrateController::class, [
+    'migrationPath' => '@app/resource/migrations',
+]);
 
 $app = new \yii\console\Application(\yii\helpers\ArrayHelper::merge(
     require __DIR__ . '/config/main-common.php', [
