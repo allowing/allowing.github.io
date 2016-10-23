@@ -1,8 +1,16 @@
 <?php
 /** @var \yii\web\View $this */
 /** @var \allowing\yunliwang\model\Article $model */
-$this->title = $model->title;
-$this->params['description'] = $model->description;
+
+if ($model->seo_title) {
+    $this->title = "{$model->seo_title} - {$model->title}";
+} else {
+    $this->title = $model->title;
+}
+
+if ($model->description) {
+    $this->params['description'] = $model->description;
+}
 ?>
 <div class="item">
     <div class="item-content"><?= $model->articleContent->htmlContent ?></div>
