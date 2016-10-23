@@ -62,15 +62,15 @@ use yii\helpers\Html;
         <a href="<?= Url::to(['site/index']) ?>"><img class="logo" src="/images/logo.png" alt="logo"></a>
         <nav class="nav">
             <ul class="nav-box cf">
-                <li class="nav-item"><a href="<?= Url::to(['site/index']) ?>">首页</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['article/index', 'category' => 'learn']) ?>">免费教程</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['article/index', 'category' => 'news']) ?>">公司动态</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['site/course']) ?>">主要课程</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['site/outline']) ?>">教学大纲</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['site/source']) ?>">学习资源</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['article/index', 'category' => 'experience']) ?>">杂谈</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['site/case']) ?>">成功案例</a></li>
-                <li class="nav-item"><a href="<?= Url::to('http://wpa.qq.com/msgrd?v=3&uin=1076707907&site=qq&menu=yes') ?>" target="_blank">QQ联系</a></li>
+                <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => 4]) ?>">首页</a></li>
+                <li class="nav-item"><a href="<?= Url::to(['article/index', 'article_cat_id' => 1]) ?>">免费教程</a></li>
+                <li class="nav-item"><a href="<?= Url::to(['article/index', 'article_cat_id' => 2]) ?>">公司动态</a></li>
+                <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => 5]) ?>">主要课程</a></li>
+                <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => 6]) ?>">教学大纲</a></li>
+                <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => 9]) ?>">学习资源</a></li>
+                <li class="nav-item"><a href="<?= Url::to(['article/index', 'article_cat_id' => 3]) ?>">杂谈</a></li>
+                <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => 7]) ?>">成功案例</a></li>
+                <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => 8]) ?>" target="_blank">QQ联系</a></li>
             </ul>
         </nav>
     </header>

@@ -1,16 +1,22 @@
 <?php
 /** @var \yii\web\View $this */
-/** @var \allowing\yunliwang\model\ArticleCat_ $catModel */
-/** @var \allowing\yunliwang\model\Article[] $models */
+/** @var \allowing\yunliwang\model\ArticleCat|null $catModel */
+/** @var \yii\data\DataProviderInterface $dataProvider */
+/** @var \allowing\yunliwang\model\ArticleSearch $searchModel */
+
 use yii\helpers\Url;
 
-$this->title = $catModel->name;
-$this->params['keywords'] = $catModel->keywords;
-$this->params['description'] = $catModel->description;
+if ($catModel) {
+    $this->title = "{$catModel->seo_name} - {$catModel->name}";
+    $this->params['description'] = $catModel->description;
+} else {
+    $this->title = "所有文章";
+    $this->params['description'] = '这里提供优质的PHP、JAVA、JS、WEB前端、后台等文章，同时阅读体验优秀，是学习IT技术的良好平台。';
+}
 ?>
 
 <ul class="list-box">
-    <?php foreach ($models as $model): ?>
-    <li class="list-item"><a href="<?= Url::to(['article/view', 'category' => $catModel->identity, 'id' => $model->id]) ?>"><?= $model->title ?></a></li>
+    <?php foreach ($dataProvider->getModels() as $model): ?>
+    <li class="list-item"><a href="<?= Url::to(['article/view', 'id' => $model->id]) ?>"><?= $model->title ?></a></li>
     <?php endforeach ?>
 </ul>

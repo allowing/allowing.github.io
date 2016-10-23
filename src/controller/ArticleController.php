@@ -1,178 +1,138 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: allowing
- * Date: 2016/8/13
- * Time: 15:27
- */
 
 namespace allowing\yunliwang\controller;
 
-
-use allowing\yunliwang\model\ArticleCat_;
-use allowing\yunliwang\model\MarkdownArticle;
+use allowing\yunliwang\model\ArticleCat;
 use Yii;
-use yii\filters\VerbFilter;
+use allowing\yunliwang\model\Article;
+use allowing\yunliwang\model\ArticleSearch;
+use yii\base\Module;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 use yii\web\Request;
 
+/**
+ * ArticleDbController implements the CRUD actions for Article model.
+ */
 class ArticleController extends Controller
 {
-    private $_request;
+    public $_request;
 
-    public $enableCsrfValidation = false;
-
-    public function __construct($id, $module, Request $request, $config = [])
+    public function __construct($id, Module $module, Request $request, array $config = [])
     {
         $this->_request = $request;
 
         parent::__construct($id, $module, $config);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
-        $behaviors = [
+        return [
             'verbs' => [
-                'class' => VerbFilter::class,
+                'class' => VerbFilter::className(),
                 'actions' => [
-                    'index' => ['get'],
-                    'learn' => ['get'],
+                    'delete' => ['POST'],
                 ],
             ],
         ];
-
-        if ($this->route == $this->id . '/index') {
-            $behaviors[] = [
-                'class' => 'yii\filters\PageCache',
-                'only' => ['index'],
-                'dependency' => [
-                    'class' => 'yii\caching\FileDependency',
-                    'fileName' => $this->getArticleMetaFileName($this->_request->get('category')),
-                ],
-                'variations' => [$this->_request->get()],
-            ];
-        }
-
-        if ($this->route == $this->id . '/view') {
-            $behaviors[] = [
-                'class' => 'yii\filters\PageCache',
-                'only' => ['view'],
-                'dependency' => [
-                    'class' => 'yii\caching\FileDependency',
-                    'fileName' => $this->getArticleFileName(
-                        $this->_request->get('category'),
-                        $this->_request->get('id')
-                    ),
-                ],
-                'variations' => [$this->_request->get()],
-            ];
-        }
-
-        return $behaviors;
     }
 
-    public function actionIndex($category)
+    /**
+     * Lists all Article models.
+     * @return mixed
+     */
+    public function actionIndex()
     {
-        $models = MarkdownArticle::findAll($this->getArticleRootDir(), $category);
-        if (!$models) {
-            throw new NotFoundHttpException();
-        }
-        $catModel = ArticleCat_::findByIdentity($category);
+        $searchModel = new ArticleSearch();
+        $dataProvider = $searchModel->search($this->_request->queryParams);
+        $catModel = ArticleCat::findOne($this->_request->get('article_cat_id'));
+
         return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
             'catModel' => $catModel,
-            'models' => $models,
-        ]);
-    }
-
-    public function actionView($category, $id)
-    {
-        $model = MarkdownArticle::findOne($this->getArticleRootDir(), $category, $id);
-        if (!$model) {
-            throw new NotFoundHttpException();
-        }
-        return $this->render('view', [
-            'model' => $model,
         ]);
     }
 
     /**
-     * 发布文章
-     *
-     * 接收 post 过来的一个字符串。
-     *
-     * 字符串要求长这个样子
-     *
-     * ```md
-     * [one]
-     * key = value
-     *
-     * # 标题
-     *
-     * 段落
-     *
-     * 段落段落段落。
-     *
-     * ## 二号标题
-     * ```
-     *
-     * 认为第一个换行符之前，都是这个文件的元信息，元信息用 ini 的格式表示。
-     * 元信息通常用来指定分类，标题，作者，等信息。这些元信息的键是规定的。
-     *
-     * 键有：
-     * category - 分类
-     * title - 标题
-     *
-     * @return void
+     * Displays a single Article model.
+     * @param string $id
+     * @return mixed
+     */
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    /**
+     * Creates a new Article model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
      */
     public function actionCreate()
     {
+        $model = new Article();
 
-        $model = new MarkdownArticle($this->getArticleRootDir());
-        if ($model->load($this->_request->post()) && $model->save()) {
-            return $this->redirect(['index', 'category' => $model->category]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    private function getArticleRootDir()
-    {
-        return Yii::getAlias('@resource/markdown');
     }
 
     /**
-     * 获取文章的目录路径
-     *
-     * 传递一个文章分类的字符串，如 learn , 表示要获取这个分类的路径
-     * 返回的信息类似 D:/foo/bar
-     *
-     * @param string $category 文章的分类
-     * @return string 该分类的路径
+     * Updates an existing Article model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param string $id
+     * @return mixed
      */
-    private function getArticleDir($category)
+    public function actionUpdate($id)
     {
-        return $this->getArticleRootDir() . "/$category";
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
     }
 
-    private function getArticleMetaFileName($category)
+    /**
+     * Deletes an existing Article model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param string $id
+     * @return mixed
+     */
+    public function actionDelete($id)
     {
-        $metaFileName = $this->getArticleDir($category) . '/meta.php';
+        $this->findModel($id)->delete();
 
-        if (!is_file($metaFileName)) {
-            throw new NotFoundHttpException('要访问的资源不存在');
-        }
-        return $metaFileName;
+        return $this->redirect(['index']);
     }
 
-    private function getArticleFileName($category, $id)
+    /**
+     * Finds the Article model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param string $id
+     * @return Article the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModel($id)
     {
-        $articleFileName = $this->getArticleDir($category) . "/$id.md";
-        if (!is_file($articleFileName)) {
-            throw new NotFoundHttpException('要访问的资源不存在');
+        if (($model = Article::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
         }
-        return $articleFileName;
     }
 }

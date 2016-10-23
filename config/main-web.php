@@ -11,10 +11,10 @@ return [
             'showScriptName' => false,
             // 'suffix' => '.html', // PHP内置的服务器不支持
             'rules' => [
-                'GET <action>' => 'site/<action>',
+                'GET <id:\d+>' => 'article-cat/view',
                 'GET,POST article/create' => 'article/create',
-                'GET article/<category:[A-Za-z0-9\-_]+>' => 'article/index',
-                'GET article/<category:[A-Za-z0-9\-_]+>/<id:[A-Za-z0-9\-_]+>' => 'article/view',
+                'GET article-category/<article_cat_id:\d+>' => 'article/index',
+                'GET article/<id:\d+>' => 'article/view',
             ],
         ],
         'log' => [
