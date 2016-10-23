@@ -16,6 +16,10 @@ if ($model->seo_name) {
     $this->title = $model->name;
 }
 
+if ($model->keywords) {
+    $this->params['keywords'] = $model->keywords;
+}
+
 if ($model->description) {
     $this->params['description'] = $model->description;
 }

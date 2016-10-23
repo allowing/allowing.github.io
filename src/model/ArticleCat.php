@@ -17,6 +17,10 @@ use yii\db\ActiveRecord;
  * @property string $created_at
  * @property string $updated_at
  * @property string $content
+ * @property string $keywords
+ * @property string $identity
+ * @property integer $order
+ * @property integer $pid
  *
  * @property Article[] $articles
  */

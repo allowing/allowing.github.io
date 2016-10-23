@@ -14,6 +14,8 @@ use yii\db\ActiveRecord;
  * @property string $description
  * @property string $created_at
  * @property string $updated_at
+ * @property string $identity
+ * @property string $keywords
  *
  * @property ArticleCat $articleCat
  * @property ArticleContent[] $articleContents

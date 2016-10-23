@@ -4,6 +4,7 @@
 /** @var \yii\data\DataProviderInterface $dataProvider */
 /** @var \allowing\yunliwang\model\ArticleSearch $searchModel */
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 if ($catModel) {
@@ -13,10 +14,13 @@ if ($catModel) {
     if ($catModel->description) {
         $this->params['description'] = $catModel->description;
     }
+    $this->params['keywords'] = ArrayHelper::getValue($catModel, 'keywords', 'PHP教程');
 } else {
     $this->title = "所有文章";
     $this->params['description'] = '这里提供优质的PHP、JAVA、JS、WEB前端、后台等文章，同时阅读体验优秀，是学习IT技术的良好平台。';
 }
+
+
 ?>
 
 <ul class="list-box">

@@ -1,5 +1,7 @@
 <?php
 /** @var \yii\web\View $this */
+use yii\helpers\ArrayHelper;
+
 /** @var \allowing\yunliwang\model\Article $model */
 
 if ($model->seo_title) {
@@ -11,6 +13,8 @@ if ($model->seo_title) {
 if ($model->description) {
     $this->params['description'] = $model->description;
 }
+
+$this->params['keywords'] = ArrayHelper::getValue($model, 'keywords', $model->title);
 ?>
 <div class="item">
     <div class="item-content"><?= $model->articleContent->htmlContent ?></div>
