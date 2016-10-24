@@ -49,13 +49,22 @@ class ArticleController extends Controller
     {
         $searchModel = new ArticleSearch();
         $dataProvider = $searchModel->search($this->_request->queryParams);
-        $catModel = ArticleCat::findOne($this->_request->get('article_cat_id'));
+        $catModel = $this->findCurrentCatModel();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'catModel' => $catModel,
         ]);
+    }
+
+    protected function findCurrentCatModel()
+    {
+        return ArticleCat::findOne(
+            $this->_request->get('Article.article_cat_id',
+                $this->_request->get('article_cat_id')
+            )
+        );
     }
 
     /**

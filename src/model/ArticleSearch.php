@@ -37,6 +37,7 @@ class ArticleSearch extends Article
             'query' => $query,
         ]);
 
+        $this->load($params);
         $this->setAttributes($params);
 
         if (!$this->validate()) {

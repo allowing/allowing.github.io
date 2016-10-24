@@ -7,6 +7,7 @@
  */
 /** @var string $content */
 
+use allowing\yunliwang\model\ArticleCat;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -62,15 +63,10 @@ use yii\helpers\Html;
         <a href="<?= Url::to(['site/index']) ?>"><img class="logo" src="/images/logo.png" alt="logo"></a>
         <nav class="nav">
             <ul class="nav-box cf">
-                <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => 4]) ?>">首页</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['article/index', 'article_cat_id' => 1]) ?>">免费教程</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['article/index', 'article_cat_id' => 2]) ?>">公司动态</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => 5]) ?>">主要课程</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => 6]) ?>">教学大纲</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => 9]) ?>">学习资源</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['article/index', 'article_cat_id' => 3]) ?>">杂谈</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => 7]) ?>">成功案例</a></li>
-                <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => 8]) ?>" target="_blank">QQ联系</a></li>
+                <?php /** @var \allowing\yunliwang\model\ArticleCat $nav */ ?>
+                <?php foreach (ArticleCat::findNavModel() as $nav): ?>
+                    <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => $nav->id]) ?>"><?= $nav->name ?></a></li>
+                <?php endforeach ?>
             </ul>
         </nav>
     </header>

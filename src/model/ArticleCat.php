@@ -69,4 +69,13 @@ class ArticleCat extends ActiveRecord
     {
         return $this->hasMany(Article::className(), ['article_cat_id' => 'id']);
     }
+
+    public static function findNavModel()
+    {
+        return static::find()
+            ->where(['pid' => 0])
+            ->orderBy(['order' => SORT_ASC])
+            ->addOrderBy(['created_at' => SORT_ASC])
+            ->all();
+    }
 }
