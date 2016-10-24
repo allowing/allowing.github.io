@@ -10,4 +10,12 @@ Yii::$container->setSingleton(\yii\log\Logger::class);
 Yii::$container->setSingleton(\yii\web\UrlManager::class);
 Yii::$container->setSingleton(\GuzzleHttp\Client::class);
 
+Yii::$container->set(\yii\console\controllers\ServeController::class, [
+    'docroot' => '@app/public',
+]);
+Yii::$container->set(\yii\console\controllers\MigrateController::class, [
+    'migrationPath' => '@app/resource/migrations',
+]);
+
 Yii::setAlias('@resource', dirname(__DIR__) . '/resource');
+Yii::setAlias('@allowing/yunliwang', dirname(__DIR__) . '/src');

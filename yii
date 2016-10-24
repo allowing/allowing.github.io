@@ -4,16 +4,9 @@
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 
-$composerAutoload = require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/vendor/yiisoft/yii2/Yii.php';
-require __DIR__ . '/config/bootstrap-common.php';
-
-Yii::$container->set(\yii\console\controllers\ServeController::class, [
-    'docroot' => '@app/public',
-]);
-Yii::$container->set(\yii\console\controllers\MigrateController::class, [
-    'migrationPath' => '@app/resource/migrations',
-]);
+require __DIR__ . '/config/bootstrap.php';
 
 $app = new \yii\console\Application(\yii\helpers\ArrayHelper::merge(
     require __DIR__ . '/config/main-common.php', [
