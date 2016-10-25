@@ -1,7 +1,7 @@
 <?php
 return [
     'composer' => [
-        'title' => 'composer 使用技巧和使用经验',
+        'title' => 'GIT教程 - composer 使用技巧和使用经验',
     ],
     'git-ready' => [
         'title' => 'GIT教程 - 准备篇',

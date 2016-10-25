@@ -6,7 +6,7 @@
  * Time: 18:33
  */
 /**
- * @var \allowing\yunliwang\model\ArticleCat $model
+ * @var \allowing\yunliwang\model\Cat $model
  * @var \yii\web\View $this
  */
 

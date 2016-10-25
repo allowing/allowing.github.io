@@ -3,6 +3,7 @@
 namespace allowing\yunliwang\model;
 
 use yii\data\ActiveDataProvider;
+use yii\helpers\ArrayHelper;
 
 /**
  * ArticleSearch represents the model behind the search form about `allowing\yunliwang\model\Article`.
@@ -15,7 +16,7 @@ class ArticleSearch extends Article
     public function rules()
     {
         return [
-            [['id', 'article_cat_id', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'cat_id'], 'integer'],
             [['title', 'seo_title', 'description'], 'safe'],
         ];
     }
@@ -29,7 +30,7 @@ class ArticleSearch extends Article
      */
     public function search($params)
     {
-        $query = Article::find();
+        $query = Article::find()->with('cat');
 
         // add conditions that should always apply here
 
@@ -38,7 +39,6 @@ class ArticleSearch extends Article
         ]);
 
         $this->load($params);
-        $this->setAttributes($params);
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -46,12 +46,20 @@ class ArticleSearch extends Article
             return $dataProvider;
         }
 
+        if ($this->cat_id) {
+            $childCatIdList = Cat::find()
+                ->select(['id'])
+                ->where(['pid' => $this->cat_id])
+                ->asArray()
+                ->all();
+            $childCatIdList = ArrayHelper::getColumn($childCatIdList, 'id');
+            $query->andFilterWhere(['in', 'cat_id', $childCatIdList]);
+            $query->orFilterWhere(['cat_id' => $this->cat_id]);
+        }
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'article_cat_id' => $this->article_cat_id,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

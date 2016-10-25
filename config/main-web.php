@@ -11,9 +11,9 @@ return [
             'showScriptName' => false,
             // 'suffix' => '.html', // PHP内置的服务器不支持
             'rules' => [
-                'GET <id:\d+>' => 'article-cat/view',
+                'GET <id:\d+>' => 'cat/view',
                 'GET,POST article/create' => 'article/create',
-                'GET article-category/<article_cat_id:\d+>' => 'article/index',
+                'GET article' => 'article/index',
                 'GET article/<id:\d+>' => 'article/view',
             ],
         ],

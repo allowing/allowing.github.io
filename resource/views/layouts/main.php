@@ -7,7 +7,7 @@
  */
 /** @var string $content */
 
-use allowing\yunliwang\model\ArticleCat;
+use allowing\yunliwang\model\Cat;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -63,9 +63,15 @@ use yii\helpers\Html;
         <a href="<?= Url::to(['site/index']) ?>"><img class="logo" src="/images/logo.png" alt="logo"></a>
         <nav class="nav">
             <ul class="nav-box cf">
-                <?php /** @var \allowing\yunliwang\model\ArticleCat $nav */ ?>
-                <?php foreach (ArticleCat::findNavModel() as $nav): ?>
-                    <li class="nav-item"><a href="<?= Url::to(['article-cat/view', 'id' => $nav->id]) ?>"><?= $nav->name ?></a></li>
+                <?php /** @var \allowing\yunliwang\model\Cat $nav */ ?>
+                <?php foreach (Cat::findNavModel() as $nav): ?>
+                    <?php if ($nav->type == Cat::TYPE_PAGE): ?>
+                        <li class="nav-item"><a href="<?= Url::to(['cat/view', 'id' => $nav->id]) ?>"><?= $nav->name ?></a></li>
+                    <?php elseif ($nav->type == Cat::TYPE_LINK): ?>
+                        <li class="nav-item"><a href="<?= Url::to($nav->content) ?>"><?= $nav->name ?></a></li>
+                    <?php elseif ($nav->type == Cat::TYPE_ARTICLE): ?>
+                        <li class="nav-item"><a href="<?= Url::to(['article/index', 'ArticleSearch[cat_id]' => $nav->id]) ?>"><?= $nav->name ?></a></li>
+                    <?php endif ?>
                 <?php endforeach ?>
             </ul>
         </nav>

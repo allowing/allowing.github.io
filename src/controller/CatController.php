@@ -9,14 +9,13 @@
 namespace allowing\yunliwang\controller;
 
 
-use allowing\yunliwang\model\ArticleCat;
+use allowing\yunliwang\model\Cat;
 use yii\base\Module;
-use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 
-class ArticleCatController extends Controller
+class CatController extends Controller
 {
     private $_request;
 
@@ -32,18 +31,9 @@ class ArticleCatController extends Controller
      */
     public function actionView($id)
     {
-        $model = ArticleCat::findOne($id);
+        $model = Cat::findOne($id);
         if (!$model) {
             throw new NotFoundHttpException();
-        }
-
-        if ($model->is_link) {
-            return $this->redirect($model->content);
-        }
-
-        // 暂时用重定向解决
-        if (!$model->is_page) {
-            return $this->redirect(['article/index', 'article_cat_id' => $id]);
         }
 
         return $this->render('view', [

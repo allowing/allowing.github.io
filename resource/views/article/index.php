@@ -1,6 +1,6 @@
 <?php
 /** @var \yii\web\View $this */
-/** @var \allowing\yunliwang\model\ArticleCat|null $catModel */
+/** @var \allowing\yunliwang\model\Cat|null $catModel */
 /** @var \yii\data\DataProviderInterface $dataProvider */
 /** @var \allowing\yunliwang\model\ArticleSearch $searchModel */
 
@@ -25,6 +25,6 @@ if ($catModel) {
 
 <ul class="list-box">
     <?php foreach ($dataProvider->getModels() as $model): ?>
-    <li class="list-item"><a href="<?= Url::to(['article/view', 'id' => $model->id]) ?>"><?= $model->title ?></a></li>
+    <li class="list-item"><a href="<?= Url::to(['article/view', 'id' => $model->id]) ?>"><?= $model->cat->name . ' - ' . $model->title ?></a></li>
     <?php endforeach ?>
 </ul>

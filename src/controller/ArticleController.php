@@ -2,7 +2,7 @@
 
 namespace allowing\yunliwang\controller;
 
-use allowing\yunliwang\model\ArticleCat;
+use allowing\yunliwang\model\Cat;
 use Yii;
 use allowing\yunliwang\model\Article;
 use allowing\yunliwang\model\ArticleSearch;
@@ -49,22 +49,13 @@ class ArticleController extends Controller
     {
         $searchModel = new ArticleSearch();
         $dataProvider = $searchModel->search($this->_request->queryParams);
-        $catModel = $this->findCurrentCatModel();
+        $catModel = Cat::findOne($this->_request->get('Article.cat_id'));
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'catModel' => $catModel,
         ]);
-    }
-
-    protected function findCurrentCatModel()
-    {
-        return ArticleCat::findOne(
-            $this->_request->get('Article.article_cat_id',
-                $this->_request->get('article_cat_id')
-            )
-        );
     }
 
     /**

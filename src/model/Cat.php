@@ -2,7 +2,7 @@
 
 namespace allowing\yunliwang\model;
 
-use Yii;
+use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 /**
@@ -12,8 +12,7 @@ use yii\db\ActiveRecord;
  * @property string $name
  * @property string $seo_name
  * @property string $description
- * @property integer $is_page
- * @property integer $is_link
+ * @property integer $type
  * @property string $created_at
  * @property string $updated_at
  * @property string $content
@@ -24,11 +23,33 @@ use yii\db\ActiveRecord;
  *
  * @property Article[] $articles
  */
-class ArticleCat extends ActiveRecord
+class Cat extends ActiveRecord
 {
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+        ];
+    }
+
+    /**
+     * 文章类型
+     */
+    const TYPE_ARTICLE = 0;
+
+    /**
+     * 单页类型
+     */
+    const TYPE_PAGE = 10;
+
+    /**
+     * 外链类型
+     */
+    const TYPE_LINK = 20;
+
     public static function tableName()
     {
-        return 'article_cat';
+        return 'cat';
     }
 
     /**
@@ -37,28 +58,10 @@ class ArticleCat extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'created_at', 'updated_at'], 'required'],
-            [['is_page', 'is_link', 'created_at', 'updated_at'], 'integer'],
+            [['name'], 'required'],
+            [['type'], 'integer'],
             [['content'], 'string'],
             [['name', 'seo_name', 'description'], 'string', 'max' => 255],
-        ];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => '主键',
-            'name' => '分类名称',
-            'seo_name' => 'SEO名称',
-            'description' => '描述',
-            'is_page' => '是单页',
-            'is_link' => '是链接',
-            'created_at' => '创建时间',
-            'updated_at' => '更新时间',
-            'content' => 'Content',
         ];
     }
 

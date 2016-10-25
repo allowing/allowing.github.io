@@ -16,6 +16,9 @@ Yii::$container->set(\yii\console\controllers\ServeController::class, [
 Yii::$container->set(\yii\console\controllers\MigrateController::class, [
     'migrationPath' => '@app/resource/migrations',
 ]);
+Yii::$container->set(\yii\data\Pagination::class, [
+    'pageSize' => 100,
+]);
 
 Yii::setAlias('@resource', dirname(__DIR__) . '/resource');
 Yii::setAlias('@allowing/yunliwang', dirname(__DIR__) . '/src');

@@ -2,26 +2,34 @@
 
 namespace allowing\yunliwang\model;
 
+use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "article".
  *
- * @property string $id
- * @property string $article_cat_id
+ * @property integer $id
+ * @property integer $cat_id
  * @property string $title
  * @property string $seo_title
  * @property string $description
- * @property string $created_at
- * @property string $updated_at
+ * @property integer $created_at
+ * @property integer $updated_at
  * @property string $identity
  * @property string $keywords
  *
- * @property ArticleCat $articleCat
+ * @property Cat $cat
  * @property ArticleContent[] $articleContents
  */
 class Article extends ActiveRecord
 {
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+        ];
+    }
+
     public static function tableName()
     {
         return 'article';
@@ -33,35 +41,19 @@ class Article extends ActiveRecord
     public function rules()
     {
         return [
-            [['article_cat_id', 'title', 'created_at', 'updated_at'], 'required'],
-            [['article_cat_id', 'created_at', 'updated_at'], 'integer'],
+            [['cat_id', 'title'], 'required'],
+            [['cat_id'], 'integer'],
             [['title', 'seo_title', 'description'], 'string', 'max' => 255],
-            [['article_cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => ArticleCat::className(), 'targetAttribute' => ['article_cat_id' => 'id']],
-        ];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => '主键',
-            'article_cat_id' => '分类id',
-            'title' => '标题',
-            'seo_title' => 'SEO标题',
-            'description' => '描述',
-            'created_at' => '创建时间',
-            'updated_at' => '更新时间',
+            [['cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => Cat::class, 'targetAttribute' => ['cat_id' => 'id']],
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getArticleCat()
+    public function getCat()
     {
-        return $this->hasOne(ArticleCat::className(), ['id' => 'article_cat_id']);
+        return $this->hasOne(Cat::className(), ['id' => 'cat_id']);
     }
 
     /**
