@@ -22,7 +22,9 @@ return [
             'targets' => [
                 'file' => [
                     'class' => \yii\log\FileTarget::class,
-                    'levels' => ['trace', 'info', 'error', 'warning'],
+                    'levels' => YII_DEBUG ?
+                        ['trace', 'info', 'error', 'warning'] :
+                        ['error', 'warning'],
                 ],
                 'email' => [
                     'class' => \yii\log\EmailTarget::class,
