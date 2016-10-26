@@ -38,6 +38,19 @@ class ArticleController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            [
+                'class' => \yii\filters\PageCache::class,
+                'only' => ['index'],
+                'dependency' => [
+                    'class' => \yii\caching\DbDependency::class,
+                    'sql' => Article::find()
+                        ->select('COUNT(*)')
+                        ->createCommand()
+                        ->getRawSql(),
+                ],
+                'duration' => 0,
+                'variations' => [$this->_request->get()],
+            ],
         ];
     }
 

@@ -1,11 +1,7 @@
 <?php
 
 return [
+    'name' => '允梨网',
     'language' => 'zh-CN',
     'basePath' => dirname(__DIR__),
-    'components' => [
-        'cache' => [
-            'class' => \yii\caching\FileCache::class,
-        ],
-    ],
 ];

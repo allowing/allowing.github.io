@@ -9,6 +9,7 @@ Yii::$container->setSingleton(\yii\caching\Cache::class, \yii\caching\FileCache:
 Yii::$container->setSingleton(\yii\log\Logger::class);
 Yii::$container->setSingleton(\yii\web\UrlManager::class);
 Yii::$container->setSingleton(\GuzzleHttp\Client::class);
+Yii::$container->setSingleton(\yii\redis\Cache::class);
 
 Yii::$container->set(\yii\console\controllers\ServeController::class, [
     'docroot' => '@app/public',
