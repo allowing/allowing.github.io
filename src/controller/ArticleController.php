@@ -51,6 +51,19 @@ class ArticleController extends Controller
                 'duration' => 0,
                 'variations' => [$this->_request->get()],
             ],
+            [
+                'class' => \yii\filters\PageCache::class,
+                'only' => ['view'],
+                'dependency' => [
+                    'class' => \yii\caching\DbDependency::class,
+                    'sql' => Article::find()
+                        ->select('MAX(`updated_at`)')
+                        ->createCommand()
+                        ->getRawSql(),
+                ],
+                'duration' => 0,
+                'variations' => [$this->_request->get()],
+            ],
         ];
     }
 
