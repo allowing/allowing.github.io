@@ -7,6 +7,7 @@
  */
 
 use yii\helpers\Url;
+use yii\web\View;
 
 /** @var \yii\web\View $this */
 $this->title = '学习IT技术 - 首页';
@@ -111,11 +112,11 @@ $this->title = '学习IT技术 - 首页';
         <p>A: 跟着老师走一定行，人类都具有学习的能力。</p>
     </div>
 </div>
-
-<script>
+<?php $this->registerJs(<<<JS
     (function ($) {
         $('.index-slide-box').slide({
             autoPlay: true,
         });
     })(jQuery);
-</script>
+JS
+, View::POS_END) ?>

@@ -1,6 +1,7 @@
 <?php
 /** @var \yii\web\View $this */
 use yii\helpers\ArrayHelper;
+use yii\web\View;
 
 /** @var \allowing\yunliwang\model\Article $model */
 
@@ -19,7 +20,7 @@ $this->params['keywords'] = ArrayHelper::getValue($model, 'keywords', $model->ti
 <div class="item">
     <div class="item-content"><?= $model->articleContent->htmlContent ?></div>
 </div>
-<script>
+<?php $this->registerJs(<<<JS
     (function () {
         if ($(window).width() < 768) {
             return;
@@ -81,4 +82,5 @@ $this->params['keywords'] = ArrayHelper::getValue($model, 'keywords', $model->ti
             return con.offsetLeft + con.offsetWidth + 30;
         }
     })();
-</script>
+JS
+, View::POS_END) ?>
