@@ -1,4 +1,7 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/yiisoft/yii2/Yii.php';
+
 Yii::$container->setSingleton(\allowing\yunliwang\model\AccessToken::class, [
     'appid' => 'wx12ffad600778b5bd',
     'secret' => '328a3c1cc9081cd660907ba7d6300deb',
