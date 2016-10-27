@@ -1,13 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: 84770
- * Date: 2016/10/24
- * Time: 22:20
- */
 
 return [
     'components' => [
+        'urlManager' => [
+            'suffix' => '',
+        ],
+        'request' => [
+            'cookieValidationKey' => '654ad6sg879^&*(()rgd8&%^3409',
+        ],
         'mailer' => [
             'useFileTransport' => true,
             'transport' => [
@@ -32,4 +32,13 @@ return [
             'class' => \yii\caching\DummyCache::class,
         ],
     ],
+    'modules' => [
+        'gii' => [
+            'class' => \yii\gii\Module::class,
+        ],
+        'debug' => [
+            'class' => \yii\debug\Module::class,
+        ],
+    ],
+    'bootstrap' => ['gii', 'debug'],
 ];

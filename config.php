@@ -2,7 +2,10 @@
 
 return [
     'id' => 'yunliwang',
-    'viewPath' => dirname(__DIR__) . '/resource/views',
+    'name' => '允梨网',
+    'language' => 'zh-CN',
+    'basePath' => __DIR__,
+    'viewPath' => __DIR__ . '/resource/views',
     'controllerNamespace' => 'allowing\yunliwang\controller',
     'components' => [
         /** @var \yii\web\UrlManager */
@@ -32,5 +35,27 @@ return [
                 'charset'=>'UTF-8',
             ],
         ],
+        'log' => [
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'targets' => [
+                'file' => [
+                    'class' => \yii\log\FileTarget::class,
+                    'levels' => YII_DEBUG ?
+                        ['trace', 'info', 'error', 'warning'] :
+                        ['error', 'warning'],
+                ],
+                'email' => [
+                    'class' => \yii\log\EmailTarget::class,
+                    'levels' => ['error', 'warning'],
+                    'message' => [
+                        'subject' => '允梨教育应用日志',
+                        'to' => 'ljjgit@qq.com',
+                    ],
+                ],
+            ],
+        ],
+    ],
+    'bootstrap' => [
+        'log',
     ],
 ];

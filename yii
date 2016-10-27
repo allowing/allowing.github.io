@@ -6,15 +6,22 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/vendor/yiisoft/yii2/Yii.php';
-require __DIR__ . '/config/bootstrap.php';
+require __DIR__ . '/bootstrap.php';
 
-$app = new \yii\console\Application(\yii\helpers\ArrayHelper::merge(
-    require __DIR__ . '/config/main-common-local.php',
-    require __DIR__ . '/config/main-common.php', [
-    'id' => 'yunliwang-cli',
-    'name' => '允梨网命令行工具',
-    'controllerNamespace' => 'allowing\yunliwang\controllercli',
-]));
+$config = \yii\helpers\ArrayHelper::merge(
+    require __DIR__ . '/config.php',
+    require __DIR__ . '/config-local.php',
+    [
+        'id' => 'yunliwang-cli',
+        'name' => '允梨网命令行工具',
+        'controllerNamespace' => 'allowing\yunliwang\controllercli',
+    ]
+);
+
+// 命令行没有的配置，unset 一下
+unset($config['components']['request']);
+
+$app = new \yii\console\Application($config);
 
 exit($app->run());
 
