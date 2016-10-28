@@ -5,13 +5,15 @@ use yii\helpers\Url;
 
 $this->title = '添加文章';
 ?>
+
 <?php if ($model->hasErrors()): ?>
 <pre>
 <?php print_r($model->getFirstErrors()) ?>
 </pre>
 <?php endif ?>
+
 <form action="<?= Url::to(['article/create']) ?>" method="post">
-    <textarea name="MarkdownArticle[iniMarkdown]" id="article"><?= $model->iniMarkdown ?></textarea>
+    <textarea name="Article[iniMdContent]" id="article"><?= $model->iniMdContent ?></textarea>
     <input type="submit">
 </form>
 

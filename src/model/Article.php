@@ -23,6 +23,8 @@ use yii\db\ActiveRecord;
  */
 class Article extends ActiveRecord
 {
+    const SCENARIO_LOAD_INI_MD_CONTENT = 'loadIniMdContent';
+
     public function behaviors()
     {
         return [
@@ -45,6 +47,7 @@ class Article extends ActiveRecord
             [['cat_id'], 'integer'],
             [['title', 'seo_title', 'description'], 'string', 'max' => 255],
             [['cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => Cat::class, 'targetAttribute' => ['cat_id' => 'id']],
+            [['iniMdContent'], 'required', 'on' => self::SCENARIO_LOAD_INI_MD_CONTENT],
         ];
     }
 
@@ -62,5 +65,20 @@ class Article extends ActiveRecord
     public function getArticleContent()
     {
         return $this->hasOne(ArticleContent::className(), ['article_id' => 'id']);
+    }
+
+    /**
+     * @Override
+     */
+    public function setAttributes($values, $safeOnly = true)
+    {
+        parent::setAttributes($values, $safeOnly);
+
+        if ($this->scenario == self::SCENARIO_LOAD_INI_MD_CONTENT && isset($values['iniMdContent']) && $this->validate(['iniMdContent'])) {
+
+            preg_match('/(.*?)\n\s*?\n/s', $this->iniMdContent, $match);
+
+            $this->setAttributes(parse_ini_string($match[1]));
+        }
     }
 }

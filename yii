@@ -4,6 +4,8 @@
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/yiisoft/yii2/Yii.php';
 require __DIR__ . '/bootstrap.php';
 
 $config = \yii\helpers\ArrayHelper::merge(
@@ -12,12 +14,13 @@ $config = \yii\helpers\ArrayHelper::merge(
     [
         'id' => 'yunliwang-cli',
         'name' => '允梨网命令行工具',
+        'language' => 'en-US',
         'controllerNamespace' => 'allowing\yunliwang\controllercli',
     ]
 );
 
 // 命令行没有的配置，unset 一下
-unset($config['components']['request']);
+unset($config['components']['request']['cookieValidationKey']);
 
 $app = new \yii\console\Application($config);
 
