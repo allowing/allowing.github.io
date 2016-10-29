@@ -5,9 +5,9 @@
 require.config({
     baseUrl: '/',
     paths: {
-        jquery: 'jquery.min',
-        highlight: 'highlight.min',
-        showdown: 'showdown.min',
+        jquery: ['http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min', 'jquery.min'],
+        highlight: ['highlight.min'],
+        showdown: ['showdown.min'],
         'jquery.SuperSlide': 'jquery.SuperSlide.2.1.1',
     },
     shim: {
