@@ -21,7 +21,6 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
-    <title><?= Html::encode($this->title) ?> - 允梨教育</title>
     <?= Html::csrfMetaTags() ?>
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
 
@@ -40,6 +39,7 @@ AppAsset::register($this);
         ArrayHelper::getValue($this->params, 'description', '允梨教育是一家学习IT技术的第三方培训平台，学习周期短，学习技能多，从这里出来的学生均有较高的职业素养和较高的薪资。')
     ?>">
     <meta name="author" content="allowing">
+    <title><?= Html::encode($this->title) ?> - 允梨教育</title>
     <?php $this->head() ?>
 </head>
 <body>
