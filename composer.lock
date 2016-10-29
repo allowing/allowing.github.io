@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "allowing/allowing-yiijsblock",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/allowing/allowing-yiijsblock.git",
-                "reference": "c2d4330823f6ecfa1d1e3b21ce55a2b5fd4673ac"
+                "reference": "db2e5411e5ae1b04f56bf89bce849f15bd35e5f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/allowing/allowing-yiijsblock/c2d4330823f6ecfa1d1e3b21ce55a2b5fd4673ac.zip",
-                "reference": "c2d4330823f6ecfa1d1e3b21ce55a2b5fd4673ac",
+                "url": "https://packagist.phpcomposer.com/files/allowing/allowing-yiijsblock/db2e5411e5ae1b04f56bf89bce849f15bd35e5f8.zip",
+                "reference": "db2e5411e5ae1b04f56bf89bce849f15bd35e5f8",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 "js block",
                 "yii2"
             ],
-            "time": "2016-10-29 07:03:44"
+            "time": "2016-10-29 08:11:39"
         },
         {
             "name": "bower-asset/bootstrap",
