@@ -17,15 +17,7 @@ class AppAsset extends AssetBundle
     ];
 
     public $js = [
-        'showdown.min.js',
-        'highlight.min.js',
-        'jquery.SuperSlide.2.1.1.js',
-        'codemirror-5.19.0/lib/codemirror.js',
-        'codemirror-5.19.0/keymap/sublime.js',
-        'global.js',
-    ];
-
-    public $depends = [
-        \yii\web\YiiAsset::class,
+        'require.js',
+        'main.js',
     ];
 }

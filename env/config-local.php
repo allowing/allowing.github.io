@@ -22,7 +22,8 @@ return [
         ],
         'db' => [
             'class' => \yii\db\Connection::class,
-            'dsn' => 'mysql:host=127.0.0.1;dbname=yunliwang',
+            'dsn' => 'mysql:host=120.24.225.153;dbname=yunliwang',
+//            'dsn' => 'mysql:host=127.0.0.1;dbname=yunliwang',
             'username' => 'root',
             'password' => 'root',
             'charset' => 'utf8',

@@ -1,7 +1,7 @@
 <?php
 /** @var \yii\web\View $this */
+use allowing\yiijsblock\YiiJsBlockWidget;
 use yii\helpers\ArrayHelper;
-use yii\web\View;
 
 /** @var \allowing\yunliwang\model\Article $model */
 
@@ -20,13 +20,16 @@ $this->params['keywords'] = ArrayHelper::getValue($model, 'keywords', $model->ti
 <div class="item">
     <div class="item-content"><?= $model->articleContent->htmlContent ?></div>
 </div>
-<?php $this->registerJs(<<<JS
-    (function () {
+<?php YiiJsBlockWidget::begin() ?>
+<script>
+    require([
+        'jquery',
+    ], function ($) {
         if ($(window).width() < 768) {
             return;
         }
         var titles = $('.item-content').children('h2,h3,h4,h5,h6');
-        if (!titles.size()) {
+        if (!titles.length) {
             return;
         }
         var foo = 's6d74fg6dg3f42g643g4sd4e';
@@ -81,6 +84,6 @@ $this->params['keywords'] = ArrayHelper::getValue($model, 'keywords', $model->ti
             var con = $('.container').get(0);
             return con.offsetLeft + con.offsetWidth + 30;
         }
-    })();
-JS
-, View::POS_END) ?>
+    });
+</script>
+<?php YiiJsBlockWidget::end() ?>

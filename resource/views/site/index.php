@@ -6,6 +6,7 @@
  * Time: 15:29
  */
 
+use allowing\yiijsblock\YiiJsBlockWidget;
 use yii\helpers\Url;
 use yii\web\View;
 
@@ -112,11 +113,12 @@ $this->title = '学习IT技术 - 首页';
         <p>A: 跟着老师走一定行，人类都具有学习的能力。</p>
     </div>
 </div>
-<?php $this->registerJs(<<<JS
-    (function ($) {
+<?php YiiJsBlockWidget::begin() ?>
+<script>
+    require(['jquery', 'jquery.SuperSlide'], function ($) {
         $('.index-slide-box').slide({
             autoPlay: true,
         });
-    })(jQuery);
-JS
-, View::POS_END) ?>
+    });
+</script>
+<?php YiiJsBlockWidget::end() ?>

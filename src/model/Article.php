@@ -25,6 +25,8 @@ class Article extends ActiveRecord
 {
     const SCENARIO_LOAD_INI_MD_CONTENT = 'loadIniMdContent';
 
+    public $iniMdContent;
+
     public function behaviors()
     {
         return [

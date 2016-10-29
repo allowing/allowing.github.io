@@ -1,6 +1,7 @@
 <?php
 /** @var \yii\web\View $this */
 
+use allowing\yiijsblock\YiiJsBlockWidget;
 use yii\helpers\Url;
 
 $this->title = '添加文章';
@@ -17,15 +18,21 @@ $this->title = '添加文章';
     <input type="submit">
 </form>
 
-<script src="<?= Url::to('@web/codemirror-5.19.0/mode/markdown/markdown.js') ?>"></script>
+<?php YiiJsBlockWidget::begin() ?>
 <script>
-(function () {
+require([
+    'codemirror-5.19.0/lib/codemirror',
+    'codemirror-5.19.0/keymap/sublime',
+    'codemirror-5.19.0/mode/markdown/markdown',
+], function (CodeMirror) {
     var textArea = document.querySelector('#article');
     var codeMirrorEditor = CodeMirror.fromTextArea(textArea, {
         lineWrapping: true,
         lineNumbers: true,
         theme: 'monokai',
         keyMap: 'sublime',
+        mode: 'markdown',
     });
-})();
+});
 </script>
+<?php YiiJsBlockWidget::end() ?>
