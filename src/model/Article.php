@@ -80,7 +80,8 @@ class Article extends ActiveRecord
     public function setAttributes($values, $safeOnly = true)
     {
         if (isset($values['content'])) {
-            preg_match('/(.*?)\n\s*?\n(.*?)$/s', $values['content'], $match);
+            $this->content = $values['content'];
+            preg_match('/(.*?)\n\s*?\n(.*?)$/s', $this->content, $match);
             if (isset($match[1])) {
                 parent::setAttributes(parse_ini_string($match[1]));
             }
