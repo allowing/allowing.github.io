@@ -4,6 +4,7 @@ namespace allowing\yunliwang\model;
 
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\db\Exception;
 
 /**
  * This is the model class for table "article".
@@ -23,9 +24,7 @@ use yii\db\ActiveRecord;
  */
 class Article extends ActiveRecord
 {
-    const SCENARIO_LOAD_INI_MD_CONTENT = 'loadIniMdContent';
-
-    public $iniMdContent;
+    public $content;
 
     public function behaviors()
     {
@@ -45,12 +44,18 @@ class Article extends ActiveRecord
     public function rules()
     {
         return [
-            [['cat_id', 'title'], 'required'],
+            [['cat_id', 'title', 'content'], 'required'],
             [['cat_id'], 'integer'],
             [['title', 'seo_title', 'description'], 'string', 'max' => 255],
             [['cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => Cat::class, 'targetAttribute' => ['cat_id' => 'id']],
-            [['iniMdContent'], 'required', 'on' => self::SCENARIO_LOAD_INI_MD_CONTENT],
         ];
+    }
+
+    public function transactions()
+    {
+        $transactions = parent::transactions();
+        $transactions[self::SCENARIO_DEFAULT] = self::OP_INSERT;
+        return $transactions;
     }
 
     /**
@@ -74,13 +79,29 @@ class Article extends ActiveRecord
      */
     public function setAttributes($values, $safeOnly = true)
     {
-        parent::setAttributes($values, $safeOnly);
-
-        if ($this->scenario == self::SCENARIO_LOAD_INI_MD_CONTENT && isset($values['iniMdContent']) && $this->validate(['iniMdContent'])) {
-
-            preg_match('/(.*?)\n\s*?\n/s', $this->iniMdContent, $match);
-
-            $this->setAttributes(parse_ini_string($match[1]));
+        if (isset($values['content'])) {
+            preg_match('/(.*?)\n\s*?\n(.*?)$/s', $values['content'], $match);
+            if (isset($match[1])) {
+                parent::setAttributes(parse_ini_string($match[1]));
+            }
+            if (isset($match[2])) {
+                $this->content = $match[2];
+            }
+            unset($values['content']);
         }
+        parent::setAttributes($values, $safeOnly);
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        $articleContent = new ArticleContent();
+        $articleContent->article_id = $this->id;
+        $articleContent->content = $this->content;
+
+        if (!$articleContent->save(false)) {
+            throw new Exception('保存失败');
+        }
+
+        parent::afterSave($insert, $changedAttributes);
     }
 }

@@ -3,6 +3,7 @@
 
 use allowing\yiijsblock\YiiJsBlockWidget;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 
 $this->title = '添加文章';
 ?>
@@ -12,12 +13,10 @@ $this->title = '添加文章';
 <?php print_r($model->getFirstErrors()) ?>
 </pre>
 <?php endif ?>
-
-<form action="<?= Url::to(['article/create']) ?>" method="post">
-    <textarea name="Article[iniMdContent]" id="article"><?= $model->iniMdContent ?></textarea>
+<?php ActiveForm::begin() ?>
+    <textarea name="Article[content]" id="article"><?= $model->content ?></textarea>
     <input type="submit">
-</form>
-
+<?php ActiveForm::end() ?>
 <?php YiiJsBlockWidget::begin() ?>
 <script>
 require([

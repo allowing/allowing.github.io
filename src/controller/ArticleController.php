@@ -104,7 +104,6 @@ class ArticleController extends Controller
     public function actionCreate()
     {
         $model = new Article();
-        $model->setScenario(Article::SCENARIO_LOAD_INI_MD_CONTENT);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
