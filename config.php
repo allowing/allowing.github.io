@@ -16,6 +16,7 @@ return [
             'rules' => [
                 'GET <id:\d+>' => 'cat/view',
                 'GET article/<id:\d+>' => 'article/view',
+                'article/delete/<id:\d+>' => 'article/delete',
                 [
                     'pattern' => 'articles',
                     'route' => 'article/index',
@@ -53,6 +54,10 @@ return [
                     ],
                 ],
             ],
+        ],
+        'user' => [
+            'identityClass' => \allowing\yunliwang\model\User::class,
+            'enableAutoLogin' => true,
         ],
     ],
     'bootstrap' => [

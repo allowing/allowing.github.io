@@ -20,4 +20,8 @@ class AppAsset extends AssetBundle
         'require.js',
         'main.js',
     ];
+
+    public $depends = [
+        \yii\web\YiiAsset::class,
+    ];
 }

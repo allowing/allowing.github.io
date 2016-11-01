@@ -1,7 +1,9 @@
 <?php
 /** @var \yii\web\View $this */
+
 use allowing\yiijsblock\YiiJsBlockWidget;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 
 /** @var \allowing\yunliwang\model\Article $model */
 
@@ -18,6 +20,15 @@ if ($model->description) {
 $this->params['keywords'] = ArrayHelper::getValue($model, 'keywords', $model->title);
 ?>
 <div class="item">
+    <div class="tool-bar">
+        <?= Html::a('删除', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </div>
     <div class="item-content"><?= $model->articleContent->htmlContent ?></div>
 </div>
 <?php YiiJsBlockWidget::begin() ?>

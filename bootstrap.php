@@ -10,6 +10,7 @@ Yii::$container->setSingleton(\yii\log\Logger::class);
 Yii::$container->setSingleton(\yii\web\UrlManager::class);
 Yii::$container->setSingleton(\GuzzleHttp\Client::class);
 Yii::$container->setSingleton(\yii\redis\Cache::class);
+Yii::$container->setSingleton(\yii\web\User::class);
 
 Yii::$container->set(\yii\console\controllers\ServeController::class, [
     'docroot' => '@app/public',
@@ -21,5 +22,5 @@ Yii::$container->set(\yii\data\Pagination::class, [
     'pageSize' => 100,
 ]);
 
-Yii::setAlias('@resource', dirname(__DIR__) . '/resource');
-Yii::setAlias('@allowing/yunliwang', dirname(__DIR__) . '/src');
+Yii::setAlias('@resource', __DIR__ . '/resource');
+Yii::setAlias('@allowing/yunliwang', __DIR__ . '/src');

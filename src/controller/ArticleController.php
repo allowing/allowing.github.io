@@ -38,6 +38,17 @@ class ArticleController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'access' => [
+                'class' => \yii\filters\AccessControl::class,
+                'only' => ['create', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['create', 'delete'],
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             [
                 'class' => \yii\filters\PageCache::class,
                 'only' => ['index'],

@@ -54,7 +54,7 @@ class Article extends ActiveRecord
     public function transactions()
     {
         $transactions = parent::transactions();
-        $transactions[self::SCENARIO_DEFAULT] = self::OP_INSERT;
+        $transactions[self::SCENARIO_DEFAULT] = self::OP_INSERT | self::OP_DELETE;
         return $transactions;
     }
 
@@ -81,11 +81,11 @@ class Article extends ActiveRecord
     {
         if (isset($values['content'])) {
             $this->content = $values['content'];
-            preg_match('/(.*?)\n\s*?\n(.*?)$/s', $this->content, $match);
+            preg_match('/(.*?)\n\s*?\n(.*)/s', $this->content, $match);
             if (isset($match[1])) {
                 parent::setAttributes(parse_ini_string($match[1]));
             }
-            if (isset($match[2])) {
+            if (isset($match[2]) && (trim($match[2]) !== '')) {
                 $this->content = $match[2];
             }
             unset($values['content']);
@@ -104,5 +104,14 @@ class Article extends ActiveRecord
         }
 
         parent::afterSave($insert, $changedAttributes);
+    }
+
+    public function beforeDelete()
+    {
+        if (!$this->articleContent->delete()) {
+            throw new Exception('删除失败');
+        }
+
+        return parent::beforeDelete();
     }
 }
