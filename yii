@@ -21,6 +21,7 @@ $config = \yii\helpers\ArrayHelper::merge(
 
 // 命令行没有的配置，unset 一下
 unset($config['components']['request']['cookieValidationKey']);
+unset($config['components']['user']);
 
 $app = new \yii\console\Application($config);
 

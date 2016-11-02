@@ -10,7 +10,9 @@ Yii::$container->setSingleton(\yii\log\Logger::class);
 Yii::$container->setSingleton(\yii\web\UrlManager::class);
 Yii::$container->setSingleton(\GuzzleHttp\Client::class);
 Yii::$container->setSingleton(\yii\redis\Cache::class);
-Yii::$container->setSingleton(\yii\web\User::class);
+Yii::$container->setSingleton(\yii\web\User::class, [
+    'identityClass' => \allowing\yunliwang\model\User::class,
+]);
 
 Yii::$container->set(\yii\console\controllers\ServeController::class, [
     'docroot' => '@app/public',

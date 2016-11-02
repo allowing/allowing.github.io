@@ -56,7 +56,6 @@ return [
             ],
         ],
         'user' => [
-            'identityClass' => \allowing\yunliwang\model\User::class,
             'enableAutoLogin' => true,
         ],
     ],
