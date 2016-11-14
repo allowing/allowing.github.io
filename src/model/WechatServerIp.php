@@ -2,13 +2,12 @@
 
 namespace allowing\yunliwang\model;
 
+use allowing\yunliwang\wechat\Key;
+use Exception;
 use Yii;
 use yii\base\Model;
-use allowing\yunliwang\wechat\Key;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
-use Exception;
-use GuzzleHttp\Client;
 
 class WechatServerIp extends Model
 {
@@ -16,22 +15,7 @@ class WechatServerIp extends Model
 
     public $verify = false;
 
-    private $_accessToken;
-
     private $_ipList;
-
-    private $_httpClient;
-
-    public function __construct(
-        AccessToken $accessToken,
-        Client $httpClient,
-        $config = []
-    ) {
-        $this->_accessToken = $accessToken;
-        $this->_httpClient = $httpClient;
-
-        parent::__construct($config);
-    }
 
     public function rules()
     {
@@ -43,13 +27,17 @@ class WechatServerIp extends Model
 
     public function getIpList()
     {
+        if ($this->_ipList) {
+            return $this->_ipList;
+        }
+
         if (!$this->validate()) {
             throw new Exception('属性验证不通过');
         }
 
-        $response = $this->_httpClient->get($this->requestUrl, [
+        $response = Yii::$app->httpClient->get($this->requestUrl, [
             'query' => [
-                'access_token' => $this->_accessToken->token,
+                'access_token' => Yii::$app->accessToken->token,
             ],
             'verify' => $this->verify,
         ]);

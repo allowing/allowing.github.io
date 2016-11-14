@@ -9,29 +9,15 @@
 namespace allowing\yunliwang\controller;
 
 
-use yii\web\Controller;
+use Yii;
 use yii\filters\VerbFilter;
-use yii\web\User;
+use yii\web\Controller;
 
 class SiteController extends Controller
 {
-    private $_user;
-
-    public function __construct($id, $module, User $user, array $config = [])
-    {
-        $this->_user = $user;
-
-        parent::__construct($id, $module, $config);
-    }
-
     public function behaviors()
     {
         return [
-            // [
-            //     'class' => 'yii\filters\PageCache',
-            //     'only' => ['index'],
-            //     'duration' => 86400, // 缓存一天
-            // ],
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
@@ -72,7 +58,7 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
-        if (!$this->_user->isGuest) {
+        if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 

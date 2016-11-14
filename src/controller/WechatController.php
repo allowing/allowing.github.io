@@ -2,13 +2,11 @@
 
 namespace allowing\yunliwang\controller;
 
-use Yii;
-use yii\web\Controller;
-use yii\web\Request;
-use yii\web\BadRequestHttpException;
 use allowing\yunliwang\model\WechatServerIp;
 use allowing\yunliwang\wechat\Key;
-use yii\log\Logger;
+use Yii;
+use yii\web\BadRequestHttpException;
+use yii\web\Controller;
 
 class WechatController extends Controller
 {
@@ -16,30 +14,13 @@ class WechatController extends Controller
 
     public $enableCsrfValidation = false;
 
-    private $_request;
-
-    private $_logger;
-
-    public function __construct(
-        $id,
-        $module,
-        Request $request,
-        Logger $logger,
-        $config = []
-    ) {
-        $this->_request = $request;
-        $this->_logger = $logger;
-
-        parent::__construct($id, $module, $config);
-    }
-
     public function actionCallback()
     {
         $wechatServerIp = Yii::createObject(WechatServerIp::class);
         if (YII_DEBUG) {
-            $this->_logger->log($wechatServerIp->ipList, Logger::LEVEL_TRACE);
+            Yii::trace($wechatServerIp->ipList);
         }
-        if (!$wechatServerIp->isWechatServerIp($this->_request->getUserIP())) {
+        if (!$wechatServerIp->isWechatServerIp(Yii::$app->request->getUserIP())) {
             throw new BadRequestHttpException('此链接禁止非微信服务器访问');
         }
 

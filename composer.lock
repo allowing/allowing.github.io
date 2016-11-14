@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8d3353d75d7dd7b22075e6b668990082",
-    "content-hash": "18a7aaf65ddb2be73feffb0540563dc9",
+    "hash": "4feffd2e6926817f22d811e1159686e6",
+    "content-hash": "43721858c3ed55958c5f843c6eda9bb6",
     "packages": [
         {
             "name": "allowing/allowing-yiijsblock",
@@ -625,46 +625,6 @@
                 "response"
             ],
             "time": "2016-08-06 14:39:51"
-        },
-        {
-            "name": "sam-it/yii2-magic",
-            "version": "v1.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SAM-IT/yii2-magic.git",
-                "reference": "3c2ddb062a3be8cc8e0e42d177dab0fe949adb15"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/SAM-IT/yii2-magic/3c2ddb062a3be8cc8e0e42d177dab0fe949adb15.zip",
-                "reference": "3c2ddb062a3be8cc8e0e42d177dab0fe949adb15",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "^2.0.7"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "SamIT\\Yii2\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sam Mousa",
-                    "email": "sam@mousa.nl"
-                },
-                {
-                    "name": "Joey Claessen",
-                    "email": "joey_claessen@hotmail.com"
-                }
-            ],
-            "description": "Improvements to Yii request handling.",
-            "time": "2016-10-14 10:14:46"
         },
         {
             "name": "swiftmailer/swiftmailer",

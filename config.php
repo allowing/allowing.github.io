@@ -55,7 +55,16 @@ return [
                 ],
             ],
         ],
+        'accessToken' => [
+            'class' => \allowing\yunliwang\model\AccessToken::class,
+            'appid' => 'wx12ffad600778b5bd',
+            'secret' => '328a3c1cc9081cd660907ba7d6300deb',
+        ],
+        'httpClient' => [
+            'class' => \GuzzleHttp\Client::class,
+        ],
         'user' => [
+            'identityClass' => \allowing\yunliwang\model\User::class,
             'enableAutoLogin' => true,
         ],
     ],

@@ -2,30 +2,18 @@
 
 namespace allowing\yunliwang\controller;
 
-use allowing\yunliwang\model\Cat;
-use Yii;
 use allowing\yunliwang\model\Article;
 use allowing\yunliwang\model\ArticleSearch;
-use yii\base\Module;
+use allowing\yunliwang\model\Cat;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use yii\web\Request;
 
 /**
  * ArticleDbController implements the CRUD actions for Article model.
  */
 class ArticleController extends Controller
 {
-    public $_request;
-
-    public function __construct($id, Module $module, Request $request, array $config = [])
-    {
-        $this->_request = $request;
-
-        parent::__construct($id, $module, $config);
-    }
-
     /**
      * @inheritdoc
      */
@@ -33,7 +21,7 @@ class ArticleController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => \yii\filters\VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -60,7 +48,7 @@ class ArticleController extends Controller
                         ->getRawSql(),
                 ],
                 'duration' => 0,
-                'variations' => [$this->_request->get()],
+                'variations' => [Yii::$app->request->get()],
             ],
             [
                 'class' => \yii\filters\PageCache::class,
@@ -73,7 +61,7 @@ class ArticleController extends Controller
                         ->getRawSql(),
                 ],
                 'duration' => 0,
-                'variations' => [$this->_request->get()],
+                'variations' => [Yii::$app->request->get()],
             ],
         ];
     }
@@ -85,8 +73,8 @@ class ArticleController extends Controller
     public function actionIndex()
     {
         $searchModel = new ArticleSearch();
-        $dataProvider = $searchModel->search($this->_request->queryParams);
-        $catModel = Cat::findOne($this->_request->get('Article.cat_id'));
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $catModel = Cat::findOne(Yii::$app->request->get('Article.cat_id'));
 
         return $this->render('index', [
             'searchModel' => $searchModel,

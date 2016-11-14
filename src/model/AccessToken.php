@@ -23,21 +23,6 @@ class AccessToken extends Model
 
     public $verify = false;
 
-    private $_cache;
-
-    private $_httpClient;
-
-    public function __construct(
-        Cache $cache,
-        Client $httpClient,
-        $config = []
-    ) {
-        $this->_cache = $cache;
-        $this->_httpClient = $httpClient;
-
-        parent::__construct($config);
-    }
-
     public function rules()
     {
         return [
@@ -53,8 +38,8 @@ class AccessToken extends Model
 
         $cacheKey = __METHOD__ . 'accessToken';
 
-        if (!$this->_cache->exists($cacheKey)) {
-            $response = $this->_httpClient->get($this->requestUrl, [
+        if (!Yii::$app->cache->exists($cacheKey)) {
+            $response = Yii::$app->httpClient->get($this->requestUrl, [
                 'query' => [
                     'grant_type' => $this->grantType,
                     'appid' => $this->appid,
@@ -75,7 +60,7 @@ class AccessToken extends Model
 
             $accessToken = ArrayHelper::getValue($data, Key::ACCESS_TOKEN);
 
-            $this->_cache->set(
+            Yii::$app->cache->set(
                 $cacheKey,
                 $accessToken,
                 ArrayHelper::getValue($data, Key::TOKEN_EXPIRE)
@@ -83,6 +68,6 @@ class AccessToken extends Model
 
             return $accessToken;
         }
-        return $this->_cache->get($cacheKey);
+        return Yii::$app->cache->get($cacheKey);
     }
 }
