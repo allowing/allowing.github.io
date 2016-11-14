@@ -9,11 +9,6 @@
         "yiisoft/yii2-redis": "^2.0",
         "allowing/allowing-yiijsblock": "^1.0"
     },
-    "autoload": {
-        "psr-4": {
-            "allowing\\yunliwang\\": "src"
-        }
-    },
     "extra": {
         "asset-installer-paths": {
             "npm-asset-library": "vendor/npm",

@@ -5,8 +5,6 @@ return [
     'name' => '允梨网',
     'language' => 'zh-CN',
     'basePath' => __DIR__,
-    'viewPath' => __DIR__ . '/resource/views',
-    'controllerNamespace' => 'allowing\yunliwang\controller',
     'components' => [
         /** @var \yii\web\UrlManager */
         'urlManager' => [
