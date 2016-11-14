@@ -1,7 +1,4 @@
 <?php
-Yii::$container->set(\yii\console\controllers\ServeController::class, [
-    'docroot' => '@app/public',
-]);
 Yii::$container->set(\yii\console\controllers\MigrateController::class, [
     'migrationPath' => '@app/resource/migrations',
 ]);
